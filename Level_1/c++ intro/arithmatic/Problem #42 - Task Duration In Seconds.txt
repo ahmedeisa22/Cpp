@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+int main()
+{
+   int days,hour,minute ,second;
+   cin >> days >> hour >> minute >> second;
+
+   double totalSecond = (days * 24 * 60 * 60) + (hour * 60 * 60) + (minute * 60) + second;
+
+   cout << totalSecond << " Seconds\n";
+    return 0;
+}

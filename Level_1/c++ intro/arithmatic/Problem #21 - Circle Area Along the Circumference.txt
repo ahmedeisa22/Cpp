@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+int main()
+{
+    const float PI = 3.14;
+    int l;
+    cin >> l ;
+
+    float area = (l * l) / (PI * 4);
+        cout << fixed <<setprecision(3)<< area << endl;
+
+
+    return 0;
+}

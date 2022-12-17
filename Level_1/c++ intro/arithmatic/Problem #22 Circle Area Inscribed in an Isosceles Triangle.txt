@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+int main()
+{
+    const float pi = 3.14;
+    int a, b;
+    cin >> a >> b;
+    float B = b * b;
+    float area = (pi) * ((B) / 4) * ((2 * a - b) / (2 * a + b));
+    //float area = (PI * (b*b)/4) * ((2 * a - b) / (2 * a + b));
+    cout << fixed <<setprecision(3)<< area << endl;
+
+    return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+int main()
+{
+    int num , m;
+    cin >> num >> m;
+
+    cout << round(pow(num,m)) << endl;
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+int factorial(int num)
+{
+    while(num < 0)
+    {
+        cout << "Please enter positve number: \n";
+        cin >> num;
+    }
+    int fac = 1;
+    int i = 1;
+    while(i<=num)
+    {
+        fac*=i;
+        i++;
+    }
+    return fac;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    cout << "the odd is : " << factorial(n) << endl;
+}

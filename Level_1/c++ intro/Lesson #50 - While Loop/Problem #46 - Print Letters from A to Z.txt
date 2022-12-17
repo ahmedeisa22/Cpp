@@ -1,0 +1,37 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+void printAllSmallLetters()
+{
+
+    cout << "*********small**************\n";
+    int i = 'a';
+    while(i <= 'z')
+    {
+        cout << (char)i << "\n";
+        i++;
+    }
+    cout << "*****************************************\n";
+
+}
+
+void printAllCapitalLetter()
+{
+    cout << "*********Capital**************\n";
+    int i = 'A';
+    while(i <= 'Z')
+    {
+        cout << (char)i << "\n";
+        i++;
+    }
+    cout << "*****************************************\n";
+}
+int main()
+{
+    printAllSmallLetters();
+    printAllCapitalLetter();
+
+}

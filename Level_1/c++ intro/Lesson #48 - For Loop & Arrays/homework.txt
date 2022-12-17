@@ -1,0 +1,64 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+struct person
+{
+    string firsName;
+    string lastName;
+    int age;
+    int phone;
+};
+
+void readPerson(person &p)
+{
+    cout << "Enter your first name: \n";
+    cin >> p.firsName;
+
+    cout << "Enter your last name: \n";
+    cin >> p.lastName;
+
+    cout << "Enter your age: \n";
+    cin >> p.age;
+
+    cout << "Enter your phone: \n";
+    cin >> p.phone;
+}
+
+void printPerson(person p)
+{
+    cout << "**************************\n";
+    cout << "**************************\n";
+    cout << "FirstName: " << p.firsName << "\n";
+    cout << "LastName: " << p.lastName << "\n";
+    cout << "AGE: " << p.age << "\n";
+    cout << "Phone: " << p.phone << "\n";
+    cout << "**************************\n";
+    cout << "**************************\n";
+}
+
+void readAllPerson(person p[100],int& len)
+{
+    cout << "How many person do you want from 1 : 100? \n";
+    cin >> len;
+
+    for(int i = 0 ; i < len ; i++)
+        readPerson(p[i]);
+
+}
+
+void printAllPerson(person p[100],int len)
+{
+    cout << "######################################\n";
+    for(int i = 0 ; i < len ; i++)
+        printPerson(p[i]);
+}
+int main()
+{
+    person ps[100];
+    int len;
+    readAllPerson(ps,len);
+    printAllPerson(ps,len);
+
+    return 0;
+}

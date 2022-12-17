@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+int main()
+{
+    const int penny = 1;
+    const int nickle = 5;
+    const int dime = 10;
+    const int quarter = 25;
+    const int dollar = 100;
+
+    int p , n , d, q ,dol;
+    cout <<"enter pennies: ";
+    cin >> p;
+    cout << "enter nicles: ";
+    cin >> n;
+    cout << "enter dime: ";
+    cin >> d;
+    cout << "enter quarter: ";
+    cin >> q;
+    cout << "enter dollar: ";
+    cin >> dol;
+
+
+    float sumPennies = 0, sumDollars = 0;
+
+    sumPennies = (p) + (nickle * n) + (dime * d) + (quarter * q) + (dol * dollar);
+    sumDollars = sumPennies / dollar;
+
+    cout << "Pennies: " << sumPennies << "\n";
+    cout << "Dollars: " << sumDollars << "\n";
+    return 0;
+}

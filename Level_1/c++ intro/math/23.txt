@@ -1,0 +1,16 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+int main()
+{
+    const float pi = 3.14;
+    int a, b,c;
+    cin >> a >> b >>c;
+    float p = (a + b + c) /2;
+
+    float area = pi*(pow((a*b*c)/(4* sqrt(p*(p-a)*(p-b)*(p-c))),2));
+    cout << round(area) << endl;
+    return 0;
+}

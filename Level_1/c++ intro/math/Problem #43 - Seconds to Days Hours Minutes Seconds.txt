@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int totalSeconds;
+    cin >> totalSeconds;
+
+    int SecondsPerDay = 24 * 60 * 60;
+    int SecondsPerHour = 60 * 60 ;
+    int secondsPerMinute  = 60;
+
+
+    int numberOfDays = floor(totalSeconds / SecondsPerDay);
+    int remainder = totalSeconds % SecondsPerDay;
+
+    int numberOfHours = floor(remainder / SecondsPerHour);
+    remainder %=  SecondsPerHour;
+
+    int  numberOfMinutes = remainder / secondsPerMinute;
+    remainder %= numberOfMinutes;
+
+    int seconds = remainder;
+
+    cout << rond(numberOfDays)  <<":" << round(numberOfHours)<<":"<<round(numberOfMinutes) <<":" << round(seconds)<<" \n";
+    return 0;
+}

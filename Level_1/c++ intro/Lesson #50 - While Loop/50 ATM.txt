@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+
+void pinCode()
+{
+    int pin;
+    cout << "Enter your pinCode: \n";
+    cin >> pin;
+    int i = 1;
+    while(pin != 1234 && i < 3)
+    {
+        cout << "Enter your pinCode: \n";
+        cin >> pin;
+        i++;
+    }
+
+
+    if(pin == 1234 && i != 3)cout << "Your Balance is: " << 7500 << "\n";
+    else cout << "Wrong Pin\n";
+}
+int main()
+{
+
+    pinCode();
+    return 0;
+}

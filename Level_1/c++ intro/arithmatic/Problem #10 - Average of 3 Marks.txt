@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+
+    int mark1 ,mark2 , mark3;
+    cin >> mark1 >> mark2 >> mark3;
+
+    cout << (mark1 + mark2 + mark3 ) / 3 << "\n";
+
+
+    return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+int main()
+{
+   int pill;
+   cin >> pill;
+   float totlaPill = pill * 1.1;
+   totlaPill *=  1.16;
+   cout << totlaPill << endl;
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+int sunUntil_99()
+{
+    int res = 0;
+    int i = 1;
+    int num;
+
+    cout << "Enter Number: \n";
+    cin >> num;
+
+    while(num != -99)
+    {
+        res+=num;
+        cout << "Enter Number: \n";
+        cin >> num;
+        i++;
+    }
+    return res;
+}
+int main()
+{
+    cout << sunUntil_99() << "\n";
+}

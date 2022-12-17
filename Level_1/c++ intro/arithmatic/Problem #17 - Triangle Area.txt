@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+
+    int a, h;
+    cin >> a >> h;
+    cout << .5*a * h << endl;
+
+
+    return 0;
+}

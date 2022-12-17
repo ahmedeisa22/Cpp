@@ -1,0 +1,51 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+void readArrayData(int arr[100],int &len)
+{
+    cout << "How many number do you want from (1 to 100): \n";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        cout << "Enter number " << i+1 << " \n";
+        cin >> arr[i];
+    }
+}
+void pritArrayData(int arr[100],int len)
+{
+    cout << "**************************************\n";
+    for(int i = 0 ; i < len ; i++)
+    {
+        cout << arr[i]<< " ";
+    }
+    cout << endl;
+    cout << "**************************************\n";
+
+}
+
+int calculateArraySum(int arr[100],int len)
+{
+    int sum = 0;
+    for(int i = 0 ; i < len ; i++)
+        sum+=arr[i];
+
+    return sum;
+}
+
+float calculateArrayAVG(int arr[100],int len)
+{
+
+    return (float)calculateArraySum(arr,len)/len;
+}
+int main()
+{
+    int arr[100],len;
+    readArrayData(arr,len);
+    pritArrayData(arr,len);
+    cout << "\n**********************************\n";
+    cout << "Sum " << calculateArraySum(arr,len)<< "\n";
+    cout << "Average " << calculateArrayAVG(arr,len)<< "\n";
+}

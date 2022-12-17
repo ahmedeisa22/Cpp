@@ -1,0 +1,13 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+int r;
+cin >>r;
+
+float area =floor((pow(r,2) )/ (4*3.14));
+cout << "Area: " << area << "\n";
+    return 0;
+}

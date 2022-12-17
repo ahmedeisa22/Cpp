@@ -1,0 +1,13 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+int a ,b;
+cin >> a >> b;
+
+float area = a * sqrt(pow(b,2) - pow(a,2));
+cout << "Area: " << area << "\n";
+    return 0;
+}
