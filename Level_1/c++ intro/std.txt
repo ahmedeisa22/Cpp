@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+
+cout << "******************************\n";
+cout << "Name: Ahmed Adel Eisa.\n";
+cout << "City: Tanta\n";
+cout << "Age: 24\n";
+cout << "Country: Egypt\n";
+cout << "******************************\n";
+
+
+
+cout << "*************" << std::endl;
+cout << "*************" << std::endl;
+cout << "*************" << std::endl;
+cout << "*************" << std::endl;
+
+
+cout << "I love programming\n\n";
+cout << "I promise to be the best developer ever\n\n";
+cout << "I know it will take some time to practise but I, will achive my goal\n\n";
+cout << "best regards,\nAhmed Adle Eisa\n";
+
+
+cout << "*   *\n";
+cout << "*   *\n";
+cout << "*****\n";
+cout << "*   *\n";
+cout << "*   *\n";
+
+    return 0;
+}

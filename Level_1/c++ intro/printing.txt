@@ -1,0 +1,28 @@
+    /*
+std::cout << "******************************\n";
+std::cout << "Name: Ahmed Adel Eisa.\n";
+std::cout << "Age: 24\n";
+std::cout << "City: Tanta\n";
+std::cout << "Country: Egypt\n";
+std::cout << "******************************\n";
+*/
+
+/*
+std::cout << "*************" << std::endl;
+std::cout << "*************" << std::endl;
+std::cout << "*************" << std::endl;
+std::cout << "*************" << std::endl;
+*/
+
+/*
+std::cout << "I love programming\n\n";
+std::cout << "I promise to be the best developer ever\n\n";
+std::cout << "I know it will take some time to practise but I, will achive my goal\n\n";
+std::cout << "best regards,\nAhmed Adle Eisa\n";
+*/
+
+std::cout << "*   *\n";
+std::cout << "*   *\n";
+std::cout << "*****\n";
+std::cout << "*   *\n";
+std::cout << "*   *\n";

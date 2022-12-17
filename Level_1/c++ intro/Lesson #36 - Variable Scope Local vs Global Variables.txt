@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int x = 10;
+float recArea(int r)
+{
+
+    float area =ceil(3.14*pow(r,2));
+    int x = 150;
+    cout << "function variable "<< x << "\n";
+    return area;
+}
+int main()
+{
+    int x = 55;
+    cout << "Local: " << x << endl;
+    cout << "global: "<<::x << endl;
+
+    cout << "Area: " << recArea(5) << "\n";
+    return 0;
+}

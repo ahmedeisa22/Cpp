@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+int powerOfM(int num , int m)
+{
+    int res = 1;
+    for(int i = 1 ; i <= m ; i++){
+       res*=num;
+    }
+    return res;
+}
+int main()
+{
+    int n,m;
+    cin >> n>>m;
+    cout << "the res is : " << powerOfM(n,m) << endl;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+int main()
+{
+
+string st1,st2,st3;
+
+cout << "please enter string1?\n";
+getline(cin ,st1);
+
+cout << "please enter string2? \n";
+cin >> st2;
+
+cout<< "please enter string3?\n";
+cin >> st3;
+
+cout << "*********************\n";
+cout << "The length of string1 is: " << (st1.length()) << endl;
+cout << "character in 0,2,4,7 are: " << st1[0] << " " << st1[2] << " " << st1[4] << " " << st1[7] << endl;
+cout << "Contacting string2 and string3 is: " << st2 + st3 << endl;
+cout << st2 << " * " << st3 << " = " << stoi(st2) * stoi(st3) << endl;
+
+    return 0;
+}

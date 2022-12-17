@@ -1,0 +1,70 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+// struct can inherit in c++
+// defualt access modier is public but class is private
+struct perAddress
+{
+    string city ;
+    string country ;
+};
+struct contactInfo
+{
+    string email;
+    string phone;
+};
+
+struct statusPer
+{
+    char gender;
+    bool married;
+
+};
+
+struct person
+{
+    string name ;
+    int age;
+    perAddress addres;
+    contactInfo contack;
+    double monthSalary;
+    statusPer status;
+
+};
+
+int main()
+{
+
+person p1;
+p1.name = "Ahmed Adel";
+p1.age = 24;
+p1.monthSalary = 5000;
+// adrees
+p1.addres.city = "Tanta";
+p1.addres.country = "Egypt";
+
+//constact information
+p1.contack.email  = "eisa88667@gmail.com";
+p1.contack.phone = "01118947989";
+
+// his status
+p1.status.gender = 'm';
+p1.status.married = 0;
+
+
+ cout << "******************************\n";
+    cout << "Name: " << p1.name << "\n";
+    cout << "Age: "<< p1.age << "\n";
+    cout << "City: "<< p1.addres.city <<"\n";
+    cout << "Country: "<< p1.addres.country <<"\n";
+    cout << "Monthly Salary : "<< p1.monthSalary <<"\n";
+    cout << "yearly Salary : "<< p1.monthSalary * 12 <<"\n";
+    cout << "Gender: "<< p1.status.gender <<"\n";
+    cout << "Married: "<< p1.status.married <<"\n";
+    cout << "******************************\n";
+
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+int factorial(int num)
+{
+    int fac = 1;
+    for(int i = 1 ; i <= num ; i++){
+       fac*=i;
+    }
+    return fac;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    cout << "the odd is : " << factorial(n) << endl;
+}

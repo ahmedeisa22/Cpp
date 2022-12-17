@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    // 1.
+    cout << "\a";
+
+    // 2.
+    cout << " Dear sear\\Madam,\n\n How are you?\n\n My names is \" mohammed \", Nice to meet you\n";
+
+    //3.
+    cout << "Ali\tAhmed\tLina\n";
+    cout << "fady\tZain\tMona\n";
+    
+    
+    // literal is a value like 1,3,3 or "ahmed" or 'a' any value from any data type
+    // we cannot assign different value to same literal
+    // literal types is:
+    /*
+    integer
+    double
+    string
+    char
+    */
+    
+    // we need secape sequence to format a text in a string
+
+    return 0;
+}

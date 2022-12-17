@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int num;
+    string name;
+    string country;
+
+    cout << "please enter your Employee Number: \n";
+    cin >> num;
+    //cin.ignore();
+    cout << "please enter your employee Name: \n";
+    cin.ignore(1,'\n');
+    //getline(cin,name);
+    getline(cin,name);
+    cout << "please enter your employee country: \n";
+    cin >> country;
+
+    cout << "Number: " << num << ",Name: " << name <<",country: " << country << "\n";
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int sum = 0;
+    for(int i = 0 ; i < 5 ; i++)
+    {
+        int num;
+        cout << "Enter number: \n";
+        cin >> num;
+
+
+        if(num >= 50)
+        {
+           // cout << "greater than 50\n";
+            continue;
+        }
+        sum+=num;
+    }
+    cout << "SUM: " << sum << "\n";
+    return 0;
+}

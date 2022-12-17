@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+void printAllSmallLetters()
+{
+
+      cout << "*********small**************\n";
+         for(int i = 'a' ; i <= 'z' ; i++)
+    {
+        cout << (char)i << "\n";
+    }
+    cout << "*****************************************\n";
+
+}
+
+void printAllCapitalLetter()
+{
+    cout << "*********Capital**************\n";
+         for(int i = 'A' ; i <= 'Z' ; i++)
+    {
+        cout << (char)i << "\n";
+    }
+    cout << "*****************************************\n";
+}
+int main()
+{
+    printAllSmallLetters();
+    printAllCapitalLetter();
+
+}

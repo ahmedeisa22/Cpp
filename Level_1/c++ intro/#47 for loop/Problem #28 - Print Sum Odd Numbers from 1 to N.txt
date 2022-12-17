@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+int oddf1ToN(int num)
+{
+    int sum = 0;
+    for(int i = 1 ; i <= num ; i++){
+        if(i % 2 == 1)sum+=i;
+    }
+    return sum;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    cout << "the odd is : " << oddf1ToN(n) << endl;
+}

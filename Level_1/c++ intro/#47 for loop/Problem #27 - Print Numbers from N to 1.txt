@@ -1,0 +1,16 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>     // std::string, std::stoi
+
+using namespace std;
+void forNTo1(int num)
+{
+    for(int i = num ; i >= 1 ; i--)cout << i << "\n";
+}
+int main()
+{
+    int n;
+    cin >> n;
+    forNTo1(n);
+}

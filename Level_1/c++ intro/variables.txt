@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    //1.
+    /*
+    - Age => true
+    - My-Age => false as this -
+    - My_Age => true
+    - _Age => true
+    -  2x => donot start with number
+    - X2 => true
+    - My Name => donot put ant whitespaces  in variable name
+    - MyName => true
+    - #Name => false as has specail character
+    - $Name => false as has specail character
+    - N@ame -> false as has specail character
+    - int,float => false as it is a keyeord
+    */
+/*
+    //2.
+    string name = "Ahmed Adel Eissa";
+    int age = 24;
+    string city = "Tanta";
+    string country = "Egypt";
+    double monthSalary = 10000;
+    double yearSalary = monthSalary * 12;
+    char gender = 'M';
+    bool married = false;
+
+    cout << "******************************\n";
+    cout << "Name: " << name << "\n";
+    cout << "Age: "<< age << "\n";
+    cout << "City: "<< city <<"\n";
+    cout << "Country: "<< country <<"\n";
+    cout << "Monthly Salary : "<< monthSalary <<"\n";
+    cout << "yearly Salary : "<< yearSalary <<"\n";
+    cout << "Gender: "<< gender <<"\n";
+    cout << "Married: "<< married <<"\n";
+    cout << "******************************\n";
+*/
+/*
+    // 3.
+    int num1 = 20,num2 = 30,num3 = 10;
+    int total = num1 + num2 + num3;
+
+    cout << num1 << " +\n";
+    cout << num2<< " +\n";
+    cout << num3 << endl;
+    cout << "----------------\n";
+    cout << "Total = " << total << "\n";
+*/
+    //int age= 25;
+    //cout << "after 5 years you will be "<< (age + 5) << " years old\n";
+
+
+    return 0;
+}

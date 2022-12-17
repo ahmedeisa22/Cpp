@@ -1,0 +1,24 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+
+    cout << "enter first number A: \n";
+    int a;
+    cin >> a;
+    cout << "enter second number B: \n";
+    int b;
+    cin >> b;
+
+
+    cout << a << " = " << b  << " is "<< (a == b) << endl;
+    cout << a << " != " << b<< " is " << (a != b) << endl;
+    cout << a << " > " << b << " is "<< (a > b) << endl;
+    cout << a << " < " << b << " is "<< (a < b) << endl;
+    cout << a << " <= " << b << " is "<< (a <= b) << endl;
+    cout << a << " >= " << b << " is "<< (a >= b) << endl;
+
+    return 0;
+}

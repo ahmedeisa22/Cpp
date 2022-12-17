@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+int main()
+{
+
+//1.
+string st1 = "43.22";
+
+double stDouble = stod(st1);
+float stFloat = stof(st1);
+int stInt = stoi(st1);
+
+
+int n1 = 20;
+double n2= 15.0165;
+cout << to_string(n1)  << "  " << to_string(n2)<< endl;
+
+
+float n3 = 55.23;
+string n3Str = to_string(n3);
+int n3Int1 = n3;
+int n3Int2 = (int) n3;
+int n3Int3 = int(n3);
+
+
+    return 0;
+}

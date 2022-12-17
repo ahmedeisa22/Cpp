@@ -1,0 +1,47 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+struct strInfo
+{
+    string fullName;
+    string city;
+    short age;
+    string country;
+};
+
+void readInfo(strInfo &str)
+{
+    cout << "enter your full name: \n";
+    getline(cin,str.fullName);
+
+    cout << "enter your City: \n";
+    cin >> str.city;
+
+    cout << "enter your country: \n";
+    cin >> str.country;
+
+    cout << "enter your age: \n";
+    cin >> str.age;
+    cin.ignore(1,'\n');
+}
+
+void printInfo(strInfo str)
+{
+
+    cout << "******************************\n";
+    cout << "Name: " << str.fullName << "\n";
+    cout << "Age: " <<str.age << "\n";
+    cout << "City: " << str.age << "\n";
+    cout << "Country: "<< str.country << "\n";
+    cout << "******************************\n\n";
+}
+int main()
+{
+    strInfo st,st2;
+    readInfo(st);
+    printInfo(st);
+
+    readInfo(st2);
+    printInfo(st2);
+}

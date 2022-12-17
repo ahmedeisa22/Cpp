@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void displayMyCardInfo()
+{
+    cout << "******************************\n";
+    cout << "Name: Ahmed Adel Eisa.\n";
+    cout << "Age: 24\n";
+    cout << "City: Tanta\n";
+    cout << "Country: Egypt\n";
+    cout << "******************************\n\n";
+}
+void ptintSquareStars()
+{
+    cout << "*************" << endl;
+    cout << "*************" << endl;
+    cout << "*************" << endl;
+    cout << "*************" << endl << endl;
+}
+void iLovePrograming()
+{
+    cout << "I love programming\n\n";
+    cout << "I promise to be the best developer ever\n\n";
+    cout << "I know it will take some time to practise but I, will achive my goal\n\n";
+    cout << "best regards,\nAhmed Adle Eisa\n\n";
+}
+void printH()
+{
+    cout << "*   *\n";
+    cout << "*   *\n";
+    cout << "*****\n";
+    cout << "*   *\n";
+    cout << "*   *\n\n";
+}
+
+int main()
+{
+    displayMyCardInfo();
+    ptintSquareStars();
+    iLovePrograming();
+    printH();
+    return 0;
+}

@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+
+// 1.
+
+    /*
+   string name;
+getline(cin,name);
+    int age;
+    cin >> age;
+    string city;
+    cin >> city;
+    string country;
+    cin >> country;
+    double monthSalary;
+    cin >> monthSalary;
+    double yearSalary = monthSalary * 12;
+    char gender;
+    cin >> gender;
+    bool married;
+    cin >> married;
+
+
+    cout << "******************************\n";
+    cout << "Name: " << name << "\n";
+    cout << "Age: "<< age << "\n";
+    cout << "City: "<< city <<"\n";
+    cout << "Country: "<< country <<"\n";
+    cout << "Monthly Salary : "<< monthSalary <<"\n";
+    cout << "yearly Salary : "<< yearSalary <<"\n";
+    cout << "Gender: "<< gender <<"\n";
+    cout << "Married: "<< married <<"\n";
+    cout << "******************************\n";
+*/
+/*
+//2.
+    int num1,num2,num3;
+    cin >> num1 >> num2 >> num3;
+    int total = num1 + num2 + num3;
+
+    cout << num1 << " +\n";
+    cout << num2<< " +\n";
+    cout << num3 << endl;
+    cout << "----------------\n";
+    cout << "Total = " << total << "\n";
+    */
+    
+    int age;
+    cin >> age;
+    cout << "after 5 years you will be "<< (age + 5) << " years old\n";
+    return 0;
+}

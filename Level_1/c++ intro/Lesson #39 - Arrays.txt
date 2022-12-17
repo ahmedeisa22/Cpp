@@ -1,0 +1,24 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+void arraOfAverage()
+{
+    int arr[3];
+    cout << "please enter grade1: \n";
+    cin >> arr[0];
+
+    cout << "please enter grade2: \n";
+    cin >> arr[1];
+
+    cout << "please enter grade3: \n";
+    cin >> arr[2];
+
+    cout << "**************\n";
+    float grades = (arr[0] +arr[1] + arr[2]) /3.0;
+    cout << "The average is: " << grades << "\n";
+}
+int main()
+{
+    arraOfAverage();
+}

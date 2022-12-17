@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+void readArraAVG(float arr[3])
+{
+
+    cout << "Enter Grade 1: \n";
+    cin >> arr[0];
+
+    cout << "Enter Grade 2: \n";
+    cin >> arr[1];
+
+    cout << "Enter Grade 3: \n";
+    cin >> arr[2];
+}
+
+float printArrAVG(float arr[3])
+{
+    float res = (arr[0] + arr[1] + arr[2])/3;
+    return res;
+}
+
+int main()
+{
+
+    float x[3];
+    readArraAVG(x);
+    cout << "the Average is: " << printArrAVG(x) << endl;
+    return 0;
+}

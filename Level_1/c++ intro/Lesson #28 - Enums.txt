@@ -1,0 +1,53 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+
+
+enum Color {red, yellow, blue,green};
+enum gender {male,female};
+enum status {single,married};
+int main()
+{
+    Color myColor;
+    gender myGender;
+    status mystatus;
+//
+//   string name;
+//getline(cin,name);
+/*
+    int age;
+    cin >> age;
+    string city;
+    cin >> city;
+    string country;
+    cin >> country;
+    double monthSalary;
+    cin >> monthSalary;
+    double yearSalary = monthSalary * 12;
+    */
+    int gen;
+    cin >> gen;
+    myGender = (gender)gen;
+
+    bool married;
+    cin >> married;
+    mystatus = (status)married;
+
+
+    cout << "******************************\n";
+//    cout << "Name: " << name << "\n";
+//    cout << "Age: "<< age << "\n";
+//    cout << "City: "<< city <<"\n";
+//    cout << "Country: "<< country <<"\n";
+//    cout << "Monthly Salary : "<< monthSalary <<"\n";
+//    cout << "yearly Salary : "<< yearSalary <<"\n";
+    cout << "Gender: "<< myGender <<"\n";
+    cout << "Married: "<< mystatus <<"\n";
+    cout << "******************************\n";
+
+    cout <<"blue: "<< Color::blue << " green: " << Color::green << " red: " << Color::red << endl;
+
+    return 0;
+}
