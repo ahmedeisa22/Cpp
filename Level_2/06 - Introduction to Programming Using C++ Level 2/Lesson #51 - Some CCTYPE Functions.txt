@@ -1,0 +1,30 @@
+#include <iostream>
+#include<cctype>
+#include <vector>
+
+using namespace std;
+int main()
+{
+	char x;
+	char y;
+
+	x = toupper('a');
+	y = tolower('A');
+	cout << "converting a to A: " << x << endl; 
+	cout << "converting A to a: " << y << endl;
+
+	// letter (A to Z) return zero if not , return any number if yes
+	cout << "IsUpper: A: " << isupper('A') << " r: " << isupper('r') << "\n";
+
+	// letter (a to z) return zero if not , return any number if yes
+	cout << "Islower: A: " << islower('A') << " r: " << islower('r') << "\n";
+
+	// Digit (0 to 9) return zero if not , return any number if yes
+	cout << "IsDigit: A: " << isdigit('A') << " 5: " << isdigit('5') << "\n";
+
+	// punctuation characters are !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+	// 	   !@#$%^&*()_+}{?"
+	// returns zero if not, and non zero of yes
+	cout << "ispunctuation: A: " << ispunct('A') << " &: " << ispunct('&') << "\n";
+	return 0;
+}

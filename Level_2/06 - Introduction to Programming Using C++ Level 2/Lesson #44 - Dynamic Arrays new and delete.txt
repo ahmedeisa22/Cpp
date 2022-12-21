@@ -1,0 +1,29 @@
+#include <iostream>
+#include "Header.h"
+
+using namespace std;
+int main()
+{
+	int* num;
+	num = new int;
+
+	cout << "Enter total number of stidents: \n";
+	cin >> *num;
+
+	float* ptr;
+
+	ptr = new float[*num];
+	cout << "Enter grades of students." << endl;
+	for (int i = 0; i < *num; i++) {
+		cout << "Student " << i + 1 << " : ";
+		cin >> *(ptr+i);
+	}
+	
+	cout << "\nDisplaying grades of students." << endl;
+	for (int i = 0; i < *num; i++) {
+		cout << "Student " << i + 1 << " : " << *(ptr + i) << endl;;
+	}
+	delete num;
+	delete []ptr;
+	return 0;
+}

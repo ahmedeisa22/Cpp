@@ -1,0 +1,55 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+long long ReadPositiveNumber(string mess)
+{
+
+    long long Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number < 0);
+    return Number;
+}
+
+int FrequenceNumber(int num,short digit)
+{
+    int freq = 0;
+
+    while(num)
+    {
+        int last = num % 10;
+        num /=10;
+        if(last == digit)freq++;
+    }
+    return  freq ;
+}
+main()
+{
+    //1234
+    long long Num = ReadPositiveNumber("Enter Number please: ");
+    short digit = ReadPositiveNumber("Enter only one digit: ");
+    cout <<"Digit "<< digit  << " Frequence is "<<FrequenceNumber(Num,digit) << " Time(s) "<< endl;
+    return 0;
+}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+//int main()
+//{
+//
+//   // same code
+//    return 0;
+//}

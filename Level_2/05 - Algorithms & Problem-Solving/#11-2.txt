@@ -1,0 +1,116 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//enum enPalidromeorNotPalindrome {palindrome = 1, NotPalidrome = 2};
+//long long ReadPositiveNumber(string mess)
+//{
+//
+//    long long Number;
+//    do
+//    {
+//        cout << mess << endl;
+//        cin >> Number;
+//    }
+//    while(Number < 0);
+//    return Number;
+//}
+//int ReverseNumber(int num)
+//{
+//    int sum = 0;
+//    while(num)
+//    {
+//        int last = num % 10;
+//        num /=10;
+//        sum= sum * 10 + last;
+//
+//    }
+//    return  sum ;
+//}
+//enPalidromeorNotPalindrome checkPalidrome(int num)
+//{
+//    //12321
+//    //12321
+//    int rev = ReverseNumber(num);
+//    while(num)
+//    {
+//        int last = num % 10;
+//        int first = rev % 10;
+//
+//        if(last != first)
+//            return enPalidromeorNotPalindrome::NotPalidrome;
+//
+//        num /=10;
+//        rev/=10;
+//    }
+//    return enPalidromeorNotPalindrome::palindrome;
+//}
+//
+//void printPalindrome(enPalidromeorNotPalindrome isPal)
+//{
+//    if(isPal == enPalidromeorNotPalindrome::palindrome)
+//        cout << "Yes, it is a palindrome number\n";
+//    else
+//        cout << "No, it isn't a palindrome number\n";
+//
+//}
+//main()
+//{
+//    //1234
+//    int Num = ReadPositiveNumber("Enter Palindrome Number please: ");
+//    printPalindrome(checkPalidrome(Num));
+//
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number < 0);
+    return Number;
+}
+
+int ReverseNumber(int num)
+{
+    int rev = 0;
+    while(num)
+    {
+        int last = num % 10;
+        num /=10;
+        rev= rev * 10 + last;
+    }
+    return  rev ;
+}
+//10201
+
+bool isPalidrome(int num)
+{
+    return num == ReverseNumber(num);
+}
+main()
+{
+    if(isPalidrome(ReadPositiveNumber("Enter Number please: ")))
+        cout << "Yes, it is a palindrome number\n";
+    else
+        cout << "No, it isn't a palindrome number\n";
+
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+   vector<int> vNumbers = {10,20,30,40,50};
+   cout << "Number of vector: ";
+ for(int &vec : vNumbers){
+        vec = 15;
+    //cout << vec << " ";
+ }
+  for(int vec : vNumbers){
+
+    cout << vec << " ";
+ }
+ cout << endl;
+    return 0;
+}
+
+
+

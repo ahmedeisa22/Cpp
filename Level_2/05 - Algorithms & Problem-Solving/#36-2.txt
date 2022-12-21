@@ -1,0 +1,136 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//void FillArrayWithRandom(int arr[100],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//
+//    }
+//}
+//int getNumberPosition(int arr[100],int len,int Num)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        if(arr[i] == Num) return i;
+//    }
+//    return -1;
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//void SimiDynamicArray(int arr[100],int &len)
+//{
+//    len = 0;
+//    int add,want;
+//    do
+//    {
+//
+//
+//        cout << "Please Enter a number: ";
+//        cin >> add;
+//
+//        arr[len++] = add;
+//
+//        cout << "Do you want to add more numer[0]No,Yes[1]: ";
+//        cin >> want;
+//        cout << endl << endl;
+//    }
+//    while(want != 0);
+//}
+//main()
+//{
+//
+//    int arr[100],len;
+//    SimiDynamicArray(arr,len);
+//
+//    cout << "\nArray Length: " << len << endl;
+//
+//    cout << "Array Elements: ";
+//    PrintArray(arr,len);
+//
+//
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadNumber()
+{
+    int num;
+    do
+    {
+        cout << "Please enter a number: " << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+void AddArrayElement(int Number, int arr[100],int &ArrLen)
+{
+    ArrLen++;
+    arr[ArrLen - 1] =Number;
+
+}
+void InputUserNumbersInArray(int arr[100],int &len)
+{
+    bool addMore = true;
+    do
+    {
+        int number  =  ReadNumber();
+        AddArrayElement(number,arr,len);
+
+        cout << "\nDo you want to add more numbers? [0]:No,[1]:yes? ";
+        cin >> addMore;
+    }
+    while(addMore);
+}
+main()
+{
+
+    int arr[100], arrLength=0;
+    InputUserNumbersInArray(arr,arrLength);
+
+    cout << "\nArray Length: " << arrLength << endl;
+    cout << "Array elements: ";
+    PrintArray(arr,arrLength);
+
+
+    return 0;
+}

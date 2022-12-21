@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+
+    cout << "---------|--------------------------------|---------|" << endl;
+    cout << "  Code   |                 Name           |  Mark   |" << endl;
+    cout << "---------|--------------------------------|---------|" << endl;
+
+    cout << setw(9)<<"C101" << "|" << setw(32)<<"Introduction to programming 1" << "|" << setw(9)<< "95" << "|" << endl;
+    cout << setw(9)<<"C102" << "|" << setw(32)<<"Computer Hardware" << "|" << setw(9)<<"88" << "|" << endl;
+    cout << setw(9)<<"C10352" << "|" <<setw(32)<< "Newtworking" << "|" << setw(9) <<"75" << "|"<< endl;
+    cout << setw(9)<<"---------|--------------------------------|---------|" << endl;
+
+//    cout << "C101" << "|" << "Introduction to programming 1" << "|" << "95" << "|" << endl;
+//    cout << "C102" << "|" << "Computer Hardware" << "|" << "88" << "|" << endl;
+//    cout << "C10352" << "|" << "Newtworking" << "|" << "75" << "|" << endl;
+//    cout << "--------|----------------------------|---------|" << endl;
+    return 0;
+}
+
+
+

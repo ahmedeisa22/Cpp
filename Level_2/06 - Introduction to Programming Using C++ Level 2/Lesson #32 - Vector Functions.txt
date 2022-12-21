@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+    vector<int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+    vNumbers.push_back(60);
+    vNumbers.push_back(60);
+    vNumbers.push_back(60);
+    
+//    if(!vNumbers.empty())
+//        vNumbers.clear();
+
+    cout << "First Elemnt: " << vNumbers.front() << "\n";
+    cout << "Last Elemnt: " << vNumbers.back() << "\n";
+
+
+    cout << "Stack Size: " << vNumbers.size() << endl;
+
+    cout << "Capacity: " << vNumbers.capacity() << "\n";
+
+    cout << "empty: " << vNumbers.empty() << "\n";
+
+    return 0;
+}
+
+
+

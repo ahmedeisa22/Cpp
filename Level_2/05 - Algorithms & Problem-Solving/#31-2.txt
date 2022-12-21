@@ -1,0 +1,150 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//void ReadArray(int arr[100],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//        arr[i] = i;
+//}
+//bool isExsits(int arr[100],int len,int num)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        if(num == arr[i])
+//            return false;
+//    }
+//    return true;
+//}
+//void fillarrayUniques(int uniques[100], int len )
+//{
+//    int i = 0;
+//    while( true)
+//    {
+//        int newIndx = RandomNumber(0,len);
+//
+//        if(isExsits(uniques,len,newIndx))
+//        {
+//            uniques[i] = newIndx;
+//            i++;
+//        }
+//
+//        if(i == len )break;
+//
+//    }
+//}
+//void ShuffleArray(int arr[100],int shuffleArray[100],int uniques[100], int len)
+//{
+//
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        shuffleArray[i] = arr[uniques[i]];
+//    }
+//
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout << arr[i] << " ";
+//    cout << endl;
+//}
+//main()
+//{
+//
+//     srand((unsigned)time(NULL));
+//    int length = ReadNumber("Enter lenghth of array: ");
+//    int arr[100],uniques[100];
+//
+//    ReadArray(arr,length);
+//    for(int i =0 ; i < length ; i++)
+//        uniques[i] = -1;
+//
+//    fillarrayUniques(uniques,length);
+//
+//
+//    cout << "\nArray Element Before Shuffle: ";
+//    PrintArray(arr,length);
+//
+//    int shuffle[100];
+//    ShuffleArray(arr,shuffle,uniques,length);
+//    cout << "\n Array Element After Shuffle: ";
+//    PrintArray(shuffle,length);
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+int ReadNumber(string str)
+{
+    int num;
+    do
+    {
+        cout << str << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+void swaps(int &num1,int &num2)
+{
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+void FillArrayWith1toN(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++) arr[i] = i + 1;
+}
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+void shuffleArray(int arr[100], int len)
+{
+    for(int i = 0 ; i < len ; i++)
+        swaps(arr[RandomNumber(1,len)-1],arr[RandomNumber(1,len)-1]);
+    }
+
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+main()
+{
+    int length = ReadNumber("Enter lenghth of array: ");
+    int arr[100];
+
+    FillArrayWith1toN(arr,length);
+    cout << "\nArray Element Before Shuffle: ";
+    PrintArray(arr,length);
+
+    shuffleArray(arr,length);
+    cout << "\nArray Element After Shuffle: ";
+    PrintArray(arr,length);
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+
+   // Ranged Loop
+   int arr[] = {1,2,3,4,5};
+
+   for(int i : {1,2,3,4,5}){
+    cout << i << " ";
+   }
+    return 0;
+}
+

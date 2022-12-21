@@ -1,0 +1,146 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//enum enEvenOrOdd {Even = 1, Odd = 2};
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//enEvenOrOdd isodd(int numer)
+//{
+//    if(numer % 2 != 0 ) return enEvenOrOdd::Odd;
+//    return enEvenOrOdd::Even;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//void FillArrayWithRandom(int arr[100],int &len)
+//{
+//    cout << "Enter Array length: ";
+//    cin >> len;
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//
+//    }
+//}
+//void AddArrayElement(int Number, int arr[100],int &ArrLen)
+//{
+//    //ArrLen++;
+//    //cout << ArrLen << " beffff\n";
+//    arr[ArrLen++] =Number;
+//
+//}
+//void addOdds(int source[100],int oddsArray[100],int lengSource, int &lenOdd)
+//{
+//    for(int i =0 ; i < lengSource ; i++)
+//    {
+//
+//        if(isodd(source[i]) == enEvenOrOdd::Odd)
+//            AddArrayElement(source[i],oddsArray,lenOdd);
+//    }
+//
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//
+//main()
+//{
+//   srand((unsigned)time(NULL));
+//    int arr[100],len;
+//    FillArrayWithRandom(arr,len);
+//    cout << "Array Elements: ";
+//    PrintArray(arr,len);
+//
+//    int oddsArr[100],oddLen;
+//    addOdds(arr,oddsArr,len,oddLen);
+//
+//
+//    cout << "Array 2 odd Numbewrs\n";
+//    PrintArray(oddsArr,oddLen);
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadNumber()
+{
+    int num;
+    do
+    {
+        cout << "Please enter a number: " << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+void FillArrayWithRandomNumbers(int arr[100],int &len)
+{
+    cout << "Enter length of random Array: ";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        arr[i] = RandomNumber(1,100);
+    }
+}
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+void AddArrayElement(int Number, int arr[100],int &ArrLen)
+{
+    //ArrLen++;
+    //cout << ArrLen << " beffff\n";
+    arr[ArrLen++] =Number;
+
+}
+void CopyOddNumbers(int arrSource[100],int arrDestination[100],int arrLen, int &arrDestinationLength)
+{
+    for(int i = 0 ; i < arrLen ; i++)
+    {
+        if(arrSource[i] % 2 != 0)
+            AddArrayElement(arrSource[i], arrDestination,arrDestinationLength);
+    }
+}
+
+main()
+{
+//Seeds the random number generator in C++, called only once    sr
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength = 0, arr2Length = 0;
+    FillArrayWithRandomNumbers(arr, arrLength);
+    int arr2[100];
+    CopyOddNumbers(arr, arr2, arrLength, arr2Length);
+    cout << "\nArray 1 elements:\n";
+    PrintArray(arr, arrLength);
+    cout << "\nArray 2 Odd numbers:\n";
+    PrintArray(arr2, arr2Length);
+    return 0;
+}

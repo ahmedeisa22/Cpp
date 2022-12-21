@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+void ReadNumbers(vector<int> &vNumbers)
+{
+    int number;
+    char play = 'Y';
+    do
+    {
+        cout << "Please Enter a number: \n";
+        cin >> number;
+
+        // add to stack
+        vNumbers.push_back(number);
+
+        cout << "Do you want to add another Number: [Y|N]\n";
+        cin >> play;
+    }
+    while(play == 'Y' || play == 'y');
+}
+
+void printNumbers(const vector<int> &vNumber){
+    cout << "\nNumbers in vector is: ";
+for(int vec : vNumber )
+    cout << vec << " ";
+
+    cout << endl;
+}
+int main()
+{
+    	vector<int> vec;
+	ReadNumbers(vec);
+	printNumbers(vec);
+    return 0;
+}
+
+
+

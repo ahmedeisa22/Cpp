@@ -1,0 +1,71 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+float ReadNumber()
+{
+    float num;
+    cout << "Enter Any number: \n";
+    cin >> num;
+    return num;
+}
+
+
+float myCeil(float num)
+{
+    if(num < 0) return (int)num;
+    else if(num == (int)num) return num;
+    return (int)++num;
+}
+
+main()
+{
+
+    float N = ReadNumber();
+
+    cout << "MY floor Rsult: " << myCeil(N) << "\n";
+    cout << "C++ floor Result: " << ceil(N) << "\n";
+    return 0;
+}
+
+/**********************************************************************************/
+// His solution
+///**********************************************************************************/
+//float ReadNumber()
+//{
+//    float num;
+//    cout << "Enter Any number: \n";
+//    cin >> num;
+//    return (float)num;
+//}
+//float GetFractionPart(float Number)
+//{
+//    return Number - int(Number);
+//}
+//float MyCeil(float Number)
+//{
+//
+//    if(abs(GetFractionPart(Number)) > 0)
+//    {
+//
+//        if(Number > 0) return (int) Number + 1;
+//        else return (int) Number;
+//    }
+//    return Number;
+//
+//}
+//main()
+//{
+//    float N = ReadNumber();
+//
+//    cout << "MyCeil Rsult: " << MyCeil(N) << "\n";
+//    cout << "C++ ceil Result: " << ceil(N) << "\n";
+//    return 0;
+//}

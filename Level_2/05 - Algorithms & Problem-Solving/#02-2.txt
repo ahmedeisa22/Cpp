@@ -1,0 +1,97 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << endl;
+//        cin >> Number;
+//    }
+//    while(Number <= 0);
+//    return Number;
+//}
+//
+//bool isPrime(int num)
+//{
+//    for(int i = 2 ; i < num ; i++)
+//    {
+//
+//            if(num % i == 0)
+//                return false;
+//
+//    }
+//    return true;
+//}
+//void printPrimes(int num)
+//{
+//    for(int i = 1 ; i < num ; i++)
+//    {
+//        if(isPrime(i))
+//            cout << i << endl;
+//
+//
+//    }
+//}
+//int main()
+//{
+//
+//    int Num = ReadPositiveNumber("Enter positive Number please? ");
+//    printPrimes(Num);
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+enum PrimeNotPrime {Prime = 1, NotPrime = 2};
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number <= 0);
+    return Number;
+}
+PrimeNotPrime isPrime(int num)
+{
+    int M = round(num  / 2);
+    for(int i = 2 ; i < M ; i++)
+    {
+
+        if(num % i == 0)
+            return PrimeNotPrime::NotPrime;
+
+    }
+    return PrimeNotPrime::Prime;
+}
+void printPrimes(int num)
+{
+    for(int i = 1 ; i < num ; i++)
+    {
+        if(isPrime(i) == PrimeNotPrime::Prime)
+            cout << i << endl;
+
+
+    }
+}
+int main()
+{
+
+    printPrimes(ReadPositiveNumber("Enter positive Number: "));
+    return 0;
+}

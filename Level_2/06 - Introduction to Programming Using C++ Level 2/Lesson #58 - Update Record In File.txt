@@ -1,0 +1,77 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+void printFileContent(string FileName) {
+	fstream myFile;
+	myFile.open(FileName, ios::in); // read
+
+		if(myFile.is_open()) {
+			string Line;
+			while (getline(myFile, Line)) {
+				cout << Line << endl;
+			}
+			myFile.close();
+		}
+}
+void LoadDataFromFileToVector(vector<string> &vec,string file){
+	fstream myFile;
+	myFile.open(file, ios::in); // Read Mode
+
+	if (myFile.is_open()) {
+
+		string Line;
+		while (getline(myFile, Line)) {
+			vec.push_back(Line);
+		}
+		myFile.close();
+	}
+
+}
+void saveVectorToFile(vector<string> vec, string file) {
+	fstream myFile;
+	myFile.open(file, ios::out); // write or append mode
+
+	if (myFile.is_open()) {
+
+		for (string& v : vec) {
+			if(v != "")
+			myFile << v << "\n";
+		}
+
+		myFile.close();
+	}
+}
+void DeleteRecordFromFile(string fileName, string record) {
+	vector<string> vec;
+	LoadDataFromFileToVector(vec, fileName);
+
+	for (string& v : vec) {
+		if (record == v) v = "";
+	}
+
+	saveVectorToFile(vec, fileName);
+}
+void UpdateRecordInFile(string FileName, string record, string updateTo) {
+	vector<string> vec;
+	LoadDataFromFileToVector(vec, FileName);
+	for (string& v : vec) {
+		if (record == v) v = updateTo;
+	}
+
+	saveVectorToFile(vec, FileName);
+}
+int main()
+{
+	cout << "File Content Before Delete.\n";
+	printFileContent("myFile.txt");
+
+	UpdateRecordInFile("myFile.txt","Eisa","dola");
+
+	cout << "\n\nFile Content After Delete.\n";
+	printFileContent("myFile.txt");
+	
+	return 0;
+}

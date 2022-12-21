@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//float ReadNumber()
+//{
+//    float num;
+//    cout << "Enter Any number: \n";
+//    cin >> num;
+//    return num;
+//}
+//
+//
+//float myFloor(float num)
+//{
+//    if(num < 0) return (int)--num;
+//    return (int)num;
+//}
+//
+//main()
+//{
+//
+//    float N = ReadNumber();
+//
+//    cout << "MY floor Rsult: " << myFloor(N) << "\n";
+//    cout << "C++ floor Result: " << floor(N) << "\n";
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+///**********************************************************************************/
+float ReadNumber()
+{
+    float num;
+    cout << "Enter Any number: \n";
+    cin >> num;
+    return (float)num;
+}
+
+float MyFloor(float Number)
+{
+    if(Number > 0)
+    return (int) Number;
+    else return (int) Number - 1;
+}
+
+
+main()
+{
+    float N = ReadNumber();
+
+    cout << "MyFloor Rsult: " << MyFloor(N) << "\n";
+    cout << "C++ loor Result: " << floor(N) << "\n";
+    return 0;
+}

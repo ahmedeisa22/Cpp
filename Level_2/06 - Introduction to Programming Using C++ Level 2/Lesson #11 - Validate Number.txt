@@ -1,0 +1,37 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int ReadNumber()
+{
+    int num;
+    cout << "Enter a number: \n";
+    cin >> num;
+
+    while(cin.fail()){
+
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+        cout << "Please Enter Valid Number\n";
+        cin >> num;
+    }
+
+    return num;
+}
+int main()
+{
+    cout << "Your Number is: ";
+    cout <<  ReadNumber() << "\n";
+
+    return 0;
+}
+

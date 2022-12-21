@@ -1,0 +1,111 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//char ReadLetter(string str)
+//{
+//
+//    char letter;
+//
+//    cout << str;
+//    cin >> letter;
+//
+//    return letter;
+//}
+//
+//
+//void AllLetterFromAAAToZZZ(char letter1, char letter2, char letter3)
+//{
+//    cout << "\n";
+//    int trial = 0;
+//    for(int i = 'A' ; i <= 'Z' ; i++)
+//    {
+//        for(int j = 'A' ; j <= 'Z'  ; j++)
+//        {
+//            for(int k = 'A' ; k <= 'Z' ; k++)
+//            {
+//
+//                trial++;
+//                if(letter1 == (char)i && letter2 == (char)j && letter3 == (char)k)
+//                {
+//                    cout << "Password is a " <<  letter1 << letter2 << letter3 << endl;
+//                    cout << "Found after "<< trial << " trials\n\n\n";
+//                    return;
+//                }
+//                cout << "Trial [" << trial << "] : " <<(char)i << (char)j << (char)k << "\n";
+//            }
+//
+//            cout << "\n";
+//        }
+//
+//    }
+//}
+//
+//main()
+//{
+//    char letter1 = ReadLetter("Enter first letter: ");
+//    char letter2 = ReadLetter("Enter Second letter: ");
+//    char letter3 = ReadLetter("Enter Third letter: " );
+//
+//
+//    AllLetterFromAAAToZZZ(letter1,letter2,letter3);
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadPassword()
+{
+    string pass;
+    cout << "Please enter a 3-Letter Password (all capital)?\n";
+    cin >> pass;
+
+    return pass;
+}
+
+bool GuessPassword(string orginalPassword)
+{
+    cout << "\n";
+    string word = "";
+    int counter = 0;
+    for(int i = 65 ; i <=90 ; i++)
+    {
+        for(int j = 65 ; j <= 90  ; j++)
+        {
+            for(int k = 65 ; k <= 90 ; k++)
+            {
+                word += (char)i;
+                word+= (char)j;
+                word+= (char)k;
+                counter++;
+                cout << "Trial [" << counter << "] : ";
+                cout << word << endl;
+                if(word == orginalPassword)
+                {
+                    cout << "\nPassword is " << word << "\n";
+                    cout << "Found after ";
+                    cout << counter << " Trial(s)\n";
+                    return true;
+                }
+                word = "";
+            }
+        }
+
+        cout << "\n____________________________\n";
+    }
+    return false;
+}
+main()
+{
+    GuessPassword(ReadPassword());
+    return 0;
+}

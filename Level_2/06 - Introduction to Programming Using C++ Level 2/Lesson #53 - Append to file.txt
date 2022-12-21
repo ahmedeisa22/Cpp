@@ -1,0 +1,19 @@
+#include <iostream>
+#include<fstream>
+#include <vector>
+
+using namespace std;
+int main()
+{
+	fstream myFile;
+	myFile.open("myFile.txt", ios::out | ios::app); // Write mode
+
+	if (myFile.is_open()) {
+		myFile << "This is A new line\n";
+		myFile << "this is A another new line\n";
+		
+		myFile.close();
+	}
+
+	return 0;
+}

@@ -1,0 +1,102 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//long long ReadPositiveNumber(string mess)
+//{
+//
+//    long long Number;
+//    do
+//    {
+//        cout << mess << endl;
+//        cin >> Number;
+//    }
+//    while(Number < 0);
+//    return Number;
+//}
+//
+//int ReverseNumber(int num)
+//{
+//    int sum = 0;
+//    while(num)
+//    {
+//        int last = num % 10;
+//        num /=10;
+//        sum= sum * 10 + last;
+//    }
+//    return  sum ;
+//}
+//
+//void showallNumberAsc(int num)
+//{
+//    int ascNumber =ReverseNumber(num);
+//    while(ascNumber)
+//    {
+//        int last = ascNumber % 10;
+//        ascNumber /=10;
+//        cout << last << endl;
+//    }
+//
+//}
+//main()
+//{
+//    //1234
+//    long long Num = ReadPositiveNumber("Enter Number please: ");
+//    showallNumberAsc(Num);
+//
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+long long ReadPositiveNumber(string mess)
+{
+
+    long long Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number < 0);
+    return Number;
+}
+
+int ReverseNumber(int num)
+{
+    int sum = 0;
+    while(num)
+    {
+        int last = num % 10;
+        num /=10;
+        sum= sum * 10 + last;
+    }
+    return  sum ;
+}
+
+void PrintDigits(int num)
+{
+
+    while(num)
+    {
+        int last = num % 10;
+        num /=10;
+        cout << last << endl;
+    }
+
+}
+main()
+{
+    PrintDigits(ReverseNumber(ReadPositiveNumber("Enter Number please: ")));
+
+    return 0;
+}

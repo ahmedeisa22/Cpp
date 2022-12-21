@@ -1,0 +1,116 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+////
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//
+//void FillArrayWithRandom(int arr[100],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//
+//    }
+//}
+//void reverseArray(int arr[100],int reverseArray[100],int len)
+//{
+//    int cnt = 0;
+//    for(int i = len - 1 ; i >=0 ; i--)
+//    {
+//        reverseArray[cnt++] = arr[i];
+//    }
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout << arr[i] << " ";
+//    cout << endl;
+//}
+//main()
+//{
+//
+//    srand((unsigned)time(NULL));
+//    int length = ReadNumber("Enter lenghth of array: ");
+//    int arr[100],arrCopy[100];
+//    FillArrayWithRandom(arr,length);
+//
+//    cout << "\nArray Element Before: ";
+//    PrintArray(arr,length);
+//
+//    reverseArray(arr,arrCopy,length);
+//    cout << "\nArray elemnt 2 after coping rverse: ";
+//        PrintArray(arrCopy,length);
+//
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+int ReadNumber(string str)
+{
+    int num;
+    do
+    {
+        cout << str << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+void FillArrayWithRandomNumber(int arr[100], int &arrLength)
+{
+    cout << "\nEnter Array length: ";
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++) arr[i] = RandomNumber(1,100);
+}
+
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+void CopyArrayInReverseOrder(int destination[100],int source[100],int len){
+for(int i =0 ; i < len ; i++)
+    destination[i] = source[len - 1 - i];
+}
+main()
+{
+srand((unsigned)time(NULL));
+    int arr[100],length;
+
+    FillArrayWithRandomNumber(arr,length);
+    cout << "\nArray Element Before: ";
+    PrintArray(arr,length);
+    int arr2[100];
+    CopyArrayInReverseOrder(arr2,arr,length);
+    cout << "\nArray Element After Shuffle: ";
+    PrintArray(arr,length);
+    return 0;
+}

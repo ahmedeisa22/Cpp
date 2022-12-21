@@ -1,0 +1,72 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//void printMultTable()
+//{
+//    cout << "\n\t\t\t Multiplication Table From 1 To 10\n\n";
+//    for(int i = 1 ; i <= 10 ; i++)
+//        cout << "\t    " << i << "";
+//
+//    cout << "\n______________________________________________________________________________________________\n\n";
+//    for(int i = 1 ; i <= 10 ; i++)
+//    {
+//        cout <<" " <<i << "\t|";
+//        for(int j = 1 ; j <= 10 ; j++)
+//        {
+//            cout <<"    " <<(i*j) << "\t";
+//        }
+//        cout << endl;
+//    }
+//}
+//int main()
+//{
+//    printMultTable();
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+void printTableHeader()
+{
+    cout << "\n\n\t\t\tMultipliaction Table From 1 to 10\n\n";
+    for(int i = 1 ; i <= 10 ; i++)
+        cout << i << "\t";
+    cout << "\n___________________________________________________________________________________\n";
+}
+
+string columSeperator(int i)
+{
+    if(i<10)
+        return "   |";
+    else
+        return "  |";
+}
+void printMultiPlicatioTable()
+{
+    printTableHeader();
+
+    for(int i = 1 ; i <= 10 ; i++)
+    {
+        cout << " " << i << columSeperator(i) << "\t";
+        for(int j = 1 ; j <= 10 ; j++)
+        {
+        cout << i*j << "\t";
+        }
+        cout << endl;
+
+    }
+}
+int main()
+{
+    printMultiPlicatioTable();
+    return 0;
+}

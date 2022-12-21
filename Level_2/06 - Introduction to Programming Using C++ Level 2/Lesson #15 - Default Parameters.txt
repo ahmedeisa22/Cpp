@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+// function declaration
+void add(int a, int b = 5, int c = 1, int d = 5)
+{
+    cout << a + b + c + d << "\n";
+}
+
+int main()
+{
+    add(2);
+    add(10,20);
+    add(10,1,2);
+    add(10,1,2,3);
+
+    return 0;
+}
+// function definition
+

@@ -1,0 +1,59 @@
+#include <iostream>
+#include <vector>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+struct stEmployee
+{
+    string FirstName;
+    string LastName;
+    float Salary;
+};
+
+void ReadEmployee(vector<stEmployee> &vEmployee)
+{
+    char play = 'Y';
+    stEmployee employee;
+    while(play == 'Y' || play == 'y')
+    {
+        cout << "Enter FirstName: ";
+        cin >> employee.FirstName;
+
+        cout << "Enter Last Name: ";
+        cin >> employee.LastName;
+
+        cout << "Enter Your Salary: ";
+        cin >> employee.Salary;
+        vEmployee.push_back(employee);
+
+        cout << "\nDo you want to add more employees[Y|N]: ";
+        cin >> play;
+
+    }
+}
+void PrintEmployee(vector<stEmployee> &vEmpoyee)
+{
+    cout << "Your Employess: \n";
+    cout << "***********************************************\n";
+    for(stEmployee& emp: vEmpoyee)
+    {
+
+        cout << "first Name: " << emp.FirstName << "\n";
+        cout << "Last Name : " << emp.LastName << "\n";
+        cout << "Your Salary: " << emp.Salary << "\n";
+        cout << "********************************************\n";
+    }
+}
+int main()
+{
+    vector<stEmployee> vEmployee;
+    ReadEmployee(vEmployee);
+    PrintEmployee(vEmployee);
+
+    return 0;
+}
+
+
+

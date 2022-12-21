@@ -1,0 +1,42 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+int randomNumber(int from, int to)
+{
+    int randNum  = rand() % (to-from) + from;
+    return randNum;
+}
+
+main()
+{
+    // seeds generator ot random
+    srand((unsigned)time(NULL));
+
+    for(int i = 0 ; i < 20 ; i++)
+    {
+        cout << randomNumber(5,10) << endl;
+
+
+    }
+    return 0;
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+//main()
+//{
+
+
+//    return 0;
+//}

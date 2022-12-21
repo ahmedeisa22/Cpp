@@ -1,0 +1,79 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << endl;
+//        cin >> Number;
+//    }
+//    while(Number < 0);
+//    return Number;
+//}
+//
+//void invertedLetter(int num)
+//{
+//    cout << "\n";
+//    for(int i = 1 ; i <= num ; i++)
+//    {
+//        for(int j = i ; j <= num  ; j++)
+//            cout <<  (char)(num - i  + 65);
+//
+//        cout << endl;
+//    }
+//}
+//
+//main()
+//{
+//
+//    int Num = ReadPositiveNumber("Enter Inverted Pattern please: ");
+//    invertedLetter(Num);
+//
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number < 0);
+    return Number;
+}
+
+void PrintInvertedLetterPattern(int num)
+{
+    cout << "\n";
+    for(int i = 65 + num -1 ; i >= 65 ; i--)
+    {
+        for(int j = 1 ; j <= num - (65 + num -1 - i)  ; j++)
+            cout <<  (char)(i);
+
+        cout << endl;
+    }
+}
+main()
+{
+    PrintInvertedLetterPattern(ReadPositiveNumber("Please enter a positive number?"));
+    return 0;
+}

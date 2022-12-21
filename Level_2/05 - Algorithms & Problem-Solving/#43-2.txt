@@ -1,0 +1,107 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//enum enEvenOrOdd {Even = 1, Odd = 2};
+//void AddArrayElement(int Number, int arr[100],int &ArrLen)
+//{
+//    //ArrLen++;
+//    //cout << ArrLen << " beffff\n";
+//    arr[ArrLen++] =Number;
+//
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//enEvenOrOdd isodd(int numer)
+//{
+//    if(numer % 2 != 0 ) return enEvenOrOdd::Odd;
+//    return enEvenOrOdd::Even;
+//}
+//void FillArrayWithRandomNumber(int arr[100], int &arrLength)
+//{
+//    cout << "\nEnter Array length: ";
+//    cin >> arrLength;
+//    for (int i = 0; i < arrLength; i++) arr[i] = RandomNumber(1,100);
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//
+//int countEvenNumber(int arr[100],int len)
+//{
+//    int counter = 0;
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        if(isodd(arr[i]) == enEvenOrOdd::Even)counter++;
+//    }
+//
+//    return counter;
+//}
+//main()
+//{
+//    srand((unsigned) time(NULL));
+//    int arr[100],len;
+//    FillArrayWithRandomNumber(arr,len);
+//    cout << "\n Array Elments : \n";
+//    PrintArray(arr,len);
+//
+//    cout << "\nEven numbers count: " << countEvenNumber(arr,len) << "\n";
+//
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLength)
+{
+    cout << "\nEnter Array length: ";
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++) arr[i] = RandomNumber(1,100);
+}
+
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+int EvenCount(int arr[100], int len)
+{
+    int cnt = 0;
+    for(int i =0 ; i < len ; i++)
+    {
+        if(arr[i] % 2 == 0)cnt++;
+    }
+    return cnt;
+}
+
+main()
+{
+//Seeds the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+    FillArrayWithRandomNumbers(arr, arrLength);
+    cout << "\nArray Elements: ";
+    PrintArray(arr, arrLength);
+    cout << "\nOdd Numbers count is: ";
+    cout << EvenCount(arr, arrLength) << endl;
+    return 0;
+}

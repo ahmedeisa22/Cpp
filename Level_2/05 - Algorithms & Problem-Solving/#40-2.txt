@@ -1,0 +1,179 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//enum enEvenOrOdd {Even = 1, Odd = 2};
+//enum enPrimeNotPrime {Prime = 1, NotPrime = 2};
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//enEvenOrOdd isodd(int numer)
+//{
+//    if(numer % 2 != 0 ) return enEvenOrOdd::Odd;
+//    return enEvenOrOdd::Even;
+//}
+//enPrimeNotPrime isPrime(int num)
+//{
+//    for(int i =  2 ; i < num ; i++)
+//    {
+//
+//        if(num % i == 0) return  enPrimeNotPrime::NotPrime;
+//    }
+//    return enPrimeNotPrime::Prime;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//void FillArrayWithRandom(int arr[100],int &len)
+//{
+//    cout << "Enter Array length: ";
+//    cin >> len;
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//
+//    }
+//}
+//void AddArrayElement(int Number, int arr[100],int &ArrLen)
+//{
+//    //ArrLen++;
+//    //cout << ArrLen << " beffff\n";
+//    arr[ArrLen++] =Number;
+//
+//}
+//void addOdds(int source[100],int oddsArray[100],int lengSource, int &lenOdd)
+//{
+//    for(int i =0 ; i < lengSource ; i++)
+//    {
+//
+//        if(isodd(source[i]) == enEvenOrOdd::Odd)
+//            AddArrayElement(source[i],oddsArray,lenOdd);
+//    }
+//
+//}
+//bool isExsits(int arr[100],int len, int Number)
+//{
+//    for(int i =0 ; i < len ; i++)
+//    {
+//        if(arr[i] == Number)
+//            return true;
+//    }
+//    return false;
+//}
+//void addDistinct(int source[100],int addsDistinct[100],int lengSource, int &lenDistinct)
+//{
+//    for(int i =0 ; i < lengSource ; i++)
+//    {
+//        if(!isExsits(addsDistinct,lenDistinct,source[i]))
+//            AddArrayElement(source[i],addsDistinct,lenDistinct);
+//    }
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//
+//main()
+//{
+//    srand((unsigned)time(NULL));
+//
+//    int arr[100] = {10,10,10,50,50,70,70,70,90,90,2};
+//    int len = 11;
+//    cout << "\n Array Elment 1: \n";
+//    PrintArray(arr,len);
+//
+//    int distinct[100], lenDis = 0;
+//    addDistinct(arr,distinct,len,lenDis);
+//
+//
+//    cout << "\nArray 2 distinct Elment: \n";
+//    PrintArray(distinct,lenDis);
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+void FillArray(int arr[100],int &len)
+{
+    len = 10;
+
+    arr[0] = 10;
+    arr[1] = 10;
+    arr[2] = 10;
+    arr[3] = 50;
+    arr[4] = 50;
+    arr[5] = 70;
+    arr[6] = 70;
+    arr[7] = 70;
+    arr[8] = 70;
+    arr[9] = 90;
+}
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+void AddArrayElement(int Number, int arr[100],int &ArrLen)
+{
+    //ArrLen++;
+    //cout << ArrLen << " beffff\n";
+    arr[ArrLen++] =Number;
+
+}
+short FindNumberPositionInArray(int Number, int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] == Number) return i;
+
+
+    }
+    return -1;
+}
+bool IsNumberInArray(int Number, int arr[100], int arrLength)
+{
+    return FindNumberPositionInArray(Number, arr, arrLength) != -1;
+}
+void CopyDistinctNumbersToArray(int sourceArray[100],int destinationArray[100],int arrLen, int &ArrayDestinationLen)
+{
+    for (int i = 0; i < arrLen; i++)
+    {
+        if(!IsNumberInArray(sourceArray[i],destinationArray,ArrayDestinationLen))
+            AddArrayElement(sourceArray[i],destinationArray,ArrayDestinationLen);
+    }
+}
+main()
+{
+//Seeds the random number generator in C++, called only once    sr
+    int arr[100], arrLength = 0;
+    FillArray(arr,arrLength);
+
+    cout << "Array elemnts : \n";
+    PrintArray(arr,arrLength);
+
+    int arr2[100], lenArr= 0;
+    CopyDistinctNumbersToArray(arr,arr2,arrLength,lenArr);
+    cout << "\nArray 2 distinct elements:\n";
+    PrintArray(arr2,lenArr);
+    return 0;
+}

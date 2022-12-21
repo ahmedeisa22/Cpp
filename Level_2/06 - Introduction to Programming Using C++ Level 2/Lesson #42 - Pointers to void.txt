@@ -1,0 +1,20 @@
+#include <iostream>
+#include "Header.h"
+
+using namespace std;
+int main()
+{
+	srand((unsigned)time(NULL));
+	void* ptr;
+	int x = 50;
+	float a = 10.5;
+
+	ptr = &a;
+	cout << myLib::RandomNumber(10, 20) << endl;
+	cout << *(static_cast<float*>(ptr)) << endl;
+
+	ptr = &x;
+
+	cout << *(static_cast<int*>(ptr)) << endl;
+	return 0;
+}

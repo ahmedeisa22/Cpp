@@ -1,0 +1,87 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << endl;
+//        cin >> Number;
+//    }
+//    while(Number <= 0);
+//    return Number;
+//}
+//
+//int checkPerfect(int num)
+//{
+//    int sum = 0;
+//    for(int i = 1 ; i < num ; i++)
+//    {
+//        if(num % i == 0) sum+=i;
+//    }
+//    return sum;
+//}
+//bool isPerfect(int num)
+//{
+//    return checkPerfect(num) == num;
+//}
+//void printRes(int num)
+//{
+//    if(isPerfect(num)) cout << num << " is Perfect\n";
+//    else cout << num << " is not Perfect\n";
+//}
+//main()
+//{
+//
+//    int Num = ReadPositiveNumber("Enter Perfect Number please? ");
+//    printRes(Num);
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number <= 0);
+    return Number;
+}
+
+bool checkPerfect(int num)
+{
+    int sum = 0;
+    for(int i = 1 ; i < num ; i++)
+    {
+        if(num % i == 0) sum+=i;
+    }
+    return sum == num;
+}
+
+void printRes(int num)
+{
+    if(checkPerfect(num)) cout << num << " is Perfect\n";
+    else cout << num << " is not Perfect\n";
+}
+int main()
+{
+
+    printRes(ReadPositiveNumber("Enter positive Number: "));
+    return 0;
+}

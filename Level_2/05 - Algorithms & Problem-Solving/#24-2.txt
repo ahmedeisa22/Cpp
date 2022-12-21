@@ -1,0 +1,131 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//
+//
+//void ReadRandomArray(int arr[100],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//    }
+//}
+//void printArray(int arr[100],int N)
+//{
+//    for(int i = 0 ; i < N ; i++)
+//    {
+//        cout  <<arr[i] << " ";
+//    }
+//    cout << endl;
+//}
+//
+//int maxNumArray(int arr[100],int length)
+//{
+//    int maxNum = INT_MIN;
+//
+//    for(int i = 0; i < length ; i++)
+//        if(arr[i] > maxNum) maxNum = arr[i];
+//    return maxNum;
+//}
+//main()
+//{
+//    ////seeds generator on random
+//    srand((unsigned)time(NULL));
+//
+//    int length = ReadNumber("Enter length of Number you want: ");
+//    int arr[100];
+//    ReadRandomArray(arr,length);
+//    cout << "Array Elements: ";
+//    printArray(arr,length);
+//
+//    cout << "Max number is: " << maxNumArray(arr,length);
+//    cout << endl;
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadNumber(string str)
+{
+    int num;
+    do
+    {
+        cout << str << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100],int &len)
+{
+    cout << "Enter length of random Array: ";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        arr[i] = RandomNumber(1,100);
+    }
+}
+void printArray(int arr[100],int N)
+{
+    for(int i = 0 ; i < N ; i++)
+    {
+        cout  <<arr[i] << " ";
+    }
+    cout << endl;
+}
+int maxNumArray(int arr[100],int length)
+{
+    int maxNum = INT_MIN;
+
+    for(int i = 0; i < length ; i++)
+        if(arr[i] > maxNum) maxNum = arr[i];
+    return maxNum;
+}
+main()
+{
+    //seeds generator on random
+    srand((unsigned)time(NULL));
+
+    int arr[100],length;
+    FillArrayWithRandomNumbers(arr,length);
+
+    cout << "\nArray Elements: ";
+    printArray(arr,length);
+
+    cout << "Max number is: " << maxNumArray(arr,length);
+    cout << endl;
+    return 0;
+}

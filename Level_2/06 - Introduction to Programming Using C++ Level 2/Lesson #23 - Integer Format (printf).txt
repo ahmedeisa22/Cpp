@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+    int a = 15;
+    int page = 1, totalPages = 20;
+    printf("the page number %d\n",page);
+    printf("You are in page %d of %d\n",page,totalPages);
+
+    //Width Specification
+
+    printf("The page number = %0*d\n",2,page); // 01
+    printf("The page number = %0*d\n",3,page); //001
+    printf("The page number = %0*d\n",4,page); //0001
+    printf("The page number = %0*d\n",5,page); //00001
+
+    int num1 = 10, num2 = 20;
+    printf("The result of %d and %d  = %d \n",num1,num2,num1+num2);
+    return 0;
+}
+
+
+

@@ -1,0 +1,53 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    }
+    while(Number <= 0);
+    return Number;
+}
+
+int ReverseNumber(int num)
+{
+    int sum = 0;
+    while(num)
+    {
+        int last = num % 10;
+        num /=10;
+        sum= sum * 10 + last;
+    }
+    return  sum ;
+}
+main()
+{
+    //1234
+    int Num = ReadPositiveNumber("Enter Number please? ");
+    cout << ReverseNumber(Num) << endl;
+    return 0;
+}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+//int main()
+//{
+//
+//   // same code
+//    return 0;
+//}

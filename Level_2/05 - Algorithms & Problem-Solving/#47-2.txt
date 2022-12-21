@@ -1,0 +1,104 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//float ReadNumber()
+//{
+//    float num;
+//    cout << "Enter Any number: \n";
+//    cin >> num;
+//    return num;
+//}
+//
+//float Abs(float num)
+//{
+//    if(num >= 0) return num;
+//    return -num;
+//}
+//
+//float myRound(float num)
+//{
+//    bool isNegative = false;
+//    if(num < 0)isNegative = true;
+//    num = Abs(num);
+//    float fra = num - (int)num;
+//    float add = 1 - fra;
+//
+//    if(fra >= 0.5)
+//    {
+//        if(isNegative)
+//            return  -(fra + add + (int)num);
+//        else
+//            return  (fra + add + (int)num);
+//
+//    }
+//    else if(fra < 0.5)
+//    {
+//        if(isNegative)
+//            return  -(int)num;
+//        else
+//            return  (int)num;
+//    }
+//}
+//
+//main()
+//{
+//
+//    float N = ReadNumber();
+
+//    cout << "NY round Rsult: " << myRound(N) << "\n";
+//    cout << "C++ round Result: " << round(N) << "\n";
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+float ReadNumber()
+{
+    float num;
+    cout << "Enter Any number: \n";
+    cin >> num;
+    return (float)num;
+}
+float MyABS(float num)
+{
+    if(num > 0) return num;
+    return num * -1;
+}
+float getFractionPert(float Number)
+{
+    return Number - (int) Number;
+}
+
+int MyRound(float Number)
+{
+    //4.7
+    int intPart;
+    intPart = (int) Number; // 4
+
+    int fractPart = getFractionPert(Number); // .6
+
+    if(MyABS(Number) >= .5)
+    {
+
+        if(Number > 0)return ++intPart;
+        else return --intPart;
+    }
+    else return intPart;
+}
+main()
+{
+    float N = ReadNumber();
+
+    cout << "NY round Rsult: " << MyRound(N) << "\n";
+    cout << "C++ round Result: " << round(N) << "\n";
+    return 0;
+}

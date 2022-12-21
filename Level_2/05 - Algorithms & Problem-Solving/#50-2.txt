@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+float ReadNumber()
+{
+    float num;
+    cout << "Enter Any number: \n";
+    cin >> num;
+    return num;
+}
+
+
+float mySqrt(float num)
+{
+return pow(num,0.5);
+}
+
+main()
+{
+
+    float N = ReadNumber();
+
+    cout << "MY SquareRoot Rsult: " << mySqrt(N) << "\n";
+    cout << "C++ SquareRoot Result: " << sqrt(N) << "\n";
+    return 0;
+}
+
+/**********************************************************************************/
+// His solution
+///**********************************************************************************/

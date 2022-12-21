@@ -1,0 +1,49 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+void PrintNumbersFromNtoM(int n, int m)
+{
+    if(n <= m)
+    {
+        cout << n << " ";
+        PrintNumbersFromNtoM(n+1,m);
+    }
+
+}
+
+// homeworks
+//1.
+void PrintNumbersFromMtoN(int n, int m)
+{
+    if(n >= m)
+    {
+        cout << n << " ";
+        PrintNumbersFromMtoN(n-1,m);
+    }
+
+}
+//2.
+double CalcPower(int n, int m)
+{
+    if(m <= 1) return n;
+
+    return n * CalcPower(n,m-1);
+
+}
+int main()
+{
+    //PrintNumbersFromMtoN(10,1);
+    cout << CalcPower(3,3);
+    return 0;
+}
+
+
+

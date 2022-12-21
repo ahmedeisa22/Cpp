@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+void ReadFileAddToVector(vector<string> &vec,string file){
+	fstream myFile;
+	myFile.open(file, ios::in); // Read Mode
+
+	if (myFile.is_open()) {
+
+		string Line;
+		while (getline(myFile, Line)) {
+			vec.push_back(Line);
+		}
+		myFile.close();
+	}
+
+}
+int main()
+{
+	vector<string> vec;
+	ReadFileAddToVector(vec,"myFile.txt");
+
+	for (string& str : vec) {
+		cout << str << "\n";
+	}
+	return 0;
+}

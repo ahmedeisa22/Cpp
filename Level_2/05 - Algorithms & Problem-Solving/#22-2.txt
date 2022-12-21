@@ -1,0 +1,123 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//
+
+//
+//void ReadArray(int arr[],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        cout << "Element["<<i+1 << "]:" << endl;
+//        cin >> arr[i];
+//    }
+//}
+//void printOriginalArray(int arr[],int N)
+//{
+//    cout <<"Orignal array:";
+//    for(int i = 0 ; i < N ; i++)
+//    {
+//        cout  <<arr[i] << " ";
+//    }
+//    cout << endl;
+//}
+//int checkRepeated(int arr[],int N,int NumChecking)
+//{
+//    int counter = 0;
+//    for(int i = 0 ; i < N ; i++)
+//    {
+//        if(arr[i] == NumChecking)counter++;
+//    }
+//    return counter;
+//}
+//main()
+//{
+//    //seeds generator on random
+//    srand((unsigned)time(NULL));
+//    int N = ReadNumber("Enter length of Array: ");
+//    int arr[N];
+//    ReadArray(arr,N);
+//    int check = ReadNumber("Enter The Number you want to check: ");
+//    printOriginalArray(arr,N);
+//    cout << check << " is repeated " << checkRepeated(arr,N,check) << " Time(s)\n";
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+
+int ReadPositiveNumber(string Message)
+{
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    }
+    while (Number <= 0);
+    return Number;
+}
+void ReadArray(int arr[100],int &len)
+{
+    cout <<"\n Enter Number of element: \n";
+    cin >> len;
+
+    cout << "\nEnter Array Elements: \n";
+    for(int i = 0 ; i < len ; i++)
+    {
+        cout << "Element["<<i+1 << "]:" << endl;
+        cin >> arr[i];
+    }
+}
+void printArray(int arr[100],int len)
+{
+
+    for(int i = 0 ; i < len ; i++)
+    {
+        cout  <<arr[i] << " ";
+    }
+    cout << endl;
+}
+int TimesRepeated(int NumChecking, int arr[100],int len)
+{
+    int counter = 0;
+    for(int i = 0 ; i < len ; i++)
+    {
+        if(arr[i] == NumChecking)counter++;
+    }
+    return counter;
+}
+main()
+{
+    int arr[100],arrLength,NumberToCheck;
+    ReadArray(arr,arrLength);
+
+    NumberToCheck = ReadPositiveNumber("Enter The Number you want to check: ");
+
+    cout <<"Orignal array:";
+    printArray(arr,arrLength);
+
+    cout << NumberToCheck << " is repeated " << TimesRepeated(NumberToCheck,arr,arrLength) << " time(s)\n";
+    return 0;
+}

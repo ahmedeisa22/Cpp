@@ -1,0 +1,147 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//string GenerateWord(int len)
+//{
+//    string word = "";
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        word += (char)RandomNumber(65,90);
+//    }
+//    return word;
+//}
+//
+//string GenerateKeys()
+//{
+//    string keys = "";
+//    keys +=  GenerateWord(4) + '-';
+//    keys +=  GenerateWord(4) + '-';
+//    keys +=  GenerateWord(4) + '-';
+//    keys +=  GenerateWord(4);
+//
+//    return keys;
+//}
+//void fillArrayWithKeys(string arr[100],int length)
+//{
+//    for(int i = 0 ; i < length ; i++)
+//    {
+//        arr[i] = GenerateKeys();
+//    }
+//}
+//void PrintArray(string arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout << "Array["<<i<<"]: "<<arr[i] << " \n";
+//    cout << endl;
+//}
+//main()
+//{
+//
+//    srand((unsigned)time(NULL));
+//    int length = ReadNumber("Enter lenghth of array: ");
+//    string arr[100];
+//    fillArrayWithKeys(arr,length);
+//
+//    cout << "Array Eleemts: \n\n";
+//    PrintArray(arr,length);
+//
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+enum enCharType {smallLetter = 1, CapitalLetter = 2, specilaChar = 3, Digits = 4};
+
+int ReadPositiveNumber(string str)
+{
+    int num;
+    do
+    {
+        cout << str << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+int ReadNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+char GetRandomCharacter(enCharType type)
+{
+    switch(type)
+    {
+    case enCharType::smallLetter:
+        return (char)ReadNumber(97,122);
+    case enCharType::CapitalLetter:
+        return (char)ReadNumber(65,90);
+    case enCharType::specilaChar:
+        return (char)ReadNumber(33,47);
+    case enCharType::Digits:
+        return (char)ReadNumber(48,57);
+    }
+}
+
+void PrintStringArray(string arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout << "Array["<<i<<"]: "<<arr[i] << " \n";
+    cout << endl;
+}
+string GenerateWord(enCharType type,int len)
+{
+    string word = "";
+    for(int i =0 ; i < len ; i++)
+        word += GetRandomCharacter(type);
+    return word;
+}
+string GenerateKwys()
+{
+    string keys = "";
+
+    keys += GenerateWord(enCharType::CapitalLetter,4) + '-';
+    keys += GenerateWord(enCharType::CapitalLetter,4) + '-';
+    keys += GenerateWord(enCharType::CapitalLetter,4) + '-';
+    keys += GenerateWord(enCharType::CapitalLetter,4);
+    return keys;
+}
+void FillArrayWithKeys(string Array[100],int length)
+{
+    for(int i =0 ; i < length ; i++)
+        Array[i] = GenerateKwys();
+}
+main()
+{
+    srand((unsigned)time(NULL));
+    string arr[100];
+
+    int length = ReadPositiveNumber("How many keys do you want to generate?\n");
+
+    FillArrayWithKeys(arr, length);
+    PrintStringArray(arr, length);
+    return 0;
+}

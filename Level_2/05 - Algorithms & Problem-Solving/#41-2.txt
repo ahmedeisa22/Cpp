@@ -1,0 +1,97 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//void AddArrayElement(int Number, int arr[100],int &ArrLen)
+//{
+//    //ArrLen++;
+//    //cout << ArrLen << " beffff\n";
+//    arr[ArrLen++] =Number;
+//
+//}
+//
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//
+//bool CeckhPlaindromeArray(int arr[100],int len)
+//{
+//    int M = round(len / 2);
+//    for(int i =0 ; i < M; i++)
+//    {
+//        if(arr[i] != arr[len - i - 1 ]) return false;
+//    }
+//    return true;
+//}
+//main()
+//{
+//    int arr[100] = {10,20,30,30,20,10};
+//    int len = 6;
+//
+//    cout << "\n Array Elments 1: \n";
+//    PrintArray(arr,len);
+//
+//    if(CeckhPlaindromeArray(arr,len)) cout << "Yes it is palidrome Arary\n";
+//    else cout << "No, it's not a paildrome Array\n";
+//
+//
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+void FillArray(int arr[100],int &len)
+{
+    len = 6;
+
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 30;
+    arr[4] = 20;
+    arr[5] = 10;
+
+}
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+
+bool IsPalindromeArray(int arr[100],int len)
+{
+    int M = round(len / 2);
+    for(int i =0 ; i < M; i++)
+    {
+        if(arr[i] != arr[len - i - 1 ]) return false;
+    }
+    return true;
+}
+main()
+{
+//Seeds the random number generator in C++, called only once    sr
+    int arr[100], arrLength = 0;
+    FillArray(arr,arrLength);
+
+    cout << "Array elemnts : \n";
+    PrintArray(arr,arrLength);
+
+    if (IsPalindromeArray(arr, arrLength))
+        cout << "\nYes array is Palindrome\n";
+    else
+    cout << "\nNO array is NOT Palindrome\n";
+    return 0;
+}

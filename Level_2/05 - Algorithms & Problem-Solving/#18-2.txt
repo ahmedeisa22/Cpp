@@ -1,0 +1,98 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+//string ReadName()
+//{
+//
+//    string name;
+//
+//    cout << "Enter your name please: ";
+//    cin >> name;
+//
+//    return name;
+//}
+//
+//string encryptedName(string name)
+//{
+//    string encrpt = "";
+//    for(int i = 0 ; i < name.size() ; i++)
+//        encrpt += name[i] + 2;
+//
+//    return encrpt;
+//}
+//
+//string decryptedName(string name)
+//{
+//    string encrpt = "";
+//    for(int i = 0 ; i < name.size() ; i++)
+//        encrpt += name[i] - 2;
+//
+//    return encrpt;
+//}
+//void printEncr(string name)
+//{
+//    cout << "Text before encryption: " << name << "\n";
+//    cout << "Text after encryption: " << encryptedName(name) << "\n";
+//    cout << "Text after Decryption: " << decryptedName(encryptedName(name)) << "\n";
+//}
+//
+//main()
+//{
+//    printEncr(ReadName());
+//
+//    return 0;
+//}
+
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadText()
+{
+    string text;
+    cout << "Please enter a text ?\n";
+    getline(cin,text);
+
+    return text;
+}
+
+string encryptText(string text,short encryptionKey)
+{
+    for(int i = 0 ; i < text.length() ; i++)
+        text[i]= char((int)text[i] + encryptionKey);
+
+    return text;
+}
+string decryptText(string text,short encryptionKey)
+{
+    for(int i = 0 ; i < text.length() ; i++)
+        text[i]= char((int)text[i] - encryptionKey);
+
+    return text;
+}
+main()
+{
+    const short encryptionKey = 2;
+
+    string textAfterEncryption, textAfterDecryption;
+
+    string text = ReadText();
+    textAfterEncryption = encryptText(text,encryptionKey);
+    textAfterDecryption = decryptText(textAfterEncryption, encryptionKey);
+
+    cout << "\nText Before Encryption : ";
+    cout << text << endl;
+    cout << "Text After Encryption  : ";
+    cout << textAfterEncryption << endl;
+    cout << "Text After Decryption  : ";
+    cout << textAfterDecryption << endl;
+    return 0;
+}

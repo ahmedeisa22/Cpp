@@ -1,0 +1,150 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//
+//
+//void ReadRandomArray(int arr[100],int len)
+//{
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//    }
+//}
+//void printArray(int arr[100],int N)
+//{
+//    for(int i = 0 ; i < N ; i++)
+//    {
+//        cout  <<arr[i] << " ";
+//    }
+//    cout << endl;
+//}
+//
+//int sumNumArray(int arr[100],int length)
+//{
+//    int sumNum = 0;
+//
+//    for(int i = 0; i < length ; i++)
+//        sumNum += arr[i];
+//    return sumNum;
+//}
+//
+//float AVGNumberArray(int arr[100],int length)
+//{
+//    return (float) sumNumArray(arr,length) / length;
+//}
+//void copyinArray(int arr1[100], int arr2[100], int length)
+//{
+//    for(int i = 0; i < length ; i++)
+//    {
+//        arr2[i] = arr1[i];
+//    }
+//}
+//main()
+//{
+//    ////seeds generator on random
+//    srand((unsigned)time(NULL));
+//
+//    int length = ReadNumber("Enter length of Number you want: ");
+//    int arr1[100],arr2[100];
+//    ReadRandomArray(arr1,length);
+//    cout << "Array (1) Elements: ";
+//    printArray(arr1,length);
+//
+//    copyinArray(arr1,arr2,length);
+//     cout << "Array (1) Elements: ";
+//     printArray(arr2,length);
+//    cout << endl;
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadNumber(string str)
+{
+    int num;
+    do
+    {
+        cout << str << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100],int &len)
+{
+    cout << "Enter length of random Array: ";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        arr[i] = RandomNumber(1,100);
+    }
+}
+void PrintArray(int arr[100],int N)
+{
+    for(int i = 0 ; i < N ; i++)
+    {
+        cout  <<arr[i] << " ";
+    }
+    cout << endl;
+}
+int sumNumArray(int arr[100],int length)
+{
+    int sum = 0;
+
+    for(int i = 1; i < length ; i++)
+        sum+= arr[i];
+    return sum;
+}
+void CopyArray(int arraySource[100],int arrDestination[100],int length)
+{
+    for(int i = 1; i < length ; i++)
+        arrDestination[i] = arraySource[i];
+}
+main()
+{
+    //seeds generator on random
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+    FillArrayWithRandomNumbers(arr, arrLength);
+    int arr2[100];
+    CopyArray(arr, arr2, arrLength);
+    cout << "\nArray 1 elements:\n";
+    PrintArray(arr, arrLength);
+    cout << "\nArray 2 elements after copy:\n";
+    PrintArray(arr2, arrLength);
+    return 0;
+
+}

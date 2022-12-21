@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+void Swap(int *a, int *b)
+{
+
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main()
+{
+
+    int x = 10, z = 20;
+
+    cout << "Before Swaping: \n";
+    cout << x << " " << z << endl;
+
+    Swap(&x,&z);
+
+    cout << "After swaping: \n";
+    cout << x << " " << z << endl;
+
+    return 0;
+}
+
+
+

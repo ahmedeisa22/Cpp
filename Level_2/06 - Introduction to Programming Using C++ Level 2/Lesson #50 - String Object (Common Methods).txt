@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+int main()
+{
+	string S1 = "My Name is Ahmed Adel Eissa, I Love Programming,";
+	
+	// print the length of string
+	cout << "Length: " << S1.size() << " " << S1.length() << "\n";
+
+	// return letter at position 3
+	cout << "At position 3: " <<S1.at(3) << " " << S1[3] << "\n";
+
+	// add (c++ is the best)  at the end of string
+	 S1.append(" C++ is the best");
+	 cout << S1 << "\n";
+
+	// insert Ali at positon 7
+	 S1.insert(7, " Ali");
+	 cout << S1 << "\n";
+
+	 // print all the 11 letter from position 16
+	 cout << S1.substr(15, 11) << "\n";
+
+	 // Add one charcter X to the end
+	 S1.push_back('X');
+	 cout << S1 << "\n";
+
+	 // Remove one charcter from the end
+	 S1.pop_back();
+	 cout << S1 << "\n";
+
+	 // Find Ali in the string
+	 cout << S1.find("Ali") << "\n"; // at positon 8
+	 cout << S1.find("ali") << "\n"; // return npos = 4294967295
+
+	 if (S1.find("ali") == S1.npos) {
+		 cout << "ali is not found";
+	 }
+
+	 // Clear all the  string
+	 S1.clear();
+	 cout << S1 << "\n";
+	return 0;
+}

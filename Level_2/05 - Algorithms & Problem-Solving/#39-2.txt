@@ -1,0 +1,181 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//enum enEvenOrOdd {Even = 1, Odd = 2};
+//enum enPrimeNotPrime {Prime = 1, NotPrime = 2};
+//int ReadNumber(string str)
+//{
+//    int num;
+//    do
+//    {
+//        cout << str << endl;
+//        cin >> num;
+//    }
+//    while(num < 0);
+//    return num;
+//}
+//enEvenOrOdd isodd(int numer)
+//{
+//    if(numer % 2 != 0 ) return enEvenOrOdd::Odd;
+//    return enEvenOrOdd::Even;
+//}
+//enPrimeNotPrime isPrime(int num)
+//{
+//    for(int i =  2 ; i < num ; i++)
+//    {
+//
+//        if(num % i == 0) return  enPrimeNotPrime::NotPrime;
+//    }
+//    return enPrimeNotPrime::Prime;
+//}
+//int RandomNumber (int From, int To )
+//{
+//    return rand()% (To - From) + From;
+//}
+//void FillArrayWithRandom(int arr[100],int &len)
+//{
+//    cout << "Enter Array length: ";
+//    cin >> len;
+//    for(int i = 0 ; i < len ; i++)
+//    {
+//        arr[i] = RandomNumber(1,100);
+//
+//    }
+//}
+//void AddArrayElement(int Number, int arr[100],int &ArrLen)
+//{
+//    //ArrLen++;
+//    //cout << ArrLen << " beffff\n";
+//    arr[ArrLen++] =Number;
+//
+//}
+//void addOdds(int source[100],int oddsArray[100],int lengSource, int &lenOdd)
+//{
+//    for(int i =0 ; i < lengSource ; i++)
+//    {
+//
+//        if(isodd(source[i]) == enEvenOrOdd::Odd)
+//            AddArrayElement(source[i],oddsArray,lenOdd);
+//    }
+//
+//}
+//void addPrimes(int source[100],int oddsPrimes[100],int lengSource, int &lenPrimes)
+//{
+//    for(int i =0 ; i < lengSource ; i++)
+//    {
+//
+//        if(isPrime(source[i]) == enPrimeNotPrime::Prime)
+//            AddArrayElement(source[i],oddsPrimes,lenPrimes);
+//    }
+//}
+//void PrintArray(int arr[100],int len)
+//{
+//    for(int i =0 ; i < len ; i++)
+//        cout<< arr[i] << " ";
+//    cout << endl;
+//}
+//
+//main()
+//{
+//    srand((unsigned)time(NULL));
+//    int arr[100],len;
+//    FillArrayWithRandom(arr,len);
+//    cout << "Array Elements: ";
+//    PrintArray(arr,len);
+//
+//    int primeArr[100],primeLen=0;
+//    addPrimes(arr,primeArr,len,primeLen);
+//
+//
+//    cout << "\n\nArray 2 Primes Numbers \n";
+//
+//    PrintArray(primeArr,primeLen);
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+enum enPrimNotPrime { Prime = 1, NotPrime = 2 };
+enPrimNotPrime CheckPrime(int Number)
+{
+    int M = round(Number / 2);
+    for (int Counter = 2; Counter <= M; Counter++)
+    {
+        if (Number % Counter == 0) return enPrimNotPrime::NotPrime;
+    }
+    return enPrimNotPrime::Prime;
+}
+int ReadNumber()
+{
+    int num;
+    do
+    {
+        cout << "Please enter a number: " << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+void FillArrayWithRandomNumbers(int arr[100],int &len)
+{
+    cout << "Enter length of random Array: ";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        arr[i] = RandomNumber(1,100);
+    }
+}
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+void AddArrayElement(int Number, int arr[100],int &ArrLen)
+{
+    //ArrLen++;
+    //cout << ArrLen << " beffff\n";
+    arr[ArrLen++] =Number;
+
+}
+void CopyOddNumbers(int arrSource[100],int arrDestination[100],int arrLen, int &arrDestinationLength)
+{
+    for(int i = 0 ; i < arrLen ; i++)
+    {
+        if(arrSource[i] % 2 != 0)
+            AddArrayElement(arrSource[i], arrDestination,arrDestinationLength);
+    }
+}
+void CopyPrimeNumbers(int arrSource[100],int arrDestination[100],int arrLen, int &arrDestinationLength)
+{
+    for(int i = 0 ; i < arrLen ; i++)
+    {
+        if(CheckPrime(arrSource[i]) == enPrimNotPrime::Prime)
+            AddArrayElement(arrSource[i], arrDestination,arrDestinationLength);
+    }
+}
+main()
+{
+//Seeds the random number generator in C++, called only once    sr
+    int arr[100], arrLength = 0, arr2Length = 0;
+    int arr2[100];
+    FillArrayWithRandomNumbers(arr, arrLength);
+    CopyPrimeNumbers(arr, arr2, arrLength, arr2Length);
+    cout << "\nArray 1 elements:\n";
+    PrintArray(arr, arrLength);
+    cout << "\nArray 2 Prime numbers:\n";
+    PrintArray(arr2, arr2Length);
+    return 0;
+}

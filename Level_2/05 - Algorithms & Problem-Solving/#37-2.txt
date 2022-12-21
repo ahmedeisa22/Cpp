@@ -1,0 +1,86 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+int ReadNumber()
+{
+    int num;
+    do
+    {
+        cout << "Please enter a number: " << endl;
+        cin >> num;
+    }
+    while(num < 0);
+    return num;
+}
+int RandomNumber (int From, int To )
+{
+    return rand()% (To - From) + From;
+}
+void FillArrayWithRandomNumbers(int arr[100],int &len)
+{
+    cout << "Enter length of random Array: ";
+    cin >> len;
+    for(int i = 0 ; i < len ; i++)
+    {
+        arr[i] = RandomNumber(1,100);
+    }
+}
+void PrintArray(int arr[100],int len)
+{
+    for(int i =0 ; i < len ; i++)
+        cout<< arr[i] << " ";
+    cout << endl;
+}
+void AddArrayElement(int Number, int arr[100],int &ArrLen)
+{
+    //ArrLen++;
+    //cout << ArrLen << " beffff\n";
+    arr[ArrLen++] =Number;
+
+}
+void InputUserNumbersInArray(int arr[100],int &len)
+{
+    bool addMore = true;
+    do
+    {
+        int number  =  ReadNumber();
+        AddArrayElement(number,arr,len);
+
+        cout << "\nDo you want to add more numbers? [0]:No,[1]:yes? ";
+        cin >> addMore;
+    }
+    while(addMore);
+}
+void CopingNewMethod(int source[100],int len,int destination[100],int &NewLen)
+{
+    for(int i = 0 ; i< len ; i++)
+        AddArrayElement(source[i],destination,NewLen);
+}
+main()
+{
+
+    int arr[100], arrLength=0;
+    FillArrayWithRandomNumbers(arr,arrLength);
+
+    cout << "Array elements 1: \n";
+    PrintArray(arr,arrLength);
+
+    int arr2[100],newLen = 0;
+    CopingNewMethod(arr,arrLength,arr2,newLen);
+
+    cout << "\nArray elements 2: \n";
+    PrintArray(arr2,newLen);
+    return 0;
+}

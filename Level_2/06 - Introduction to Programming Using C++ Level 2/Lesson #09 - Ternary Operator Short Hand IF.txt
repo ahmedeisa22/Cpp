@@ -1,0 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+
+    int number;
+    cout << "Enter your number: \n";
+    cin >> number;
+
+    // 1.
+    (number >= 0) ? cout << "Positve\n": cout << "Negative\n";
+
+
+    //2.
+    (number == 0) ? cout << "Zero\n": (number > 0)? cout << "Positve\n": cout << "Negative\n";
+    return 0;
+}
+

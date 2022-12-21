@@ -1,0 +1,32 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <limits>
+
+#include "myLib.h"
+
+using namespace std;
+using namespace myLib;
+
+int main()
+{
+    char eisa[] = "Ahmed Adel";
+    char Name[] = "Mohammed Abu-Hadhoud";
+    char SchoolName[] = "Programming Advices";
+
+    printf("Dear %s, How are you? \n",Name);
+    printf("Welcome to %s school\n\n",SchoolName);
+
+    char c = 'S';
+    printf("Setting the width of c: %*c\n",1,c);
+    printf("Setting the width of c: %*c\n",2,c);
+    printf("Setting the width of c: %*c\n",3,c);
+    printf("Setting the width of c: %*c\n",4,c);
+    printf("Setting the width of c: %*c\n",5,c);
+    return 0;
+}
+
+
+

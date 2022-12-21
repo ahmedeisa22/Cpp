@@ -1,0 +1,53 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+//
+//int ReadNumber()
+//{
+//    int num;
+//    cout << "Enter Any number: \n";
+//    cin >> num;
+//    return num;
+//}
+//
+//int Abs(int num){
+//    if(num >= 0) return num;
+//return -num;
+//}
+//main()
+//{
+//    int N = ReadNumber();
+//    cout << "NY ABS Rsult: " << Abs(N) << "\n";
+//    cout << "C++ ABS Result: " << abs(N) << "\n";
+//    return 0;
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+float ReadNumber()
+{
+    float num;
+    cout << "Enter Any number: \n";
+    cin >> num;
+    return (float)num;
+}
+float MyABS(float num)
+{
+    if(num > 0) return num;
+    return num * -1;
+}
+main()
+{
+    float Number = ReadNumber();
+    cout << "My abs Result : " << MyABS(Number) << endl;
+    cout << "C++ abs Result: " << abs(Number) << endl;
+    return 0;
+}
