@@ -1,0 +1,115 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//
+//int CaptialletterCount(string str)
+//{
+//	int counter = 0;
+//	int size = str.size();
+//	for (int i = 0; i < size; i++) {
+//		if (isupper(str[i])) counter++;
+//	}
+//	return counter;
+//}
+//
+//int smallletterCount(string str)
+//{
+//	int counter = 0;
+//	int size = str.size();
+//	for (int i = 0; i < size; i++) {
+//		if (islower(str[i])) counter++;
+//	}
+//	return counter;
+//}
+//int main(){
+//		
+//	string str = ReadString();
+//	int len = str.length();
+//
+//	cout << "String length: " << len << endl;
+//	cout << "Capital letter count: " << CaptialletterCount(str) << endl;
+//	cout << "Small letter count: " << smallletterCount(str) << endl;
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+enum enWhatToCount { SmallLetter = 0, CapitalLetter = 1, All = 2 };
+short CountLetters(string str, enWhatToCount enwhat= enWhatToCount::All) {
+	int size = str.size();
+	int counter = 0;
+
+	if (enwhat == enWhatToCount::All) {
+		return size;
+	}
+
+	for (short i = 0; i < size; i++) {
+
+		if (enwhat == enWhatToCount::CapitalLetter && isupper(str[i]))counter++;
+		if (enwhat == enWhatToCount::SmallLetter && islower(str[i]))counter++;
+	}
+	return counter;
+}
+int CaptialletterCount(string str)
+{
+	int counter = 0;
+	int size = str.size();
+	for (int i = 0; i < size; i++) {
+		if (isupper(str[i])) counter++;
+	}
+	return counter;
+}
+
+int smallletterCount(string str)
+{
+	int counter = 0;
+	int size = str.size();
+	for (int i = 0; i < size; i++) {
+		if (islower(str[i])) counter++;
+	}
+	return counter;
+}
+int main() {
+
+	string str = ReadString();
+	int len = str.length();
+	cout << "\n\nMethod 1\n";
+	cout << "String length: " << len << endl;
+	cout << "Capital letter count: " << CaptialletterCount(str) << endl;
+	cout << "Small letter count: " << smallletterCount(str) << endl;
+
+	cout << "\n\nMethod 2\n";
+	cout << "String length: " << CountLetters(str) << endl;
+	cout << "Capital letter count: " << CountLetters(str,enWhatToCount::CapitalLetter) << endl;
+	cout << "Small letter count: " << CountLetters(str,enWhatToCount::SmallLetter) << endl;
+	system("pause>0");
+}

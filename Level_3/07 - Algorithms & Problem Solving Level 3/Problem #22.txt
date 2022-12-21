@@ -1,0 +1,42 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+void fib(int n, int prev1, int prev2) {
+	
+	
+	if (n >= 2) {
+		int res = prev1 + prev2;
+		cout << res << " ";
+		prev1 = prev2;
+		prev2 = res;
+
+		fib(n-1, prev1, prev2);
+	}
+	cout << endl;
+}
+//int fib(int n) {
+//	if (n <= 2) return 1;
+//	return fib(n - 1) + fib(n - 2);
+//}
+int main(){
+			 fib(10,0,1);
+	
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+

@@ -1,0 +1,88 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+//
+//void FillAraayWithOrderNumber(int matrix[3][3], int Rows, int Cols) {
+//	int counter = 1;
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			matrix[i][j] = counter++;
+//	}
+//}
+//
+//void printMatrix(int matrix[3][3], int Rows, int Cols) {
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			cout << setw(3) << matrix[i][j] << " ";
+//		cout << endl;
+//	}
+//}
+//void printMatrixTransposed(int matrix[3][3], int Rows, int Cols){
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			cout << setw(3) << matrix[j][i] << " ";
+//	cout << endl;
+//	}
+//}
+//int main(){
+//	int matrix[3][3];
+//	FillAraayWithOrderNumber(matrix, 3, 3);
+//
+//	cout << "\nThe following is a 3 * 3 ordered matrix: \n";
+//	printMatrix(matrix, 3, 3);
+//
+//	cout << "\nThe following is the transposed matrix: \n";
+//	printMatrixTransposed(matrix, 3, 3);
+//
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+void FillAraayWithOrderNumber(int matrix[3][3], int Rows, int Cols) {
+	int counter = 1;
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			matrix[i][j] = counter++;
+	}
+}
+
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			cout << setw(3) << matrix[i][j] << " ";
+		cout << endl;
+	}
+}
+void MatrixTransposed(int matrix[3][3],int transposed[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			transposed[i][j] = matrix[j][i];
+		cout << endl;
+	}
+}
+int main() {
+	int matrix[3][3],transposed[3][3];
+		FillAraayWithOrderNumber(matrix, 3, 3);
+	
+		cout << "\nThe following is a 3 * 3 ordered matrix: \n";
+		printMatrix(matrix, 3, 3);
+	
+		MatrixTransposed(matrix, transposed,3, 3);
+		cout << "\nThe following is the transposed matrix: \n";
+		printMatrix(transposed, 3, 3);
+
+	system("pause>0");
+}

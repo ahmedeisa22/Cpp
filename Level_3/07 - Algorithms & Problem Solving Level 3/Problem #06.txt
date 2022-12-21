@@ -1,0 +1,48 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+void FillAraayWithOrderNumber(int matrix[3][3], int Rows, int Cols) {
+	int counter = 1;
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			matrix[i][j] = counter++;
+	}
+}
+
+void printMatrix(int matrix[3][3], int Rows, int Cols){
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			cout << setw(3) << matrix[i][j] << " ";
+	cout << endl;
+	}
+}
+int main(){
+	int matrix[3][3];
+	FillAraayWithOrderNumber(matrix, 3, 3);
+
+	cout << "\nThe following is a 3 * 3 ordered matrix: \n";
+	printMatrix(matrix, 3, 3);
+
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+//same code
+//int main() {
+
+//	system("pause>0");
+//}

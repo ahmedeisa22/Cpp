@@ -1,0 +1,73 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//	return str;
+//}
+//
+//void eachWord(string str) {
+//	for (int i = 0; i < str.size(); i++) {
+//		if (str[i] != ' ')cout << str[i];
+//		else
+//			cout << endl;
+//	}
+//}
+//int main(){
+//	string str = ReadString();
+//
+//	cout << "Your string words: \n"; 
+//		eachWord(str);
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+	return str;
+}
+void eachWord(string str) {
+	cout << "\n\nYour string words: \n";
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] != ' ')cout << str[i];
+		else
+			cout << endl;
+	}
+}
+void PrintEachWordInString(string str) {
+	cout << "\n\nYour string words: \n";
+
+	string delima = " "; // delimater
+		int pos = 0;
+		string sWord = "";
+		while ((pos = str.find(delima)) != string::npos) {
+
+			sWord = str.substr(0, pos);
+			if (sWord != "")cout << sWord << endl;
+
+			str.erase(0, pos + delima.length());
+		}
+
+		if(str != "")cout << str << endl;
+	
+}
+int main(){
+	eachWord(ReadString());
+	system("pause>0");
+}

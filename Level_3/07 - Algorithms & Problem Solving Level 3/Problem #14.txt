@@ -1,0 +1,103 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+//bool isScalar(int matrix[3][3], int Rows, int Cols) {
+//	int scalar = matrix[0][0];
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++) {
+//			if (i == j) {
+//				if (matrix[i][j] != scalar) return false;
+//			}
+//			else {
+//				if (matrix[i][j] != 0) return false;
+//			}
+//		}
+//	}
+//	return true;
+//}
+//void printMatrix(int matrix[3][3], int Rows, int Cols) {
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			printf(" %0*d\t", 1, matrix[i][j]);
+//		cout << endl;
+//	}
+//}
+//int main(){
+//	srand((unsigned)time(NULL));
+//	int matrix1[3][3] = {
+//		{2,0,0},
+//		{0,2,0},
+//		{0,0,2}
+//	};
+//
+//	
+//
+//	cout << "\nMatrix 1: \n";
+//	printMatrix(matrix1, 3, 3);
+//
+//	
+//	if (isScalar(matrix1, 3, 3))
+//		cout << "\nYes, matrix is scalar :) \n";
+//	else
+//		cout << "\nNo, matrix isn't scalar\n";
+//		
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+bool isScalar(int matrix[3][3], int Rows, int Cols) {
+	int scalar = matrix[0][0];
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++) {
+			if (i == j) {
+				if (matrix[i][j] != scalar) return false;
+			}
+			else {
+				if (matrix[i][j] != 0) return false;
+			}
+		}
+	}
+	return true;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main() {
+	srand((unsigned)time(NULL));
+	int matrix1[3][3] = {
+		{2,0,0},
+		{0,2,0},
+		{0,0,2}
+	};
+
+
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+
+	if (isScalar(matrix1, 3, 3))
+		cout << "\nYes, matrix is scalar :) \n";
+	else
+		cout << "\nNo, matrix isn't scalar\n";
+
+	system("pause>0");
+}

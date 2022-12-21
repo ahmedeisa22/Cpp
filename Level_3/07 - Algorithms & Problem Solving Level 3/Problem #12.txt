@@ -1,0 +1,64 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+void FillAraayWithRandomNumber(int matrix[3][3], int Rows, int Cols) {
+
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			matrix[i][j] = RandomNumber(1,10);
+	}
+}
+bool isTypical(int matrix1[3][3], int matrix2[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			if (matrix1[i][j] != matrix2[i][j]) return false;
+	}
+	return true;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 2, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3], matrix2[3][3];
+	FillAraayWithRandomNumber(matrix1,3,3);
+	FillAraayWithRandomNumber(matrix2, 3, 3);
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	cout << "\nMatrix 2: \n";
+	printMatrix(matrix2, 3, 3);
+
+	if (isTypical(matrix1, matrix2, 3, 3))
+		cout << "\nthey are Equals :) \n";
+	else
+		cout << "\nThey are not Equals\n";
+
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+//
+//int main() {
+//	 //same code
+//	system("pause>0");
+//}

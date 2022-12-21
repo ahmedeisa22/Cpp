@@ -1,0 +1,97 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct Employee {
+//	string accountNumber;
+//	string punCode;
+//	string name;
+//	string phone;
+//	double accountBalance;
+//};
+//Employee ReadNewClient() {
+//	Employee emp;
+//
+//	cout << "\n\nEnter Account Number: ";
+//	getline(cin, emp.accountNumber);
+//
+//	cout << "\nEnter PinCode: ";
+//	getline(cin, emp.punCode);
+//
+//	cout << "\nEnter Name: ";
+//	getline(cin, emp.name);
+//
+//	cout << "\nEnter Phone Number: ";
+//	getline(cin, emp.phone);
+//
+//	cout << "\nEnter Account Balance: ";
+//	cin >> emp.accountBalance;
+//
+//	return emp;
+//}
+//
+//string ConvertRecordToLine(Employee emp, string Seperator = "#//#") {
+//	string stClientRecord = "";
+//	stClientRecord += emp.accountNumber + Seperator;
+//	stClientRecord += emp.punCode + Seperator;
+//	stClientRecord += emp.name + Seperator;
+//	stClientRecord += emp.phone + Seperator;
+//	stClientRecord += to_string(emp.accountBalance);
+//
+//	return stClientRecord;
+//}
+//vector<string> split(string str, string delimeter = " ") {
+//	int size = str.size();
+//	int pos = 0;
+//	string sWord = "";
+//	vector<string> res;
+//	while ((pos = str.find(delimeter)) != string::npos) {
+//		sWord = str.substr(0, pos);
+//
+//		if (sWord != "") res.push_back(sWord);
+//
+//		str.erase(0, pos + delimeter.length());
+//	}
+//	if (str != "") res.push_back(str);
+//	return res;
+//}
+//Employee converLineToRcord(string str, string delimeter = "#//#") {
+//	vector<string> vec = split(str, delimeter);
+//	Employee emp;
+//
+//	emp.accountNumber = vec[0];
+//	emp.punCode = vec[1];
+//	emp.name = vec[2];
+//	emp.phone = vec[3];
+//	emp.accountBalance = stod(vec[4]);
+//
+//	return emp;
+//}
+//void print(Employee emp) {
+//	cout << endl << endl;
+//	cout << "Account Number     : " << emp.accountNumber << endl;
+//	cout << "Pin Code           : " << emp.punCode << endl;
+//	cout << "Name               : " << emp.name << endl;
+//	cout << "Phone Number       : " << emp.phone << endl;
+//	cout << "Account Balance    : " << emp.accountBalance << endl;
+//}
+//int main() {
+//	string strFixed = "A150#//#111#//#Ahmed Adel#//#0111784878#//#8000";
+//
+//	cout << "the following is extracted client record\n";
+//	print(converLineToRcord(strFixed, "#//#"));
+//	system("pause>0");
+//}
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+

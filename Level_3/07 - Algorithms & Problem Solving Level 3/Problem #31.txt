@@ -1,0 +1,110 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//
+//char ReadCharacter() {
+//	cout << "Please enter your character" << endl;
+//	char ch;
+//	cin >> ch;
+//
+//	return ch;
+//}
+//
+//int countLetterInString(string str, char ch) {
+//	int size = str.size();
+//	int counter = 0;
+//
+//	for(int i = 0 ; i < size ; i++){
+//		if (str[i] == ch)counter++;
+//	}
+//	return counter;
+//}
+//int countLetterInStringCaseSens(string str, char ch) {
+//	int size = str.size();
+//	int counter = 0;
+//
+//	char chCapital = toupper(ch);
+//	for (int i = 0; i < size; i++) {
+//		if (str[i] == ch || str[i] == chCapital)counter++;
+//	}
+//	return counter;
+//}
+//
+//int main(){
+//		
+//	string str = ReadString();
+//	char ch = ReadCharacter();
+//
+//	cout << "Letter '" << ch << "' count: " << countLetterInString(str, ch) << endl;
+//	cout << "Letter '" << (char)tolower(ch) << "' or '" << (char)toupper(ch)<<"' count: " << countLetterInStringCaseSens(str, ch) << endl;
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+
+char ReadCharacter() {
+	cout << "Please enter your character" << endl;
+	char ch;
+	cin >> ch;
+
+	return ch;
+}
+
+int countLetterInString(string str, char ch,bool matchCase = true) {
+	int size = str.size();
+	int counter = 0;
+
+	for (int i = 0; i < size; i++) {
+		if (matchCase) {
+		if (str[i] == ch)counter++;
+		}
+		else {
+			if (tolower(str[i]) == tolower(ch))
+				counter++;
+		}
+	}
+	return counter;
+}
+char  InvertLetterCase(char char1) 
+{ return isupper(char1) ? tolower(char1) : toupper(char1); }
+
+int main() {
+
+	string str = ReadString();
+	char ch = ReadCharacter();
+
+	cout << "Letter '" << ch << "' count: " << countLetterInString(str, ch) << endl;
+	cout << "Letter '" << ch << "' or '" << InvertLetterCase(ch) << "' count: " << countLetterInString(str, ch,false) << endl;
+	system("pause>0");
+}

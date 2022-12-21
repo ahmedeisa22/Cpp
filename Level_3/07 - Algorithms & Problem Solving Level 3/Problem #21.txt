@@ -1,0 +1,45 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+//void fib(int n) {
+//	int prev1 = 1, prev2 = 1;
+//	cout << prev1 << " " << prev2 << " ";
+//	for (int i = 2; i < n; i++) {
+//		int res = prev1 + prev2;
+//		cout << res << " ";
+//		prev1 = prev2;
+//		prev2 = res;
+//	}
+//	cout << endl;
+//}
+void fib(int n) {
+	int arr[100];
+	 arr[0] = 1, arr[1] = 1;
+	cout << arr[0] << " " << arr[1] << " ";
+	for (int i = 2; i < n; i++) {
+		arr[i] = arr[i-1] + arr[i-2];
+		cout << arr[i] << " ";
+	}
+}
+int main(){
+
+	fib(10);
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+

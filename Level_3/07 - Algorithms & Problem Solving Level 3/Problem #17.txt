@@ -1,0 +1,115 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+short CountNumberInMatrix(int Matrix1[3][3], int Number, short Rows, short Cols)
+{ 
+	short NumberCount = 0; 
+for (short i = 0; i < Rows; i++)
+{ 
+	for (short j = 0; j < Cols; j++)
+	{
+		if (Matrix1[i][j] == Number)
+		{ NumberCount++; }; 
+	}
+}     
+return NumberCount;
+}
+bool lookUP(int matrix[3][3], short numer, short Rows, short Cols) {
+	return CountNumberInMatrix(matrix, numer, Rows, Cols) > 0;
+}
+//bool lookUP(int matrix[3][3],short numer, short Rows, short Cols) {
+//	
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++) {
+//			if (matrix[i][j] == numer) return true;
+//		}
+//	}
+//	return false;
+//}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3] = {
+		{9,1,12},
+		{95,77,1},
+		{4,50,0}
+	};
+
+	
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	int number;
+	cout << "Please enter a number to look for in matrix: ";
+	cin >> number;
+	if (lookUP(matrix1,number, 3, 3))
+		cout << "Yes, it is there\n";
+	else
+		cout << "No, it isn't there\n";
+
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+//short checkNumber(int matrix[3][3], short Rows, short Cols, short number) {
+//	short counter = 0;
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++) {
+//			if (matrix[i][j] == number)counter++;
+//		}
+//	}
+//	return counter;
+//}
+//
+//bool is_sparce(int matrix[3][3], short Rows, short Cols) {
+//	short maxSize = Rows * Cols;
+//	
+//	return (checkNumber(matrix,3,3,0) >= ceil((float)maxSize/2));
+//}
+//void printMatrix(int matrix[3][3], int Rows, int Cols) {
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			printf(" %0*d\t", 1, matrix[i][j]);
+//		cout << endl;
+//	}
+//}
+//int main() {
+//	srand((unsigned)time(NULL));
+//	int matrix1[3][3] = {
+//		{9,1,12},
+//		{0,0,1},
+//		{0,0,1}
+//	};
+//
+//
+//
+//	cout << "\nMatrix 1: \n";
+//	printMatrix(matrix1, 3, 3);
+//
+//	if (is_sparce(matrix1, 3, 3))
+//		cout << "Yes, it is sprace matrix\n";
+//	else
+//		cout << "No, it isn't sparce matrix\n";
+//
+//	system("pause>0");
+//}

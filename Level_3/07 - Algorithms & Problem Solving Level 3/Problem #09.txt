@@ -1,0 +1,69 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+void FillAraayWithRandomNumber(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			matrix[i][j] = RandomNumber(1,10);
+	}
+}
+
+void printMiddleRow(int matrix[3][3], int Rows, int Cols) {
+	int midRow = floor(Rows / 2);
+	for (int j = 0; j < Rows; j++) {	
+			printf(" %0*d\t", 2, matrix[midRow][j]);
+	}
+		cout << endl;
+}
+void printMiddleCol(int matrix[3][3], int Rows, int Cols) {
+	int midCol = floor(Cols / 2);
+	for (int i = 0; i < Rows; i++) {
+		printf(" %0*d\t", 2, matrix[i][midCol]);
+	}
+	cout << endl;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 2, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3];
+	FillAraayWithRandomNumber(matrix1,3,3);
+
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	cout << "\nMiddle Row if matrix: \n";
+	printMiddleRow(matrix1, 3, 3);
+
+	cout << "\nMiddle Column if matrix: \n";
+	printMiddleCol(matrix1, 3, 3);
+
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+//
+//int main() {
+//	 //same code
+//	system("pause>0");
+//}

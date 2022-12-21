@@ -1,0 +1,53 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+
+string toUpper(string str) {
+	int size = str.length();
+	for (int i = 0; i < size; i++) {
+		str[i] = toupper(str[i]);
+	}
+	return str;
+}
+string toLower(string str) {
+	int size = str.length();
+	for (int i = 0; i < size; i++) {
+		str[i] = tolower(str[i]);
+	}
+	return str;
+}
+int main(){
+		
+	string str = ReadString();
+
+	cout << "\nString after upper: \n";
+	cout << toUpper(str) << "\n";
+
+	cout << "\nString after lower: \n";
+	cout << toLower(str) << "\n";
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/

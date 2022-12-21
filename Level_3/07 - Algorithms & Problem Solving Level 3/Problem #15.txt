@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+short checkNumber(int matrix[3][3], short Rows, short Cols, short number) {
+	short counter =0;
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++) {
+			if (matrix[i][j] == number)counter++;
+		}
+	}
+	return counter;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3] = {
+		{9,1,12},
+		{0,9,1},
+		{0,9,9}
+	};
+
+	
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	
+	int nummber;
+	cout << "\nEnter the Number to count in matrix: ";
+	cin >> nummber;
+	cout << endl;
+
+	cout << "Number " << nummber << " count in matrix is " << checkNumber(matrix1, 3, 3,nummber) << endl;
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/

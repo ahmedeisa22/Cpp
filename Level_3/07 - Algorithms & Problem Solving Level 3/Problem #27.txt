@@ -1,0 +1,45 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+char ReadCharacter() {
+	cout << "Please enter your character" << endl;
+	char ch;
+	cin >> ch;
+
+	return ch;
+}
+//
+//char InvertChar(char ch) {
+//	if (islower(ch))
+//		return toupper(ch);
+//	else
+//		return tolower(ch);
+//}
+
+char InvertChar(char ch) {
+	return isupper(ch) ? tolower(ch) : toupper(ch);
+}
+int main(){
+		
+	char ch = ReadCharacter();
+	ch = InvertChar(ch);
+	cout << "Char after Inverting case:\n";
+	cout << ch << endl;
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/

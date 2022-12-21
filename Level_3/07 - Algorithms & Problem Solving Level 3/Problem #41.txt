@@ -1,0 +1,94 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//vector<string> split(string str, string delimeter = " ") {
+//	int size = str.size();
+//	int pos = 0;
+//	string sWord = "";
+//	vector<string> res;
+//	while ((pos = str.find(delimeter)) != string::npos) {
+//		sWord = str.substr(0, pos);
+//
+//		if (sWord != "") res.push_back(sWord);
+//
+//		str.erase(0, pos + delimeter.length());
+//	}
+//	if (str != "") res.push_back(str);
+//	return res;
+//}
+//string reverseWord(string S1) {
+//	vector<string> words = split(S1);
+//	string ReversedWord = "";
+//
+//	for (auto it = words.rbegin(); it != words.rend(); it++)
+//		ReversedWord += *it+" ";
+//	return ReversedWord;
+//}
+//int main(){
+//	cout << "String After Reversing Words\n";
+//	cout << reverseWord(ReadString()) << endl;
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+vector<string> split(string str, string delimeter = " ") {
+	int size = str.size();
+	int pos = 0;
+	string sWord = "";
+	vector<string> res;
+	while ((pos = str.find(delimeter)) != string::npos) {
+		sWord = str.substr(0, pos);
+
+		if (sWord != "") res.push_back(sWord);
+
+		str.erase(0, pos + delimeter.length());
+	}
+	if (str != "") res.push_back(str);
+	return res;
+}
+string reverseWord(string S1) {
+	vector<string> words = split(S1);
+	string ReversedWord = "";
+
+	vector<string>::iterator it = words.end();
+	while (it != words.begin()) {
+
+		it--;
+		ReversedWord += *it + " ";
+	}
+	return ReversedWord.substr(0, ReversedWord.size() - 1);
+}
+int main(){
+	cout << "String After Reversing Words\n";
+	cout << reverseWord(ReadString()) << endl;
+	system("pause>0");
+}

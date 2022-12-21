@@ -1,0 +1,68 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+//string ReadString(string msg) {
+//	cout << msg << " \n";
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//
+//void printFirstLetterOFString(string str) {
+//	cout << "\nFirst letter of string: \n";
+//	cout << str[0] << "\n";
+//	int size = str.length();
+//	for (int i = 0; i < size; i++) {
+//		if (str[i] == ' ')cout << str[i+1] << endl;
+//	}
+//}
+//int main(){
+//		
+//	string str = ReadString("Please enter your string");
+//
+//	printFirstLetterOFString(str);
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string  ReadString()
+{
+	string S1;  
+cout << "Please Enter Your String?\n";  
+getline(cin, S1);
+return S1;
+}
+
+void PrintFirstLetterOfEachWord(string s1) {
+	bool isFirstLetter  = true;
+	int size = s1.size();
+	for (int i = 0; i < size; i++) {
+
+		if (s1[i] != ' ' && isFirstLetter)
+			cout << s1[i] << "\n";
+		isFirstLetter = (s1[i] == ' ' ? true : false);
+	}
+}
+int main(){
+		
+	string str = ReadString();
+
+	PrintFirstLetterOfEachWord(str);
+	system("pause>0");
+}

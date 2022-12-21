@@ -1,0 +1,103 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct Employee {
+//	string accountNumber;
+//	string punCode;
+//	string name;
+//	string phone;
+//	double accountBalance;
+//};
+//void ReadStruct(Employee &emp) {
+//	//Employee emp;
+//
+//	cout << "\n\nEnter Account Number: ";
+//	cin >> emp.accountNumber;
+//
+//	cout << "\nEnter PinCode: ";
+//	cin >> emp.punCode;
+//
+//	cout << "\nEnter Name: ";
+//	cin.ignore();
+//	getline(cin,emp.name);
+//
+//	cout << "\nEnter Phone Number: ";
+//	cin >> emp.phone;
+//
+//	cout << "\nEnter Account Balance: ";
+//	cin >> emp.accountBalance;
+//}
+//
+//string converStruct(Employee emp) {
+//	return emp.accountNumber + "//#" + emp.punCode + "//#" + emp.name + "//#" + emp.phone + "//#" + to_string(emp.accountBalance);
+//}
+//int main(){
+//	Employee emploee;
+//	cout << "Please enter client data: \n";
+//	ReadStruct(emploee);
+//
+//	cout << "\nclient record for saving is: \n";
+//	cout << converStruct(emploee) << endl;
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+struct Employee {
+	string accountNumber;
+	string punCode;
+	string name;
+	string phone;
+	double accountBalance;
+};
+Employee ReadNewClient() {
+	Employee emp;
+
+	cout << "\n\nEnter Account Number: ";
+	getline(cin, emp.accountNumber);
+
+	cout << "\nEnter PinCode: ";
+	getline(cin, emp.punCode);
+
+	cout << "\nEnter Name: ";
+	getline(cin,emp.name);
+
+	cout << "\nEnter Phone Number: ";
+	getline(cin, emp.phone);
+
+	cout << "\nEnter Account Balance: ";
+	cin >> emp.accountBalance;
+
+	return emp;
+}
+
+string ConvertRecordToLine(Employee emp, string Seperator = "#//#") {
+	string stClientRecord = "";
+	stClientRecord += emp.accountNumber + Seperator;
+	stClientRecord += emp.punCode + Seperator;
+	stClientRecord += emp.name + Seperator;
+	stClientRecord += emp.phone + Seperator;
+	stClientRecord += to_string(emp.accountBalance);
+
+	return stClientRecord;
+}
+int main(){
+	Employee emploee;
+	cout << "Please enter client data: \n";
+	emploee = ReadNewClient();
+
+	cout << "\n\nclient record for saving is: \n";
+	cout << ConvertRecordToLine(emploee) << endl;
+	system("pause>0");
+}

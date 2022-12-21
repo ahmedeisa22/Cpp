@@ -1,0 +1,70 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//
+//string removePaun(string str) {
+//	for (int i = 0; i < str.length();) {
+//		if (ispunct(str[i]))
+//		{
+//			str.erase(i, 1);
+//			i--;
+//		}
+//		else
+//			i++;
+//	}
+//
+//
+//	return str;
+//}
+
+//string removePaun(string str) {
+//	for (int i = 0; i < str.length();) {
+//		if (ispunct(str[i]))
+//		{
+//			str.replace(i, 1,"");
+//			i--;
+//		}
+//		else
+//			i++;
+//	}
+//
+//
+//	return str;
+//}
+string removePaun(string str) {
+	string st = "";
+	for (int i = 0; i < str.length();i++) {
+		if (!ispunct(str[i]))
+		{
+			st += str[i];
+		}
+		
+	}
+
+
+	return st;
+}
+int main(){
+	string S1 = "Welcome to* Jordan,^&*&( Jordan is@! !a, nice country; it's amazing."; 
+
+	cout << "\nOriginal string: \n";
+	cout << S1 << endl;
+	cout << "Paunctuations removes: \n";
+	cout << removePaun(S1) << endl;
+
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/

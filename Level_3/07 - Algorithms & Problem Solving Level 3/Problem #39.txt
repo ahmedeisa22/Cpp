@@ -1,0 +1,60 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+//string Join(vector<string>& v,string delimeter = " ") {
+//	cout << "Vector After Join:\n";
+//	string join = "";
+//	for (auto it = v.begin(); it != v.end();it++) {
+//		if(it == v.end()-1)
+//			join += *it;
+//		else
+//			join += *it + delimeter;
+//	}
+//	return join;
+//}
+//
+//int main(){
+//	vector<string> vec = { "Ahmed","Adel","Fady","Eisa","Ibrahiem" };
+//
+//	cout << Join(vec,"---") << endl;
+//	
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+	return str;
+}
+
+string JoinString(vector<string>& vec, string delimeter = " ") {
+	cout << "Vector After Join:\n";
+	string join = "";
+	for (auto &v : vec) {
+			join += v + delimeter;
+	}
+	return join.substr(0, join.length() - delimeter.size());
+}
+
+int main() {
+	vector<string> vec = { "Ahmed","Adel","Fady","Eisa","Ibrahiem" };
+
+	cout << JoinString(vec, "---") << endl;
+
+	system("pause>0");
+}

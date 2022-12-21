@@ -1,0 +1,47 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+string ReadString(string msg) {
+	cout << msg << " \n";
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+
+string LowerFirstLetterOfEachWord(string s1) {
+	bool isFirstLetter  = true;
+	int size = s1.size();
+	for (int i = 0; i < size; i++) {
+
+		if (s1[i] != ' ' && isFirstLetter) {
+				s1[i] = tolower(s1[i]);
+		}
+		isFirstLetter = (s1[i] == ' ' ? true : false);
+	}
+	return s1;
+}
+int main(){
+		
+	string str = ReadString("Please enter your string");
+
+	cout << PrintFirstLetterOfEachWord(str);
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/

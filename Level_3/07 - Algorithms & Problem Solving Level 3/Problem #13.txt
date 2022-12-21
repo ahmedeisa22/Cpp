@@ -1,0 +1,115 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+/*
+void FillAraay(int matrix[3][3], int Rows, int Cols) {
+
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			if (i == j)
+				matrix[i][j] = 2;
+			else
+				matrix[i][j] = 0;
+	}
+}
+bool isIdentity(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++) {
+			if (i == j) {
+				if (matrix[i][j] != 1) return false;
+			}
+			else {
+				if (matrix[i][j] != 0) return false;
+			}
+		}
+	}
+	return true;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3];
+	FillAraay(matrix1,3,3);
+	
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	
+	if (isIdentity(matrix1, 3, 3))
+		cout << "\nYes, they are Identity :) \n";
+	else
+		cout << "\nNo, They are not Identity\n";
+		
+	system("pause>0");
+}*/
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+void FillAraay(int matrix[3][3], int Rows, int Cols) {
+
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			if (i == j)
+				matrix[i][j] = 2;
+			else
+				matrix[i][j] = 0;
+	}
+}
+bool IsIdentityMarix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++) {
+			if (i == j && matrix[i][j] != 1) {
+				 return false;
+			}
+			else if(i != j && matrix[i][j] != 0) {
+				 return false;
+			}
+		}
+	}
+	return true;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int matrix1[3][3];
+	FillAraay(matrix1,3,3);
+
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+
+	if (IsIdentityMarix(matrix1, 3, 3))
+		cout << "\nYes, they are Identity :) \n";
+	else
+		cout << "\nNo, They are not Identity\n";
+
+	system("pause>0");
+}
+

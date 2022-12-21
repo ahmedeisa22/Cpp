@@ -1,0 +1,99 @@
+
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+//
+//bool is_sparce(int matrix[3][3], short Rows, short Cols) {
+//	short zeroes = 0,others= 0;
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++) {
+//			if (matrix[i][j] == 0)zeroes++;
+//			else others++;
+//		}
+//	}
+//	return zeroes > others;
+//}
+//void printMatrix(int matrix[3][3], int Rows, int Cols) {
+//	for (int i = 0; i < Rows; i++) {
+//		for (int j = 0; j < Cols; j++)
+//			printf(" %0*d\t", 1, matrix[i][j]);
+//		cout << endl;
+//	}
+//}
+//int main(){
+//	srand((unsigned)time(NULL));
+//	int matrix1[3][3] = {
+//		{9,1,12},
+//		{0,0,1},
+//		{0,0,0}
+//	};
+//
+//	
+//
+//	cout << "\nMatrix 1: \n";
+//	printMatrix(matrix1, 3, 3);
+//
+//	if (is_sparce(matrix1, 3, 3))
+//		cout << "Yes, it is sprace matrix\n";
+//	else
+//		cout << "No, it isn't sparce matrix\n";
+//
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+short checkNumber(int matrix[3][3], short Rows, short Cols, short number) {
+	short counter = 0;
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++) {
+			if (matrix[i][j] == number)counter++;
+		}
+	}
+	return counter;
+}
+
+bool is_sparce(int matrix[3][3], short Rows, short Cols) {
+	short maxSize = Rows * Cols;
+	
+	return (checkNumber(matrix,3,3,0) >= ceil((float)maxSize/2));
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main() {
+	srand((unsigned)time(NULL));
+	int matrix1[3][3] = {
+		{9,1,12},
+		{0,0,1},
+		{0,0,1}
+	};
+
+
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(matrix1, 3, 3);
+
+	if (is_sparce(matrix1, 3, 3))
+		cout << "Yes, it is sprace matrix\n";
+	else
+		cout << "No, it isn't sparce matrix\n";
+
+	system("pause>0");
+}

@@ -1,0 +1,54 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+using namespace myLib;
+
+int getMinmumNumber(int matrix[3][3], int Rows, int Cols) {
+	int min = matrix[0][0];
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+		{
+			if (matrix[i][j] < min) min =  matrix[i][j];
+		}
+	}
+	return min;
+}
+int getMaxmumNumber(int matrix[3][3], int Rows, int Cols) {
+	int max = matrix[0][0];
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+		{
+			if (matrix[i][j] > max) max = matrix[i][j];
+		}
+	}
+	return max;
+}
+void printMatrix(int matrix[3][3], int Rows, int Cols) {
+	for (int i = 0; i < Rows; i++) {
+		for (int j = 0; j < Cols; j++)
+			printf(" %0*d\t", 1, matrix[i][j]);
+		cout << endl;
+	}
+}
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrix1[3][3] = { {77,5,12},{22,20,111},{15,3,9} };
+	
+
+	cout << "\nMatrix 1: \n";
+	printMatrix(Matrix1, 3, 3);
+
+	cout << "Minimun Number is: " << getMinmumNumber(Matrix1, 3, 3) << "\n";
+	cout << "Maximun Number is: " << getMaxmumNumber(Matrix1, 3, 3) << "\n";
+
+	system("pause>0");
+}

@@ -1,0 +1,122 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//vector<string> split(string str, string delimeter = " ") {
+//		int size = str.size();
+//		int pos = 0;
+//		string sWord = "";
+//		vector<string> res;
+//		while ((pos = str.find(delimeter)) != string::npos) {
+//			sWord = str.substr(0, pos);
+//	
+//			if (sWord != "") res.push_back(sWord);
+//	
+//			str.erase(0, pos + delimeter.length());
+//		}
+//		if (str != "") res.push_back(str);
+//		return res;
+//	}
+//
+//string ReplaceWith(string str, string stringToReplace , string rep) {
+//	vector<string> res = split(str);
+//	string newWord = "";
+//	for (int i = 0; i < res.size(); i++) {
+//		if (res[i] == stringToReplace) res[i] = rep;
+//
+//		newWord += res[i] + " ";
+//	}
+//	return newWord.substr(0,newWord.size()-1);
+//}
+//int main(){
+//	string S1 = "Welcome to Jordan , Jordan is a nice country"; 
+//	string StringToReplace = "Jordan";
+//	string ReplaceTo = "USA";
+//
+//	cout << "\nOriginal string: \n";
+//	cout << S1 << endl;
+//	cout << "String After Replace: \n";
+//
+//	cout << ReplaceWith(S1, "jordan", ReplaceTo) << endl;
+//	cout << ReplaceWith(S1, StringToReplace, ReplaceTo) << endl;
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+string JoinString(vector<string>& vec, string delimeter = " ") {
+	string join = "";
+	for (auto& v : vec) {
+		join += v + delimeter;
+	}
+	return join.substr(0, join.length() - delimeter.size());
+}
+string lowerAll(string str) {
+	for (int i = 0; i < str.size(); i++)
+		str[i] = tolower(str[i]);
+	return str;
+}
+vector<string> split(string str, string delimeter = " ") {
+		int size = str.size();
+		int pos = 0;
+		string sWord = "";
+		vector<string> res;
+		while ((pos = str.find(delimeter)) != string::npos) {
+			sWord = str.substr(0, pos);
+	
+			if (sWord != "") res.push_back(sWord);
+	
+			str.erase(0, pos + delimeter.length());
+		}
+		if (str != "") res.push_back(str);
+		return res;
+	}
+string ReplaceWordInString(string str, string stringToReplace, string sRepalceTo, bool MatchCase = true) {
+	vector<string> res = split(str);
+
+	for (auto& v : res) {
+
+		if (MatchCase) {
+			if (v == stringToReplace)
+				v = sRepalceTo;
+		}
+		else {
+			if (lowerAll(v) == lowerAll(stringToReplace))
+				v = sRepalceTo;
+		}
+
+	}
+	return JoinString(res);
+}
+int main() {
+	string S1 = "Welcome to Jordan , Jordan is a nice country";
+		string StringToReplace = "Jordan";
+		string ReplaceTo = "USA";
+	
+		cout << "\nOriginal string: \n";
+		cout << S1 << endl;
+		cout << "String After Replace: \n";
+	
+		cout << ReplaceWordInString(S1, "jordan", ReplaceTo,false) << endl;
+		cout << ReplaceWordInString(S1, StringToReplace, ReplaceTo) << endl;
+	system("pause>0");
+}

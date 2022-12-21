@@ -1,0 +1,87 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//
+//string ReadString() {
+//	cout << "Please enter your string" << endl;
+//	string str;
+//	getline(cin, str);
+//
+//	return str;
+//
+//}
+//vector<string> split(string str, string delimeter = " ") {
+//		int size = str.size();
+//		int pos = 0;
+//		string sWord = "";
+//		vector<string> res;
+//		while ((pos = str.find(delimeter)) != string::npos) {
+//			sWord = str.substr(0, pos);
+//	
+//			if (sWord != "") res.push_back(sWord);
+//	
+//			str.erase(0, pos + delimeter.length());
+//		}
+//		if (str != "") res.push_back(str);
+//		return res;
+//	}
+//
+//string ReplaceWith(string str, string stringToReplace , string rep) {
+//	vector<string> res = split(str);
+//	string newWord = "";
+//	for (int i = 0; i < res.size(); i++) {
+//		if (res[i] == stringToReplace) res[i] = rep;
+//
+//		newWord += res[i] + " ";
+//	}
+//	return newWord.substr(0,newWord.size()-1);
+//}
+//int main(){
+//	cout << "\nOriginal string: \n";
+//	string str = ReadString();
+//	cout << "String After Replace: \n";
+//	cout << ReplaceWith(str,"Jordan","USA") << endl; 
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+
+
+string ReplaceWordInStringUsingBuiltInFunction(string str, string stringToReplace, string sRepalceTo) {
+
+	string newWord = "";
+	int pos = str.find(stringToReplace);
+	while (pos != string::npos) {
+		str = str.replace(pos, stringToReplace.length(), sRepalceTo);
+		pos = str.find(stringToReplace);
+	}
+	return str;
+}
+int main() {
+	cout << "\nOriginal string: \n";
+	string str = ReadString();
+	cout << "String After Replace: \n";
+	cout << ReplaceWordInStringUsingBuiltInFunction(str, "Jordan", "USA") << endl;
+	system("pause>0");
+}

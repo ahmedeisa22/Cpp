@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+
+string ReadString() {
+	cout << "Please enter your string" << endl;
+	string str;
+	getline(cin, str);
+
+	return str;
+
+}
+
+char ReadCharacter() {
+	cout << "Please enter your character" << endl;
+	char ch;
+	cin >> ch;
+
+	return ch;
+}
+
+int countLetterInString(string str, char ch) {
+	int size = str.size();
+	int counter = 0;
+
+	for(int i = 0 ; i < size ; i++){
+		if (str[i] == ch)counter++;
+	}
+	return counter;
+}
+int main(){
+		
+	string str = ReadString();
+	char ch;
+
+	cout << "Please enter a character: " <<  endl;
+	cin >> ch;
+
+	cout << "Letter " << ch << " count: " << countLetterInString(str, ch) << endl;
+	system("pause>0");
+}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+

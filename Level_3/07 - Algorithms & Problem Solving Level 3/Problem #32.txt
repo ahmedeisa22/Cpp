@@ -1,0 +1,71 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include "Header.h"
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+//char ReadCharacter() {
+//	cout << "Please enter your character" << endl;
+//	char ch;
+//	cin >> ch;
+//
+//	return ch;
+//}
+//
+//bool checkVowel(char ch) {
+//	ch = tolower(ch);
+//	string vowels = "aeiou";
+//	for (int i = 0; i < vowels.size(); i++) {
+//		if (ch == vowels[i])return true;
+//	}
+//	return false;
+//}
+//
+//int main(){
+//	
+//	char ch = ReadCharacter();
+//
+//	if (checkVowel(ch))
+//		cout << "Yes, Letter '" << ch << "' is a vowel\n";
+//	else
+//		cout << "No, Letter '" << ch << "' isn't a vowel\n";
+//	system("pause>0");
+//}
+
+
+/**********************************************************************************/
+// His solution
+/**********************************************************************************/
+
+
+ char ReadCharacter() {
+		cout << "Please enter your character" << endl;
+		char ch;
+		cin >> ch;
+	
+		return ch;
+	}
+	
+	bool checkVowel(char ch) {
+		ch = tolower(ch);
+		
+		return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+	}
+	
+	int main(){
+		
+		char ch = ReadCharacter();
+	
+		if (checkVowel(ch))
+			cout << "Yes, Letter '" << ch << "' is a vowel\n";
+		else
+			cout << "No, Letter '" << ch << "' isn't a vowel\n";
+		system("pause>0");
+	}
