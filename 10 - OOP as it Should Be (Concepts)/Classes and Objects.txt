@@ -1,0 +1,31 @@
+
+#include <iostream>
+
+using namespace std;
+
+class ClsPerson {
+	//this private and will not be accessed from outside the class
+	//for internal use only
+	int z;
+public:
+	string FirstName;
+	string LastName;
+
+	string FullName() {
+		return FirstName + " " + LastName;
+	}
+};
+
+int main() {
+	
+	ClsPerson person;
+
+	person.FirstName = "Ahmed";
+	person.LastName = "Eissa";
+
+	cout << person.FullName() << "\n";
+
+	string st;
+	system("pause>0");
+}
+

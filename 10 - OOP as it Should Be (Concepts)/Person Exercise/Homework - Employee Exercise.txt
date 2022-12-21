@@ -1,0 +1,107 @@
+
+#include <iostream>
+
+using namespace std;
+class clsEmployee {
+	 int _id;
+	string _FirstName;
+	string _LastName;
+	string _Title;
+	string _Email;
+	string _Phone;
+	string _Department;
+	double _Salary;
+
+public:
+	clsEmployee(int id , string FirstName, string LastName,string Title ,string Email , string Phone,string Dep,double salary){
+		_id = id;
+		_FirstName = FirstName;
+		_LastName = LastName;
+		_Title = Title;
+		_Email = Email;
+		_Phone = Phone;
+		_Department = Dep;
+		_Salary = salary;
+	}
+	int getID() {
+		return _id;
+	}
+	void setFirstName(string Name) {
+		_FirstName = Name;
+	}
+	string getFirstName() {
+		return _FirstName;
+	}
+	void setLastName(string Name) {
+		_LastName = Name;
+	}
+	string getLasttName() {
+		return _LastName;
+	}
+	void setTitle(string title) {
+		_Title = title;
+	}
+	string getTitlee() {
+		return _Title;
+	}
+	void setEmail(string Email) {
+		_Email = Email;
+	}
+	string getEmail() {
+		return _Email;
+	}
+	void setPhone(string Phone) {
+		_Phone = Phone;
+	}
+	string getPhone() {
+		return _Phone;
+	}
+	void setDepartment(string dep) {
+		_Department = dep;
+	}
+	string getDepartment() {
+		return _Department;
+	}
+	void setSalary(double salary) {
+		_Salary = salary;
+	}
+	double getSalary() {
+		return _Salary;
+	}
+	string getFullName() {
+		return _FirstName + " " + _LastName;
+	}
+	void print() {
+		cout << "\n___________________________________________\n";
+		cout << "ID         : " << _id << "\n";
+		cout << "FirstName  : " << _FirstName << "\n";
+		cout << "LastName   : " << _LastName << "\n";
+		cout << "Department : " << _Department << "\n";
+		cout << "Email      : " << _Email << "\n";
+		cout << "Phone      : " << _Phone << "\n";
+		cout << "Title      : " << _Title << "\n";
+		cout << "Salary     : " << _Salary << "\n";
+		cout << "___________________________________________\n";
+	}
+
+	void SendEmail(string Subject,string Body){
+		cout << "\nThe following message send successfully to email: " << getEmail() << "\n";
+		cout << "Subject: " << Subject << "\n";
+		cout << "Body: " << Body << "\n";
+	}
+	void SendSMS(string message){
+		cout << "\nThe following SMS send successfully to phone: " << getPhone() << "\n";
+		cout << "Message: " << message << "\n";
+	}
+};
+
+
+int main() {
+	clsEmployee person1(10,"Ahmed","Eissa","Software Engineer","eissa88667@gamil.com","01118947989",".Net",10000);
+	person1.print();
+
+	person1.SendEmail("Hi","How are you?");
+	person1.SendSMS( "How are you?");
+	system("pause>0");
+}
+

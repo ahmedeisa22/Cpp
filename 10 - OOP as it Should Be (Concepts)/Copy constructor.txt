@@ -1,0 +1,72 @@
+
+#include <iostream>
+
+using namespace std;
+class clsAddress{
+private:
+	string _AddressLine1; 
+	string _AddressLine2;
+	string _POBox; 
+	string _ZipCode;
+public:
+
+	clsAddress(string AddressLine1,string AddressLine2,string PoBox,string ZipCode){
+		_AddressLine1 = AddressLine1;
+		_AddressLine2 = AddressLine2;
+		_POBox = PoBox;
+		_ZipCode = ZipCode;
+	}
+	// constructor overloading
+	// copy constructor
+	clsAddress(const clsAddress& old_obj) {
+		_AddressLine1 = old_obj._AddressLine1;
+		_AddressLine2 = old_obj._AddressLine2;
+		_POBox = old_obj._POBox;
+		_ZipCode = old_obj._ZipCode;
+	}
+	void setAddressLine1(int address1) {
+		_AddressLine1 = address1;
+	}
+	string AddressLine1() {
+		return _AddressLine1;
+	}
+	void setAddressLine2(int address2) {
+		_AddressLine2 = address2;
+	}
+	string AddressLine2() {
+		return _AddressLine2;
+	}
+	void setPoBox(int pobox) {
+		_POBox = pobox;
+	}
+	string PoBox() {
+		return _POBox;
+	}
+	void setZipCode(int zipcode) {
+		_ZipCode = zipcode;
+	}
+	string ZipCode() {
+		return _ZipCode;
+	}
+
+	__declspec(property(get = AddressLine1,put = setAddressLine1)) string Address;
+	void Print() 
+	{ 
+		cout << "\nAddress Details:\n";  
+		cout << "------------------------";     
+		cout << "\nAddressLine1: " << _AddressLine1 << endl;    
+		cout << "AddressLine2: " << _AddressLine2 << endl;  
+	cout << "POBox       : " << _POBox << endl;  
+	cout << "ZipCode     : " << _ZipCode << endl; 
+	}
+};
+
+int main() {
+	
+	clsAddress Address("Queen Alia Street", "B 303 ", "11192", "5555");
+	Address.Print();
+	clsAddress Address2 = Address;
+	Address2.Print();
+	system("pause>0");
+}
+

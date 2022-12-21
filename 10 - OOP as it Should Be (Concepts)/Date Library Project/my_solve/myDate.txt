@@ -1,0 +1,207 @@
+#pragma once
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "clsString.h"
+using namespace std;
+class clsDate
+{
+private:
+	int _days;
+	int _month;
+	int _year;
+	string _fullDate;
+public:
+
+	clsDate(){
+			dateToday();
+			_fullDate += to_string(_days) + "/" + to_string(_month) + "/" + to_string(_year);
+	}
+	clsDate(string date):_fullDate(date){
+		vector<string> dates = clsString::split(date,"/");
+		_days = stoi(dates[0]);
+		_month = stoi(dates[1]);
+		_year = stoi(dates[2]);
+	}
+	clsDate(int day,int month,int year):_days(day), _month(month),_year(year){
+		_fullDate+= to_string(_days) + "/" + to_string(_month) + "/" + to_string(_year);
+	}
+	clsDate(int dayInYear, int year):_days(1),_month(1),_year(year) {
+
+		for (int i =1; i < dayInYear; i++) {
+			IncreaseDateByOneDay();
+		}
+		_fullDate += to_string(_days) + "/" + to_string(_month) + "/" + to_string(_year);
+	}
+
+	void dateToday() {
+	
+	time_t t = time(0);
+	tm* now = localtime(&t);
+
+	this->_days = now->tm_mday;
+	this->_month = now->tm_mon + 1;
+	this->_year = now->tm_year + 1900;
+	}
+	void print() {
+		cout << this->_fullDate << "\n";
+	}
+	static bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+	static short NumberOfDaysInAMonth(short Month, short Year) {
+		if (Month < 1 || Month>12)
+			return  0;
+		int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+		return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+	}
+	bool CheckIsLastdayInMonth() {
+		return _days == NumberOfDaysInAMonth(_month, _year);
+	}
+	bool CheckIsLastMonthInYear() {
+	return _month == 12;
+}
+	void IncreaseDateByOneDay() {
+	if (CheckIsLastdayInMonth() && CheckIsLastMonthInYear()) {
+		_days = 1;
+		_month = 1;
+		_year++;
+	}
+	else if (CheckIsLastdayInMonth()) {
+		_days = 1;
+		_month++;
+	}
+	else
+		_days++;
+}
+	static string getDayText(short dayIndx) {
+		string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+		return dayOfWeeks[dayIndx];
+	}
+	static string getMonthText(short monthIndx) {
+		string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+		return Months[monthIndx - 1];
+	}
+	static short DayOfWeekOrder(int year, int month, int Day) {
+		short a = (14 - month) / 12;
+		short y = year - a;
+		short m = month + 12 * a - 2;
+		return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+	}
+	static void monthCalender(short month, short year) {
+		int numberOfDay;
+
+		// index of the day from 0 6
+		short current = DayOfWeekOrder(year, month, 1);
+
+		numberOfDay = NumberOfDaysInAMonth(month, year);
+
+		// print the current month name
+		printf("\n-----------%s--------------------------------\n\n", getMonthText(month).c_str());
+
+		// print the colums
+		printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+		// Print appropriate spaces
+		int i;
+		for (i = 0; i < current; i++)
+			printf("     ");
+
+
+		for (int j = 1; j <= numberOfDay; j++) {
+			printf("%5d", j);
+			if (++i == 7) {
+				i = 0;
+				printf("\n");
+			}
+		}
+
+		printf("\n---------------------------------------------\n\n");
+	}
+	bool ValidDate() {
+		return !(_days < 0 || _days > NumberOfDaysInAMonth(_month, _year) || _month > 12);
+	}
+	void monthCalender() {
+		int numberOfDay;
+
+		// index of the day from 0 6
+		short current = DayOfWeekOrder(_year, _month, 1);
+
+		numberOfDay = NumberOfDaysInAMonth(_month, _year);
+
+		// print the current month name
+		printf("\n-----------%s--------------------------------\n\n", getMonthText(_month).c_str());
+
+		// print the colums
+		printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+		// Print appropriate spaces
+		int i;
+		for (i = 0; i < current; i++)
+			printf("     ");
+
+
+		for (int j = 1; j <= numberOfDay; j++) {
+			printf("%5d", j);
+			if (++i == 7) {
+				i = 0;
+				printf("\n");
+			}
+		}
+
+		printf("\n---------------------------------------------\n\n");
+	}
+	void yearCalender() {
+		printf("\n_____________________________________________________\n");
+		printf("\n\t\t Calender - %d\n", _year);
+		printf("\n_____________________________________________________\n");
+		for (int i = 1; i <= 12; i++)
+			monthCalender(i, _year);
+	}
+	static int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+    int res = day;
+    for (int i = 1; i < month; i++)
+        res += NumberOfDaysInAMonth(i, year);
+
+    return res;
+}
+	static short NumberOfDaysInYear( short Year) {
+    if (isLeap(Year))
+        return 366;
+
+    return 365;
+}
+
+	static int convertAgeToDays(clsDate date) {
+    int remainingDays = numberOfDaysFromBeggingOfTheYear(date._days, date._month, date._year);
+    int totalDays = 0;
+    time_t t = time(0);// get time now
+    tm* now = localtime(&t);
+    int currentYear = now->tm_year + 1900;
+    int currentMonthInDays = numberOfDaysFromBeggingOfTheYear(1,now->tm_mon + 1, currentYear);
+    int currentDays = now->tm_mday ;
+
+    for (int i = date._year; i < currentYear; i++) {
+        totalDays += NumberOfDaysInYear(i);
+    }
+    return (totalDays+ currentMonthInDays+ currentDays)-remainingDays;
+}
+	 int convertAgeToDays() {
+		return convertAgeToDays(*this);
+	}
+	static bool IsDate1BeforeDate2(clsDate Date1,clsDate Date2) {
+		return  (Date1._year < Date2._year) ? true : ((Date1._year == Date2._year) ? (Date1._month < Date2._month ? true : (Date1._month == Date2._month ? Date1._days < Date2._days : false)) : false);
+	}
+	bool IsDateBeforeDate2(clsDate Date2) {
+		return IsDate1BeforeDate2(*this, Date2);
+		//return  (this->_year < Date2._year) ? true : ((this->_year == Date2._year) ? (this->_month < Date2._month ? true : (this->_month == Date2._month ? this->_days < Date2._days : false)) : false);
+	}
+};
+

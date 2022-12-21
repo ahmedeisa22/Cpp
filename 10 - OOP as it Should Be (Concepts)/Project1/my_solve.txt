@@ -1,0 +1,95 @@
+
+#include <iostream>
+
+using namespace std;
+class clsCalculator{
+private:
+	int _num;
+	int _numberOperation;
+	char op;
+public:
+	void clear() {
+		_num = 0;
+		_numberOperation = 0;
+		op = ' ';
+	}
+	void add(int Num) {
+		_num += Num;
+		_numberOperation = Num;
+		op = '+';
+	}
+	void subtract(int Num){
+			_num -= Num;
+			_numberOperation = Num;
+		op = '-';
+		}
+	void Divide(int Num){
+		if (Num == 0) 
+			Num = 1;
+			_num /= Num;
+			_numberOperation = Num;
+			op = '/';
+		}
+	
+	void multiply(int Num){
+		_num *= Num;
+		_numberOperation = Num;
+		op = '*';
+	}
+	int getFinalResults() {
+		return _num;
+	}
+	void printResult(){
+		switch (op)
+		{
+		case '+':
+			cout << "Result after adding(" << _numberOperation << ") is: " << getFinalResults() << "\n";
+			break;
+		case '-':
+			cout << "Result after subtracting(" << _numberOperation << ") is: " << getFinalResults() << "\n";
+			break;
+		case '/':
+			cout << "Result after dividing(" << _numberOperation << ") is: " << getFinalResults() << "\n";
+			break;
+		case '*':
+			cout << "Result after mutliplication(" << _numberOperation << ") is: " << getFinalResults() << "\n";
+			break;
+		default:
+				cout << "Result after clear(" << _numberOperation << ") is: " << getFinalResults() << "\n";
+				break;
+			
+		}
+		
+	}
+
+};
+
+int main() {
+	
+	clsCalculator Calculator1;
+
+	Calculator1.clear();
+
+	Calculator1.add(10);
+	Calculator1.printResult();
+
+
+	Calculator1.add(100);
+	Calculator1.printResult();
+
+	Calculator1.subtract(20);
+	Calculator1.printResult();
+
+	Calculator1.Divide(0);
+	Calculator1.printResult();
+
+	Calculator1.Divide(2);
+	Calculator1.printResult();
+
+	Calculator1.multiply(3);
+	Calculator1.printResult();
+
+	Calculator1.clear();
+	Calculator1.printResult();
+	system("pause>0");
+}

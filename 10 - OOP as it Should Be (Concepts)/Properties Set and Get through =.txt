@@ -1,0 +1,42 @@
+
+#include <iostream>
+
+using namespace std;
+
+class clsPerson {
+private: 
+	string _FirstName;
+	string _LastName;
+public:
+	
+	void setFirstName(string name) {
+		_FirstName = name;
+	}
+	string getFirstName() {
+		return _FirstName;
+	}
+	void setLastName(string name){
+		_LastName = name;
+	}
+	string getLastName()
+	{
+		return _LastName;
+	}
+	__declspec(property(get = getFirstName, put = setFirstName)) string FirstName;
+	__declspec(property(get = getLastName , put = setLastName)) string LastName;
+};
+
+int main() {
+	
+	clsPerson Person1; 
+	Person1.setFirstName("Mohammed");
+	cout << "First Name:" << Person1.getFirstName() << endl; 
+
+	// instead of the above we only write this
+	Person1.FirstName = "Eisa";
+	cout << "First Name:" << Person1.FirstName << endl;
+	Person1.LastName = "Adel";
+	cout << "Last Name:" << Person1.LastName << endl;
+	system("pause>0");
+}
+

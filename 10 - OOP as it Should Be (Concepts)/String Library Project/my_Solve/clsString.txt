@@ -1,0 +1,464 @@
+#pragma once
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include<fstream>
+using namespace std;
+
+class clsString
+{
+
+private:
+    string _Value;
+
+    struct Employee {
+        string accountNumber;
+        string punCode;
+        string name;
+        string phone;
+        double accountBalance;
+    };
+public:
+
+    clsString()
+    {
+
+        _Value = "";
+    }
+    clsString(string Value)
+    {
+
+        _Value = Value;
+    }
+
+    void SetValue(string Value) {
+        _Value = Value;
+    }
+    string GetValue() {
+        return _Value;
+    }
+
+    __declspec(property(get = GetValue, put = SetValue)) string Value;
+
+    static short CountWords(string S1)
+    {
+
+        string delim = " "; // delimiter  
+        short Counter = 0;
+        short pos = 0;
+        string sWord; // define a string variable  
+
+        // use find() function to get the position of the delimiters  
+        while ((pos = S1.find(delim)) != std::string::npos)
+        {
+            sWord = S1.substr(0, pos); // store the word   
+            if (sWord != "")
+            {
+                Counter++;
+            }
+
+            //erase() until positon and move to next word.
+            S1.erase(0, pos + delim.length());
+        }
+
+        if (S1 != "")
+        {
+            Counter++; // it counts the last word of the string.
+        }
+
+        return Counter;
+
+    }
+    short CountWords()
+    {
+        return CountWords(_Value);
+    };
+
+    static void PrintFirstLetterOfEachWord(string s1) {
+        bool isFirstLetter = true;
+        int size = s1.size();
+        for (int i = 0; i < size; i++) {
+
+            if (s1[i] != ' ' && isFirstLetter)
+                cout << s1[i] << "\n";
+            isFirstLetter = (s1[i] == ' ' ? true : false);
+        }
+    }
+    void PrintFirstLetterOfEachWord() {
+        PrintFirstLetterOfEachWord(_Value);
+    }
+
+    static string LowerFirstLetterOfEachWord(string s1) {
+        bool isFirstLetter = true;
+        int size = s1.size();
+        for (int i = 0; i < size; i++) {
+
+            if (s1[i] != ' ' && isFirstLetter) {
+                s1[i] = tolower(s1[i]);
+            }
+            isFirstLetter = (s1[i] == ' ' ? true : false);
+        }
+        return s1;
+    }
+    string LowerFirstLetterOfEachWord() {
+        return LowerFirstLetterOfEachWord(_Value);
+    }
+
+   static string toUpper(string str) {
+        int size = str.length();
+        for (int i = 0; i < size; i++) {
+            str[i] = toupper(str[i]);
+        }
+        return str;
+    }
+    string toUpper() {
+        return toUpper(_Value);
+    }
+
+    static string toLower(string str) {
+        int size = str.length();
+        for (int i = 0; i < size; i++) {
+            str[i] = tolower(str[i]);
+        }
+        return str;
+    }
+    string toLower() {
+        return toLower(_Value);
+    }
+
+    static char InvertChar(char ch) {
+        return isupper(ch) ? tolower(ch) : toupper(ch);
+    }
+    static string InverString(string str) {
+        for (int i = 0; i < (int)str.size(); i++) {
+            str[i] = InvertChar(str[i]);
+        }
+        return str;
+    }
+    string InverString() {
+        return InverString(_Value);
+    }
+
+    enum enWhatToCount { SmallLetter = 0, CapitalLetter = 1, All = 2 };
+    static short CountLetters(string str, enWhatToCount enwhat = enWhatToCount::All) {
+        int size = str.size();
+        int counter = 0;
+
+        if (enwhat == enWhatToCount::All) {
+            return size;
+        }
+
+        for (short i = 0; i < size; i++) {
+
+            if (enwhat == enWhatToCount::CapitalLetter && isupper(str[i]))counter++;
+            if (enwhat == enWhatToCount::SmallLetter && islower(str[i]))counter++;
+        }
+        return counter;
+    }
+    short CountLetters() {
+        return CountLetters(_Value);
+    }
+
+    static int CaptialletterCount(string str)
+    {
+        int counter = 0;
+        int size = str.size();
+        for (int i = 0; i < size; i++) {
+            if (isupper(str[i])) counter++;
+        }
+        return counter;
+    }
+    int CaptialletterCount() {
+        return CaptialletterCount(_Value);
+    }
+
+    static int smallletterCount(string str)
+    {
+        int counter = 0;
+        int size = str.size();
+        for (int i = 0; i < size; i++) {
+            if (islower(str[i])) counter++;
+        }
+        return counter;
+    }
+    int smallletterCount(){
+        return smallletterCount(_Value);
+    }
+
+    static int countLetterInString(string str, char ch) {
+        int size = str.size();
+        int counter = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (str[i] == ch)counter++;
+        }
+        return counter;
+    }
+    int countLetterInString( char ch) {
+       return countLetterInString(_Value,ch);
+    }
+
+    static int countLetterInStringCaseSens(string str, char ch) {
+	int size = str.size();
+	int counter = 0;
+
+	char chCapital = toupper(ch);
+	for (int i = 0; i < size; i++) {
+		if (str[i] == ch || str[i] == chCapital)counter++;
+	}
+	return counter;
+}
+    int countLetterInStringCaseSens( char ch) {
+        return countLetterInStringCaseSens(_Value,ch);
+    }
+
+    static bool checkVowel(char ch) {
+        ch = tolower(ch);
+        return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+    }
+    static int countVowelsInString(string str) {
+        int size = str.length();
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if (checkVowel(str[i]))counter++;
+        }
+        return counter;
+    }
+    int countVowelsInString() {
+        return countVowelsInString(_Value);
+    }
+
+    static void printVowels(string str) {
+        int size = str.length();
+        for (int i = 0; i < size; i++) {
+            if (checkVowel(str[i]))
+                cout << setw(2) << str[i] << " ";
+        }
+    }
+    void printVowels() {
+        printVowels(_Value);
+    }
+
+   static  void eachWord(string str) {
+        cout << "\n\nYour string words: \n";
+        for (int i = 0; i < str.size(); i++) {
+            if (str[i] != ' ')cout << str[i];
+            else
+                cout << endl;
+        }
+    }
+   void eachWord() {
+       eachWord(_Value);
+   }
+
+    static void PrintEachWordInString(string str) {
+        cout << "\n\nYour string words: \n";
+
+        string delima = " "; // delimater
+        int pos = 0;
+        string sWord = "";
+        while ((pos = str.find(delima)) != string::npos) {
+
+            sWord = str.substr(0, pos);
+            if (sWord != "")cout << sWord << endl;
+
+            str.erase(0, pos + delima.length());
+        }
+
+        if (str != "")cout << str << endl;
+
+    }
+    void PrintEachWordInString() {
+        PrintEachWordInString(_Value);
+    }
+
+
+    static vector<string> split(string str, string delimeter) {
+        vector<string> words;
+        int pos = 0;
+        string sWord = "";
+        while ((pos = str.find(delimeter)) != string::npos) {
+            sWord = str.substr(0, pos);
+            if (sWord != "") {
+                words.push_back(sWord);
+            }
+
+            str.erase(0, pos + delimeter.size());
+        }
+        if (str != "") {
+            words.push_back(str);
+        }
+
+        return words;
+    }
+    vector<string> split(string delimeter) {
+        return split(_Value, delimeter);
+    }
+
+    static string trimLeft(string str) {
+        int size = str.size() - 1;
+
+        for (int i = 0; i <= size; i++) {
+            if (str[i] != ' ') {
+                return str.substr(i, size);
+            }
+        }
+        return "";
+    }
+    string trimLeft() {
+        return trimLeft(_Value);
+    }
+
+    static string trimRight(string str) {
+        int size = str.size() - 1;
+        for (int i = size; i >= 0; i--) {
+            if (str[i] != ' ')
+                return str.substr(0, i + 1);
+
+        }
+        return "";
+    }
+    string trimRight() {
+        return trimRight(_Value);
+    }
+
+   static string trimAll(string str) {
+        return trimLeft(trimRight(str));
+    }
+   string trimAll() {
+       return trimAll(_Value);
+   }
+
+   static string JoinString(vector<string>& vec, string delimeter = " ") {
+       cout << "Vector After Join:\n";
+       string join = "";
+       for (auto& v : vec) {
+           join += v + delimeter;
+       }
+       return join.substr(0, join.length() - delimeter.size());
+   }
+
+   static string reverseWord(string S1) {
+       vector<string> words = split(S1," ");
+       string ReversedWord = "";
+
+       vector<string>::iterator it = words.end();
+       while (it != words.begin()) {
+
+           it--;
+           ReversedWord += *it + " ";
+       }
+       return ReversedWord.substr(0, ReversedWord.size() - 1);
+   }
+   string reverseWord() {
+       return reverseWord(_Value);
+   }
+
+   static string ReplaceWordInStringUsingBuiltInFunction(string str, string stringToReplace, string sRepalceTo) {
+
+       string newWord = "";
+       int pos = str.find(stringToReplace);
+       while (pos != string::npos) {
+           str = str.replace(pos, stringToReplace.length(), sRepalceTo);
+           pos = str.find(stringToReplace);
+       }
+       return str;
+   }
+   string ReplaceWordInStringUsingBuiltInFunction(string stringToReplace, string sRepalceTo) {
+       return ReplaceWordInStringUsingBuiltInFunction(_Value, stringToReplace, sRepalceTo);
+   }
+
+   static string lowerAll(string str) {
+       for (int i = 0; i < str.size(); i++)
+           str[i] = tolower(str[i]);
+       return str;
+   }
+   string lowerAll() {
+       return lowerAll(_Value);
+   }
+
+   static string removePaun(string str) {
+	for (int i = 0; i < str.length();) {
+		if (ispunct(str[i]))
+		{
+			str.replace(i, 1,"");
+			i--;
+		}
+		else
+			i++;
+	}
+    	return str;
+}
+   string removePaun() {
+       return removePaun(_Value);
+   }
+
+   Employee ReadNewClient() {
+       Employee emp;
+
+       cout << "\n\nEnter Account Number: ";
+       getline(cin, emp.accountNumber);
+
+       cout << "\nEnter PinCode: ";
+       getline(cin, emp.punCode);
+
+       cout << "\nEnter Name: ";
+       getline(cin, emp.name);
+
+       cout << "\nEnter Phone Number: ";
+       getline(cin, emp.phone);
+
+       cout << "\nEnter Account Balance: ";
+       cin >> emp.accountBalance;
+
+       return emp;
+   }
+   string ConvertRecordToLine(Employee emp, string Seperator = "#//#") {
+       string stClientRecord = "";
+       stClientRecord += emp.accountNumber + Seperator;
+       stClientRecord += emp.punCode + Seperator;
+       stClientRecord += emp.name + Seperator;
+       stClientRecord += emp.phone + Seperator;
+       stClientRecord += to_string(emp.accountBalance);
+
+       return stClientRecord;
+   }
+
+   Employee converLineToRcord(string str, string delimeter = "#//#") {
+	vector<string> vec = split(str, delimeter);
+	Employee emp;
+
+	emp.accountNumber = vec[0];
+	emp.punCode = vec[1];
+	emp.name = vec[2];
+	emp.phone = vec[3];
+	emp.accountBalance = stod(vec[4]);
+
+	return emp;
+}
+   void print(Employee emp) {
+	cout << endl << endl;
+	cout << "Account Number     : " << emp.accountNumber << endl;
+	cout << "Pin Code           : " << emp.punCode << endl;
+	cout << "Name               : " << emp.name << endl;
+	cout << "Phone Number       : " << emp.phone << endl;
+	cout << "Account Balance    : " << emp.accountBalance << endl;
+}
+
+   static void CreateFile(string file, string addStr) {
+       fstream myFile;
+       myFile.open(file, ios::out | ios::app);
+       if (myFile.is_open()) {
+           myFile << addStr << endl;
+
+           myFile.close();
+       }
+   }
+   void CreateFile( string addStr) {
+       CreateFile(_Value, addStr);
+   }
+
+};
