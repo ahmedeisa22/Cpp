@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//bool isLeap(int year) {
+//	if (year % 400 == 0||year % 4 == 0 && year % 100 != 0)
+//		return true;
+//
+//	return false;
+//}
+//int main() {
+//	int year = 2022;
+//	if (isLeap(year))
+//		cout << "Leap\n";
+//	else
+//		cout << "NotLeap\n";
+//	system("pause");
+//}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+bool isLeap(int year) {
+	// leap year if perfecty divisble by 400
+	if (year % 400 == 0)
+		return true;
+
+	//if not aleap if divisble by 400
+	// but not divisble by 100
+	else if (year % 100 == 0)
+		return false;
+
+	// leap year if not  divsible by 100
+	// but divisble by 4
+	if ( year % 4 == 0 )
+		return true;
+
+	 // all other years all not leap
+	return false;
+}
+int main() {
+	int year = 2022;
+	if (isLeap(year))
+		cout << "Leap\n";
+	else
+		cout << "NotLeap\n";
+	system("pause");
+}

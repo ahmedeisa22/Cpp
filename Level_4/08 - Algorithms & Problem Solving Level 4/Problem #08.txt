@@ -1,0 +1,168 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+//    return dayOfWeeks[dayIndx];
+//}
+//string getMonthText(short monthIndx) {
+//    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+//    return Months[monthIndx - 1];
+//}
+//bool isLeapYear(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12) return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeapYear(Year) ? 29 : 28) : days[Month - 1];
+//}
+//
+//
+//void monthCalender(short month, short year) {
+//    cout << endl << endl;
+//    cout << "\t____________________" << getMonthText(month) << "__________________\n";
+//    cout << endl;
+//    cout << "\t " << setw(5) << "Sun";
+//    cout << "" << setw(5) << "Mon";
+//    cout << "" << setw(5) << "Tue";
+//    cout << "" << setw(5) << "Wed";
+//    cout << "" << setw(5) << "Thu";
+//    cout << "" << setw(5) << "Fri";
+//    cout << "" << setw(5) << "Sat";
+//    cout << endl << endl;
+//
+//    int  i = 0;
+//    int current = DayOfWeekOrder(year, month, 1);
+//    int numberDays = NumberOfDaysInAMonth(month, year);
+//    cout << "\t";
+//    for (i = 0; i < current; i++)
+//        cout << "     ";
+//
+//    for (int j = 1; j <= numberDays; j++) {
+//        cout << "" << setw(5) << j;
+//
+//        if (++i == 7) {
+//            cout << endl << "\t";
+//            i = 0;
+//        }
+//    }
+//
+//    cout << endl << endl;
+//}
+//int main() {
+//    int year = ReadPositiveNumber("Please enter a year");
+//    int month = ReadPositiveNumber("Please enter a month");
+//    monthCalender(month, year);
+//
+//    system("pause");
+//}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+
+/
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+//    return dayOfWeeks[dayIndx];
+//}
+//string getMonthText(short monthIndx) {
+//    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+//    return Months[monthIndx - 1];
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0; 
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//
+//void monthCalender(short month, short year) {
+//    int numberOfDay;
+//
+//    // index of the day from 0 6
+//    short current = DayOfWeekOrder(year,month,1);
+//
+//    numberOfDay = NumberOfDaysInAMonth(month,year);
+//
+//    // print the current month name
+//    printf("\n-----------%s-------------\n\n", getMonthText(month).c_str());
+//
+//    // print the colums
+//    printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//
+//    // Print appropriate spaces
+//    int i;
+//    for (i = 0; i < current; i++)
+//        printf("     ");
+//
+//
+//    for (int j = 1; j <= numberOfDay; j++) {
+//        printf("%5d",j);
+//        if (++i == 7) { 
+//            i = 0;       
+//            printf("\n");
+//        }
+//    }
+//
+//    printf("\n  _________________________________\n");
+//}
+//int main() {
+//    int year = ReadPositiveNumber("Please enter a year");
+//    int month = ReadPositiveNumber("Please enter a month");
+//    monthCalender(month, year);
+//
+//    system("pause");
+//}

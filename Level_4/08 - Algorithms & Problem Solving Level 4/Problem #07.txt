@@ -1,0 +1,114 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Satu" };
+//    return dayOfWeeks[dayIndx];
+//}
+//bool isLeap(int year) {
+//	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//
+//string getDate(short day, short month, short year) {
+//    return (to_string(day) + "/" + to_string(month) + "/" + to_string(year));
+//}
+//int getDay(int month){
+//   return (14 - month) / 12;
+//}
+//int getYear(int year,int month) {
+//    return year - getDay(month);
+//}
+//int getMonth(int year, int month){
+//    return month + 12 * getDay(month) - 2;
+//}
+//
+//int getd(int year, int month,int day) {
+//    int a = getDay(month);
+//    int m = getMonth(year, month);
+//    int y = getYear(year, month);
+//    return ( day + y + abs(y / 4) - abs(y/100)+abs(y/400)+ abs(31*m/12)) % 7;
+//
+//}
+//int main() {
+//    int year = ReadPositiveNumber("Please enter a year");
+//    int month = ReadPositiveNumber("Please enter a month");
+//    int day = ReadPositiveNumber("Please enter a day");
+//   
+//    cout << "Date      : " << getDate(day,month,year) << endl;
+//    cout << "Day order : " << getd(year,month,day) << endl;
+//    cout << "Day Name  : " << getDayText(getd(year, month, day)) << endl;
+//    cout << getd(year,month,day) << "\n";
+//	system("pause");
+//}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << "? ";
+        cin >> Number;
+    } while (Number <= 0);
+    return Number;
+}
+string getDayText(short dayIndx) {
+    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Satu" };
+    return dayOfWeeks[dayIndx];
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+
+string getDate(short day, short month, short year) {
+    return (to_string(day) + "/" + to_string(month) + "/" + to_string(year));
+}
+
+
+short DayOfWeekOrder(int year, int month, int Day) {
+    short a = (14 - month) / 12;
+    short y = year - a;
+    short m = month + 12 * a - 2;
+    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+    //return (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+}
+
+int main() {
+    int year = ReadPositiveNumber("Please enter a year");
+    int month = ReadPositiveNumber("Please enter a month");
+    int day = ReadPositiveNumber("Please enter a day");
+
+    cout << "Date      : " << day << "/" <<  month << "/" <<  year << endl;
+    cout << "Day order : " << DayOfWeekOrder(year, month, day) << endl;
+    cout << "Day Name  : " << getDayText(DayOfWeekOrder(year, month, day)) << endl;
+    //cout << getd(year,month,day) << "\n";
+    system("pause");
+}

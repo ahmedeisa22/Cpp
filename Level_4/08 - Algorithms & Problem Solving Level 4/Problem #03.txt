@@ -1,0 +1,32 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+bool isLeap(int year) {
+	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+int main() {
+	int year = 2024;
+	if (isLeap(year))
+		cout << "Leap\n";
+	else
+		cout << "NotLeap\n";
+	system("pause");
+}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

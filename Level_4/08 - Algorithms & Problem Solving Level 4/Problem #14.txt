@@ -1,0 +1,74 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+
+short ReadDay() {
+    short Day;
+    cout << "\nPlease enter a Day? ";
+    cin >> Day; return Day;
+}
+
+short ReadMonth() {
+    short Month;
+    cout << "\nPlease enter a Month? ";
+    cin >> Month;
+    return Month;
+}
+
+short ReadYear() {
+    short Year;
+    cout << "\nPlease enter a Year? ";
+    cin >> Year;
+    return Year;
+}
+
+sDate ReadFullDate() {
+    sDate date;
+    date.days = ReadDay();
+    date.month = ReadMonth();
+    date.year = ReadYear();
+    return date;
+}
+
+
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+    return (date1.year < date2.year) ? true : ((date1.year == date1.year) ? (date1.month < date2.month ? true : (date1.month == date2.month ? date1.days < date2.days : false)) : false);
+}
+bool CheckEqualOrNot(sDate date1, sDate date2) {
+    //return (date1.year == date2.year && date1.month == date2.month && date1.days == date2.days);
+    return (date1.year == date2.year) ? (date1.month == date2.month ? date1.days == date2.days : false) : false;
+}
+int main() {
+
+    sDate Date1 = ReadFullDate();
+    sDate Date2 = ReadFullDate();
+
+    if (CheckEqualOrNot(Date1, Date2))
+        cout << "Yes, Date1 is equal Date2\n";
+    else
+        cout << "No, Date1 isn't equal Date2\n";
+    system("pause");
+}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

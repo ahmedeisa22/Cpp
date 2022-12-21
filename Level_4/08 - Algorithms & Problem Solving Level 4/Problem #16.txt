@@ -1,0 +1,97 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+
+short ReadDay() {
+    short Day;
+    cout << "\nPlease enter a Day? ";
+    cin >> Day; return Day;
+}
+
+short ReadMonth() {
+    short Month;
+    cout << "\nPlease enter a Month? ";
+    cin >> Month;
+    return Month;
+}
+
+short ReadYear() {
+    short Year;
+    cout << "\nPlease enter a Year? ";
+    cin >> Year;
+    return Year;
+}
+
+sDate ReadFullDate() {
+    sDate date;
+    date.days = ReadDay();
+    date.month = ReadMonth();
+    date.year = ReadYear();
+    return date;
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short DayOfWeekOrder(int year, int month, int Day) {
+    short a = (14 - month) / 12;
+    short y = year - a;
+    short m = month + 12 * a - 2;
+    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+    if (Month < 1 || Month>12)
+        return  0;
+    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+
+bool CheckIsLastdayInMonth(sDate date) {
+    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+    return date.month == 12;
+}
+void IncreaseDateByOneDay(sDate &date){
+    if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+        date.days = 1;
+        date.month = 1;
+        date.year++;
+    }
+    else if (CheckIsLastdayInMonth(date)) {
+        date.days = 1;
+        date.month++;
+    }
+    else 
+        date.days++;
+    
+}
+int main() {
+
+    sDate Date = ReadFullDate();
+    IncreaseDateByOneDay(Date);
+    cout << "\n\nDate after adding one day: " << Date.days << "/" << Date.month << "/" << Date.year << "\n\n";
+    system("pause");
+}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

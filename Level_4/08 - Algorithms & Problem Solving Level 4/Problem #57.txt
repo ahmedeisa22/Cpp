@@ -1,0 +1,81 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+struct sDate
+{
+	int Day;
+	int Month;
+	int Year;
+};
+short ReadDay() {
+	short Day;
+	cout << "Please enter a Day? ";
+	cin >> Day;
+	return Day;
+}
+short ReadMonth() {
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+}
+short ReadYear() {
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+}
+sDate ReadFullDate() {
+	sDate date;
+	date.Day = ReadDay();
+	date.Month = ReadMonth();
+	date.Year = ReadYear();
+	return date;
+}
+enum enCmpareDate{Before = -1,Equal = 0 , After = 1};
+bool IsDate1BeforeDate2(sDate Date1, sDate Date2) {
+	return  (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+bool IsDate1EqualDate2(sDate Date1, sDate Date2)
+{ 
+	return  (Date1.Year == Date2.Year) ? ((Date1.Month == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false; 
+}
+
+bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
+	return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2));
+}
+
+enCmpareDate CompareDAtes(sDate date1 , sDate date2){
+	
+	return IsDate1BeforeDate2(date1, date2) ? enCmpareDate::Before : (IsDate1EqualDate2(date1,date2)) ? enCmpareDate::Equal : enCmpareDate::After;
+}
+
+
+int main() {
+	cout << "\nenter Date 1: \n";
+	sDate date1 = ReadFullDate();
+	cout << "\nenter Date 2: \n";
+	sDate date2 = ReadFullDate();
+	cout << endl << endl;
+
+	cout << "conpare result = " << CompareDAtes(date1, date2) << endl;
+	
+	system("pause > 0");
+	return 0;
+}
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

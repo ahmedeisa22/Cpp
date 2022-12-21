@@ -1,0 +1,82 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+struct sDate
+{
+	int Day;
+	int Month;
+	int Year;
+};
+short ReadDay() {
+	short Day;
+	cout << "Please enter a Day? ";
+	cin >> Day;
+	return Day;
+}
+short ReadMonth() {
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+}
+short ReadYear() {
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+}
+sDate ReadFullDate() {
+	sDate date;
+	date.Day = ReadDay();
+	date.Month = ReadMonth();
+	date.Year = ReadYear();
+	return date;
+}
+bool isLeap(int year) {
+	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+	if (Month < 1 || Month>12)
+		return  0;
+	int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+bool CheckIsLastdayInMonth(sDate date) {
+	return date.Day == NumberOfDaysInAMonth(date.Month, date.Year);
+}
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+	return (date1.Year < date2.Year) ? true : ((date1.Year == date1.Year) ? (date1.Month < date2.Month ? true : (date1.Month == date2.Month ? date1.Day < date2.Day : false)) : false);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+	return date.Month == 12;
+}
+bool ValidDate(sDate date) {
+	return !( date.Day < 0 || date.Day > NumberOfDaysInAMonth(date.Month, date.Year) || date.Month > 12);
+}
+int main() {
+
+	sDate date = ReadFullDate();
+
+	if (ValidDate(date))
+		cout << "Yes, it's valid date\n";
+	else
+		cout << "No,it isn't valid date\n";
+	system("pause > 0");
+	return 0;
+}
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

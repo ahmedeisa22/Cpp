@@ -1,0 +1,107 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+struct sDate
+{
+	int Day;
+	int Month;
+	int Year;
+};
+short ReadDay() {
+	short Day;
+	cout << "Please enter a Day? ";
+	cin >> Day;
+	return Day;
+}
+short ReadMonth() {
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+}
+short ReadYear() {
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+}
+sDate ReadFullDate() {
+	sDate date;
+	date.Day = ReadDay();
+	date.Month = ReadMonth();
+	date.Year = ReadYear();
+	return date;
+}
+
+vector<string> SplitStr(string str,string delimeter = "/"){
+	vector<string> swords;
+	int pos = 0;
+
+	while((pos = str.find(delimeter)) != string::npos){
+		string word = str.substr(0, pos + 1);
+		if (word != "")
+			swords.push_back(word);
+
+		str.erase(0, pos + delimeter.size());
+	}
+	if (str != "")
+		swords.push_back(str);
+	return swords;
+}
+sDate stringToDate(string stDate) {
+	vector<string> dates = SplitStr(stDate, "/");
+	sDate date;
+	date.Day = stoi(dates[0]);
+	date.Month = stoi(dates[1]);
+	date.Year = stoi(dates[2]);
+	return date;
+}
+void printDate(sDate date) {
+	cout << "Day  : " << date.Day << "\n";
+	cout << "Month: " << date.Month << "\n";
+	cout << "Year : " << date.Year << "\n";
+}
+string ReadStringDate(string Message) 
+{ 
+	string DateString; 
+	cout << Message; 
+getline(cin >> ws, DateString);
+return DateString; 
+}
+//string DateToString(sDate date,string delimeter="/") {
+//	string dateStr = "";
+//	dateStr += to_string(date.Day) + delimeter;
+//	dateStr += to_string(date.Month) + delimeter;
+//	dateStr += to_string(date.Year) ;
+//	return dateStr;
+//}
+string DateToString(sDate date, string delimeter = "/") {
+	return  to_string(date.Day) + "/" + to_string(date.Month) + "/"+ to_string(date.Year);
+}
+int main() {
+
+	string dateStr = ReadStringDate("Please enter Date dd/mm/yy? ");
+
+	sDate date = stringToDate(dateStr);
+	printDate(date);
+
+	cout << "\nYou enterd : " << DateToString(date) << endl;
+	system("pause > 0");
+	return 0;
+}
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

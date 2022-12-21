@@ -1,0 +1,259 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct sDate
+//{
+//    int days;
+//    int month;
+//    int year;
+//};
+//
+//short ReadDay() {
+//    short Day;
+//    cout << "\nPlease enter a Day? ";
+//    cin >> Day; return Day;
+//}
+//
+//short ReadMonth() {
+//    short Month;
+//    cout << "\nPlease enter a Month? ";
+//    cin >> Month;
+//    return Month;
+//}
+//
+//short ReadYear() {
+//    short Year;
+//    cout << "\nPlease enter a Year? ";
+//    cin >> Year;
+//    return Year;
+//}
+//
+//sDate ReadFullDate() {
+//    sDate date;
+//    date.days = ReadDay();
+//    date.month = ReadMonth();
+//    date.year = ReadYear();
+//    return date;
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//short NumberOfDaysInYear( short Year) {
+//    if (isLeap(Year))
+//        return 366;
+//
+//    return 365;
+//}
+//int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+//    int res = day;
+//    for (int i = 1; i < month; i++)
+//        res += NumberOfDaysInAMonth(i, year);
+//
+//    return res;
+//}
+//bool CheckIsLastdayInMonth(sDate date) {
+//    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+//}
+//bool CheckIsLastMonthInYear(sDate date) {
+//    return date.month == 12;
+//}
+//bool CheckIsLessOrNot(sDate date1, sDate date2) {
+//    return (date1.year < date2.year) ? true : ((date1.year == date1.year) ? (date1.month < date2.month ? true : (date1.month == date2.month ? date1.days < date2.days : false)) : false);
+//}
+//sDate IncreaseDateByOneDay(sDate date) {
+//    if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+//        date.days = 1;
+//        date.month = 1;
+//        date.year++;
+//    }
+//    else if (CheckIsLastdayInMonth(date)) {
+//        date.days = 1;
+//        date.month++;
+//    }
+//    else
+//        date.days++;
+//
+//    return date;
+//
+//}
+//int GetDifferenceInDays(sDate date1, sDate date2, bool includeDif = false) {
+//
+//    int days = 0;
+//    while (CheckIsLessOrNot(date1, date2)) {
+//        days++;
+//        date1 = IncreaseDateByOneDay(date1);
+//    }
+//
+//    return includeDif ? ++days : days;
+//}
+//
+//int convertAgeToDays(sDate date) {
+//    int remainingDays = numberOfDaysFromBeggingOfTheYear(date.days, date.month, date.year);
+//   int totalDays = 0;
+//    time_t t = time(0);// get time now
+//    tm* now = localtime(&t);
+//    int currentYear = now->tm_year + 1900;
+//    int currentMonthInDays = numberOfDaysFromBeggingOfTheYear(1,now->tm_mon + 1, currentYear);
+//    int currentDays = now->tm_mday ;
+//
+//    for (int i = date.year; i < currentYear; i++) {
+//        totalDays += NumberOfDaysInYear(i);
+//    }
+//    return (totalDays+ currentMonthInDays+ currentDays)-remainingDays;
+//}
+//int main() {
+//
+//    cout << "Please enter your age: \n";
+//    sDate Date = ReadFullDate();
+//
+//    cout << "\nYour Age is: " << convertAgeToDays(Date) << "\n";
+// 
+//    system("pause");
+//}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+
+short ReadDay() {
+    short Day;
+    cout << "\nPlease enter a Day? ";
+    cin >> Day; return Day;
+}
+
+short ReadMonth() {
+    short Month;
+    cout << "\nPlease enter a Month? ";
+    cin >> Month;
+    return Month;
+}
+
+short ReadYear() {
+    short Year;
+    cout << "\nPlease enter a Year? ";
+    cin >> Year;
+    return Year;
+}
+
+sDate ReadFullDate() {
+    sDate date;
+    date.days = ReadDay();
+    date.month = ReadMonth();
+    date.year = ReadYear();
+    return date;
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short DayOfWeekOrder(int year, int month, int Day) {
+    short a = (14 - month) / 12;
+    short y = year - a;
+    short m = month + 12 * a - 2;
+    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+    if (Month < 1 || Month>12)
+        return  0;
+    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+short NumberOfDaysInYear(short Year) {
+    if (isLeap(Year))
+        return 366;
+
+    return 365;
+}
+int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+    int res = day;
+    for (int i = 1; i < month; i++)
+        res += NumberOfDaysInAMonth(i, year);
+
+    return res;
+}
+bool CheckIsLastdayInMonth(sDate date) {
+    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+    return date.month == 12;
+}
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+    return (date1.year < date2.year) ? true : ((date1.year == date1.year) ? (date1.month < date2.month ? true : (date1.month == date2.month ? date1.days < date2.days : false)) : false);
+}
+sDate IncreaseDateByOneDay(sDate date) {
+    if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+        date.days = 1;
+        date.month = 1;
+        date.year++;
+    }
+    else if (CheckIsLastdayInMonth(date)) {
+        date.days = 1;
+        date.month++;
+    }
+    else
+        date.days++;
+
+    return date;
+
+}
+int GetDifferenceInDays(sDate date1, sDate date2, bool includeDif = false) {
+
+    int days = 0;
+    while (CheckIsLessOrNot(date1, date2)) {
+        days++;
+        date1 = IncreaseDateByOneDay(date1);
+    }
+
+    return includeDif ? ++days : days;
+}
+
+sDate getSystemDate() {
+    sDate date;
+    time_t t = time(0);// get time now
+    tm* now = localtime(&t);
+    date.year = now->tm_year + 1900;
+    date.month =  now->tm_mon + 1;
+    date.days = now->tm_mday;
+  
+    return date;
+}
+int main() {
+
+    cout << "Please enter your age: \n";
+    sDate Date1 = ReadFullDate();
+    sDate Date2 = getSystemDate();
+    cout << "\nYour Age is: " << GetDifferenceInDays(Date1,Date2,true) << "\n";
+
+    system("pause");
+}

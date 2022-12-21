@@ -1,0 +1,195 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+
+//int ReadNumber()
+//{
+//    int num;
+//    cout << "Enter a number: \n";
+//    cin >> num;
+//    
+//    return num;
+//}
+//
+//string Number_20_1000000_ToName(int num) {
+//    switch (num)
+//    {
+//    case 1:
+//        return "One";
+//    case 2:
+//        return "Two";
+//    case 3:
+//        return "Three";
+//    case 4:
+//        return "Four";
+//    case 5:
+//        return "Five";
+//    case 6:
+//        return "Six";
+//    case 7:
+//        return "Seven";
+//    case 8:
+//        return "Eight";
+//    case 9:
+//        return "Nine";
+//    case 10:
+//        return "Ten";
+//    case 11:
+//        return "eleven";
+//    case 12:
+//        return "twelve";
+//    case 13:
+//        return "thirteen";
+//    case 14:
+//        return "fourteen";
+//    case 15:
+//        return "fifteen";
+//    case 16:
+//        return "sixteen";
+//    case 17:
+//        return "seventeen";
+//    case 18:
+//        return "eighteen";
+//    case 19:
+//        return "nineteen";
+//
+//    }
+//    if(num >= 20 && num < 30)
+//        return "twenty";
+//     if (num >= 30 && num < 40)
+//        return "thirty";
+//     if (num >= 40 && num < 50)
+//         return "forty";
+//     if (num >= 50 && num < 60)
+//         return "fifty";
+//     if (num >= 60 && num < 70)
+//         return "sixty";
+//     if (num >= 70 && num < 80)
+//         return "seventy";
+//     if (num >= 80 && num < 90)
+//         return "eighty";
+//     if (num >= 90 && num < 100)
+//         return "ninety";
+//
+//}
+////843
+//string convertNumberToString(int number) {
+//    map<int, string>mp;
+//    mp.insert({2,"hundreds" });
+//    mp[3] = "thousands";
+//    mp[4] = "millions";
+//    mp[5] = "millions";
+//    mp[6] = "millions";
+//    mp[7] = "millions";
+//    mp[8] = "billions";
+//    mp[9] = "billions";
+//    mp[10] = "billions";
+//    mp[11] = "billions";
+//    mp[12] = "billions";
+//    mp[13] = "billions";
+//    int howDigits;
+//    int newNumber = number;
+//    vector<int> numbers;
+//    while (newNumber) {
+//        numbers.push_back(newNumber % 10); // get last number 
+//        newNumber /= 10;
+//    }
+//
+//    vector<int>::reverse_iterator it = numbers.rbegin();
+//    howDigits = (int)numbers.size()-1;
+//    string res = "";
+//    for (; it != numbers.rend(); it++) {
+//        if (howDigits == 1)
+//        {
+//            int d = *it * 10 + *++it;
+//            --it;
+//            res += (res != "")? (" " + Number_20_1000000_ToName(d)) : Number_20_1000000_ToName(d);
+//            if (d <= 20)break;
+//        }
+//        else 
+//            res += (res != "") ? (" "+ Number_20_1000000_ToName(*it) + mp[howDigits]) : Number_20_1000000_ToName(*it)+" "+mp[howDigits];
+//
+//            howDigits--;
+//    }
+//    return res;
+//}
+//int main() {
+//	
+//    cout << convertNumberToString(ReadNumber()) << endl;;
+//	system("pause");
+//}
+//
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+
+int ReadNumber()
+{
+    int num;
+    cout << "Enter a number: \n";
+    cin >> num;
+
+    return num;
+}
+
+string NumberToText(int num) {
+    if (num == 0)
+        return "";
+
+    if (1 <= num && num <= 19) {
+        string arr[] = { "", "One","Two","Three","Four","Five","Six","Seven", "Eight","Nine","Ten",
+            "Eleven","Twelve","Thirteen","Fourteen", "Fifteen","Sixteen","Seventeen","Eighteen","Nineteen" };
+        return arr[num];
+    }
+    else if (20 <= num && num <= 99) {
+        string arr[] = { "","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety" };
+        return arr[num / 10] + " " + NumberToText(num % 10);
+    }
+    else if (100 <= num && num <=199) {
+
+        return "One hundred " + NumberToText(num % 100);
+    }
+    else if (200 <= num && num <= 999) {
+        return NumberToText(num / 100) + " hundreds " + NumberToText(num % 100);
+    }
+    else if (1000 <= num && num <= 1999) {
+        return  "One thousand " + NumberToText(num % 1000);
+    }
+    else if (2000 <= num && num < 9999999) {
+        return NumberToText(num / 1000) + " thousands " + NumberToText(num % 1000);
+    }
+    else if (1000000 <= num && num <= 1999999) {
+        return "One Milion " + NumberToText(num % 1000000);
+    }
+    else if (2000000 <= num && num <= 999999999) {
+        return NumberToText(num / 1000000) +" Milions " + NumberToText(num % 1000000);
+    }
+    else if (1000000000 <= num && num <= 1999999999) {
+        return "One Bilion " + NumberToText(num % 1000000000);
+    }
+    else {
+        return NumberToText(num / 1000000000) + " Bilions " + NumberToText(num % 1000000000);
+    }
+
+
+}
+
+int main() {
+	
+    cout << NumberToText(ReadNumber()) << endl;;
+	system("pause");
+}

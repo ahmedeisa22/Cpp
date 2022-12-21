@@ -1,0 +1,245 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << "? ";
+        cin >> Number;
+    } while (Number <= 0);
+    return Number;
+}
+string getDayText(short dayIndx) {
+    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+    return dayOfWeeks[dayIndx];
+}
+string getMonthText(short monthIndx) {
+    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    return Months[monthIndx - 1];
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short DayOfWeekOrder(int year, int month, int Day) {
+    short a = (14 - month) / 12;
+    short y = year - a;
+    short m = month + 12 * a - 2;
+    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+    if (Month < 1 || Month>12)
+        return  0;
+    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+
+int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+    int res = day;
+    for (int i = 1; i < month; i++)
+        res += NumberOfDaysInAMonth(i, year);
+
+
+    return res;
+}
+
+//263
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+sDate GetDateFromDayOrderInYear(short shortDateOrderInYear, short year) {
+
+    sDate date;
+    short RemainingDays = shortDateOrderInYear;
+    short MonthDays = 0;
+    date.month = 1;
+    date.year = year;
+
+    while (true) {
+
+        MonthDays = NumberOfDaysInAMonth(date.month, date.year);
+
+        if (RemainingDays > MonthDays ) {
+            
+
+            if (date.month == 12) {
+                date.month = 0;
+                date.year++;
+            }
+
+            date.month++;
+            RemainingDays -= MonthDays;
+        }
+        else {
+            date.days = RemainingDays;
+            break;
+        }
+    }
+
+    return date;
+}
+
+
+int main() {
+    int day = ReadPositiveNumber("Please enter a day");
+    int month = ReadPositiveNumber("Please enter a month");
+    int year = ReadPositiveNumber("Please enter a year");
+    int addDays = ReadPositiveNumber("How many days to add");
+
+    int totalNumberFromBegging = numberOfDaysFromBeggingOfTheYear(day,month,year);
+
+    int addDaysToBegging = totalNumberFromBegging + addDays;
+
+    sDate Date = GetDateFromDayOrderInYear(addDaysToBegging,year);
+
+    cout << "Date after adding[" << addDays << "] " << Date.days << "/" << Date.month << "/" << Date.year << endl;
+    system("pause");
+}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+//    return dayOfWeeks[dayIndx];
+//}
+//string getMonthText(short monthIndx) {
+//    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+//    return Months[monthIndx - 1];
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//
+//int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+//    int res = day;
+//    for (int i = 1; i < month; i++)
+//        res += NumberOfDaysInAMonth(i, year);
+//
+//    return res;
+//}
+//
+//
+//struct sDate
+//{
+//    int days;
+//    int month;
+//    int year;
+//};
+//sDate DateAddDays(short days, sDate Date) {
+//
+//    short RemainingDays = days +numberOfDaysFromBeggingOfTheYear(Date.days,Date.month,Date.year);
+//    short MonthDays = 0;
+//   
+//    Date.month = 1;
+// 
+//    while (true) {
+//
+//        MonthDays = NumberOfDaysInAMonth(Date.month, Date.year);
+//
+//        if (RemainingDays > MonthDays) {
+//
+//            Date.month++;
+//            RemainingDays -= MonthDays;
+//
+//            if (Date.month > 12) {
+//                Date.month = 1;
+//                Date.year++;
+//            }
+//
+//       
+//        }
+//        else {
+//            Date.days = RemainingDays;
+//            break;
+//        }
+//    }
+//
+//    return Date;
+//}
+//short ReadDay() {
+//    short Day; 
+//    cout << "\nPlease enter a Day? "; 
+//    cin >> Day; return Day;
+//}
+//
+//short ReadMonth() {
+//    short Month;
+//    cout << "\nPlease enter a Month? ";
+//    cin >> Month;
+//    return Month;
+//}
+//
+//short ReadYear() {
+//    short Year;
+//    cout << "\nPlease enter a Year? ";
+//    cin >> Year;
+//    return Year;
+//}
+//
+//sDate ReadFullDate() {
+//    sDate date;
+//    date.days = ReadDay();
+//    date.month = ReadMonth();
+//    date.year = ReadYear();
+//    return date;
+//}
+//
+//short ReadDaysToAdd() { 
+//    short Days;  
+//    cout << "\nHow many days to add? "; 
+//    cin >> Days;
+//    return Days;
+//}
+//int main() {
+//   
+//    sDate Date = ReadFullDate();
+//    int days = ReadDaysToAdd();
+//
+//    Date = DateAddDays(days, Date);  
+//    cout << "\nDate after adding [" << days << "] days is: ";
+//    cout << Date.days << "/" << Date.month << "/" << Date.year << "\n";
+//    system("pause");
+//}

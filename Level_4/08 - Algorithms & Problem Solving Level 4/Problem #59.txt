@@ -1,0 +1,256 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct sDate
+//{
+//	int Day;
+//	int Month;
+//	int Year;
+//};
+//struct stPeriod
+//{
+//	sDate startDate;
+//	sDate endDate;
+//};
+//short ReadDay() {
+//	short Day;
+//	cout << "Please enter a Day? ";
+//	cin >> Day;
+//	return Day;
+//}
+//short ReadMonth() {
+//	short Month;
+//	cout << "Please enter a Month? ";
+//	cin >> Month;
+//	return Month;
+//}
+//short ReadYear() {
+//	short Year;
+//	cout << "Please enter a Year? ";
+//	cin >> Year;
+//	return Year;
+//}
+//sDate ReadFullDate() {
+//	sDate date;
+//	date.Day = ReadDay();
+//	date.Month = ReadMonth();
+//	date.Year = ReadYear();
+//	return date;
+//}
+//stPeriod Read2Period() {
+//	stPeriod p;
+//	cout << "enter start date: \n";
+//	p.startDate = ReadFullDate();
+//	cout << "\nenter end date: \n";
+//	p.endDate = ReadFullDate();
+//
+//	return p;
+//}
+//enum enCmpareDate { Before = -1, Equal = 0, After = 1 };
+//bool IsDate1BeforeDate2(sDate Date1, sDate Date2) {
+//	return  (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+//}
+//bool IsDate1EqualDate2(sDate Date1, sDate Date2)
+//{
+//	return  (Date1.Year == Date2.Year) ? ((Date1.Month == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false;
+//}
+//
+//bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
+//	return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2));
+//}
+//
+//enCmpareDate CompareDAtes(sDate date1, sDate date2) {
+//
+//	return IsDate1BeforeDate2(date1, date2) ? enCmpareDate::Before : (IsDate1EqualDate2(date1, date2)) ? enCmpareDate::Equal : enCmpareDate::After;
+//}
+//bool IsOverlap(stPeriod Peroid1, stPeriod Peroid2) {
+//	if (CompareDAtes(Peroid2.endDate, Peroid1.startDate) == enCmpareDate::Before ||
+//		CompareDAtes(Peroid2.startDate, Peroid1.endDate) == enCmpareDate::After)
+//		return false;
+//	return true;
+//}
+//
+//int periodLengthInDays(stPeriod Peroid,bool IncludeEndDay = false){
+//	return IncludeEndDay ? (Peroid.endDate.Day - Peroid.startDate.Day+1) : (Peroid.endDate.Day - Peroid.startDate.Day);
+//}
+//int main() {
+//
+//	cout << "\nenter period 1: \n";
+//	stPeriod period1 = Read2Period();
+//
+//
+//	cout << "\nPeriod length is: " << periodLengthInDays(period1) << endl;
+//	cout << "\nPeriod length [Including end length] is: " << periodLengthInDays(period1,true) << endl;
+//
+//	system("pause > 0");
+//	return 0;
+//}
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+struct sDate
+{
+	int Day;
+	int Month;
+	int Year;
+};
+struct stPeriod
+{
+	sDate startDate;
+	sDate endDate;
+};
+short ReadDay() {
+	short Day;
+	cout << "Please enter a Day? ";
+	cin >> Day;
+	return Day;
+}
+short ReadMonth() {
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+}
+short ReadYear() {
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+}
+sDate ReadFullDate() {
+	sDate date;
+	date.Day = ReadDay();
+	date.Month = ReadMonth();
+	date.Year = ReadYear();
+	return date;
+}
+stPeriod Read2Period() {
+	stPeriod p;
+	cout << "enter start date: \n";
+	p.startDate = ReadFullDate();
+	cout << "\nenter end date: \n";
+	p.endDate = ReadFullDate();
+
+	return p;
+}
+
+bool isLeap(int year) {
+	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+	if (Month < 1 || Month>12)
+		return  0;
+	int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+
+bool CheckIsLastdayInMonth(sDate date) {
+	return date.Day == NumberOfDaysInAMonth(date.Month, date.Year);
+}
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+	return (date1.Year < date2.Year) ? true : ((date1.Year == date1.Year) ? (date1.Month < date2.Month ? true : (date1.Month == date2.Month ? date1.Day < date2.Day : false)) : false);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+	return date.Month == 12;
+}
+sDate IncreaseDateByOneDay(sDate date) {
+	if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+		date.Day = 1;
+		date.Month = 1;
+		date.Year++;
+	}
+	else if (CheckIsLastdayInMonth(date)) {
+		date.Day = 1;
+		date.Month++;
+	}
+	else
+		date.Day++;
+
+	return date;
+
+}
+void SwapDate(sDate& Date1, sDate& Date2) {
+	sDate tempDate;
+	tempDate.Day = Date1.Day;
+	tempDate.Month = Date1.Month;
+	tempDate.Year = Date1.Year;
+
+	Date1.Day = Date2.Day;
+	Date1.Month = Date2.Month;
+	Date1.Year = Date2.Year;
+
+	Date2.Day = tempDate.Day;
+	Date2.Month = tempDate.Month;
+	Date2.Year = tempDate.Year;
+}
+int GetDifferenceInDays(sDate date1, sDate date2, bool includeDif = false) {
+
+	int days = 0;
+	short SwapFlagValue = 1;
+
+	if (!CheckIsLessOrNot(date1, date2)) {
+		SwapDate(date1, date2);
+		SwapFlagValue = -1;
+	}
+
+	while (CheckIsLessOrNot(date1, date2)) {
+		days++;
+		date1 = IncreaseDateByOneDay(date1);
+	}
+
+	return includeDif ? ++days * SwapFlagValue : days * SwapFlagValue;
+}
+
+
+enum enCmpareDate { Before = -1, Equal = 0, After = 1 };
+bool IsDate1BeforeDate2(sDate Date1, sDate Date2) {
+	return  (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+bool IsDate1EqualDate2(sDate Date1, sDate Date2)
+{
+	return  (Date1.Year == Date2.Year) ? ((Date1.Month == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false;
+}
+
+bool IsDate1AfterDate2(sDate Date1, sDate Date2) {
+	return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2));
+}
+
+enCmpareDate CompareDAtes(sDate date1, sDate date2) {
+
+	return IsDate1BeforeDate2(date1, date2) ? enCmpareDate::Before : (IsDate1EqualDate2(date1, date2)) ? enCmpareDate::Equal : enCmpareDate::After;
+}
+bool IsOverlap(stPeriod Peroid1, stPeriod Peroid2) {
+	if (CompareDAtes(Peroid2.endDate, Peroid1.startDate) == enCmpareDate::Before ||
+		CompareDAtes(Peroid2.startDate, Peroid1.endDate) == enCmpareDate::After)
+		return false;
+	return true;
+}
+
+int periodLengthInDays(stPeriod Peroid, bool IncludeEndDay = false) {
+	return GetDifferenceInDays(Peroid.startDate,Peroid.endDate, IncludeEndDay);
+}
+int main() {
+
+	cout << "\nenter period 1: \n";
+	stPeriod period1 = Read2Period();
+
+
+	cout << "\nPeriod length is: " << periodLengthInDays(period1) << endl;
+	cout << "\nPeriod length [Including end length] is: " << periodLengthInDays(period1, true) << endl;
+
+	system("pause > 0");
+	return 0;
+}

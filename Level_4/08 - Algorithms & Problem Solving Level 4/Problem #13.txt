@@ -1,0 +1,174 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wednes","Thurs","Fri","Sat" };
+//    return dayOfWeeks[dayIndx];
+//}
+//string getMonthText(short monthIndx) {
+//    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+//    return Months[monthIndx - 1];
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//
+//int numberOfDaysFromBeggingOfTheYear(short day, short month, short year) {
+//    int res = day;
+//    for (int i = 1; i < month; i++)
+//        res += NumberOfDaysInAMonth(i, year);
+//
+//    return res;
+//}
+//
+//
+//struct sDate
+//{
+//    int days;
+//    int month;
+//    int year;
+//};
+//
+//short ReadDay() {
+//    short Day; 
+//    cout << "\nPlease enter a Day? "; 
+//    cin >> Day; return Day;
+//}
+//
+//short ReadMonth() {
+//    short Month;
+//    cout << "\nPlease enter a Month? ";
+//    cin >> Month;
+//    return Month;
+//}
+//
+//short ReadYear() {
+//    short Year;
+//    cout << "\nPlease enter a Year? ";
+//    cin >> Year;
+//    return Year;
+//}
+//
+//sDate ReadFullDate() {
+//    sDate date;
+//    date.days = ReadDay();
+//    date.month = ReadMonth();
+//    date.year = ReadYear();
+//    return date;
+//}
+//
+//short ReadDaysToAdd() { 
+//    short Days;  
+//    cout << "\nHow many days to add? "; 
+//    cin >> Days;
+//    return Days;
+//}
+//
+//bool CheckIsLessOrNot(sDate date1, sDate date2) {
+//    if (date1.year < date2.year)
+//        return true;
+//    int date1Days = numberOfDaysFromBeggingOfTheYear(date1.days, date1.month, date1.year);
+//    int date2Days = numberOfDaysFromBeggingOfTheYear(date2.days, date2.month, date2.year);
+//        return date1Days < date2Days;
+//}
+//int main() {
+//   
+//    sDate Date1 = ReadFullDate();
+//    sDate Date2 = ReadFullDate();
+//
+//    if (CheckIsLessOrNot(Date1, Date2))
+//        cout << "Yes, Date1 is less than Date2\n";
+//    else
+//        cout << "No, Date1 isn't less than Date2\n";
+//    system("pause");
+//}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+
+short ReadDay() {
+    short Day;
+    cout << "\nPlease enter a Day? ";
+    cin >> Day; return Day;
+}
+
+short ReadMonth() {
+    short Month;
+    cout << "\nPlease enter a Month? ";
+    cin >> Month;
+    return Month;
+}
+
+short ReadYear() {
+    short Year;
+    cout << "\nPlease enter a Year? ";
+    cin >> Year;
+    return Year;
+}
+
+sDate ReadFullDate() {
+    sDate date;
+    date.days = ReadDay();
+    date.month = ReadMonth();
+    date.year = ReadYear();
+    return date;
+}
+
+
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+    return (date1.year < date2.year) ? true : ((date1.year == date1.year) ? (date1.month < date2.month ? true : (date1.month == date2.month?date1.days < date2.days :false)):false);
+}
+int main() {
+
+    sDate Date1 = ReadFullDate();
+    sDate Date2 = ReadFullDate();
+
+    if (CheckIsLessOrNot(Date1, Date2))
+        cout << "Yes, Date1 is less than Date2\n";
+    else
+        cout << "No, Date1 isn't less than Date2\n";
+    system("pause");
+}

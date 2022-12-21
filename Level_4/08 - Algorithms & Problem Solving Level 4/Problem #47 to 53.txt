@@ -1,0 +1,290 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct sDate
+//{
+//    int days;
+//	int dayOrder;
+//    int month;
+//    int year;
+//};
+//string getMonthText(short monthIndx) {
+//    string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+//    return Months[monthIndx - 1];
+//}
+//string getDayText(short dayIndx) {
+//    string dayOfWeeks[] = { "Sun","Mon","Tues","Wed","Thurs","Fri","Satu" };
+//    return dayOfWeeks[dayIndx];
+//}
+//short DayOfWeekOrder(int year, int month, int Day) {
+//    short a = (14 - month) / 12;
+//    short y = year - a;
+//    short m = month + 12 * a - 2;
+//    return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//sDate dateToday() {
+//	sDate date;
+//	time_t t = time(0);
+//	tm* now = localtime(&t);
+//	
+//	date.days = now->tm_mday;
+//	date.month = now->tm_mon + 1;
+//	date.year = now->tm_year + 1900;
+//	/*date.days = 23;
+//	date.month = 9;
+//	date.year = now->tm_year + 1900;*/
+//	date.dayOrder = DayOfWeekOrder(date.year, date.month, date.days);
+//
+//	return date;
+//}
+//
+//bool isEndOfWeek(sDate date) {
+//	return date.dayOrder == 6;
+//}
+//bool isWeekEnd(sDate date) {
+//	return date.dayOrder == 5 || date.dayOrder == 6;
+//}
+//bool isBusinessDay(sDate date) {
+//	return !isWeekEnd(date);
+//}
+//
+//int daysUntilEndOfWeek(sDate date){
+//	return 6- date.dayOrder;
+//}
+//int daysUntilEndOfmonth(sDate date) {
+//	int numberOfDAyInMonth = NumberOfDaysInAMonth(date.month, date.year);
+//	return numberOfDAyInMonth - date.days+1;
+//}
+//bool CheckIsLastdayInMonth(sDate date) {
+//    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+//}
+//sDate IncreaseDateByOneMonth(sDate date) {
+//
+//	if (date.month == 12)
+//	{
+//		date.month = 1;
+//		date.year++;
+//	}
+//	else
+//		date.month++;
+//
+//	short NumberOfDaysInTheCurrentMonth = NumberOfDaysInAMonth(date.month, date.year);
+//	if (date.days > NumberOfDaysInTheCurrentMonth)
+//		date.days = NumberOfDaysInTheCurrentMonth;
+//
+//	return date;
+//}
+//int daysUntilEndOfyear(sDate date) {
+//	int days = daysUntilEndOfmonth(date);
+//	if (date.month == 12)
+//		return days;
+//	date = IncreaseDateByOneMonth(date);
+//	date.days = 1;
+//	int nextYear = date.year + 1;
+//	while (date.year != nextYear)
+//	{
+//		days += NumberOfDaysInAMonth(date.month, date.year);
+//		date = IncreaseDateByOneMonth(date);
+//	}
+//	return days;
+//}
+//int main() {
+//	sDate date;
+//
+//	date = dateToday();
+//
+//	cout << "\nToday is " << getDayText(date.dayOrder) << " , " << date.days << "/" << date.month << "/" << date.year << "\n\n";
+//
+//	 cout << "Is it End of week?\n";
+//	 (isEndOfWeek(date))? cout << "Yes, it's end of the week\n\n": cout << "NO, Not end of the week\n\n";
+//
+//	cout << "Is it the week end?\n";
+//	(isWeekEnd(date)) ? cout << "Yes, it's the week End\n\n" : cout << "NO, Not the week End\n\n";
+//			
+//	cout << "Is it Business day ?\n";
+//	(isBusinessDay(date)) ? cout << "Yes, it's a business day\n\n" : cout << "No, Not a business day\n\n";
+//
+//
+//	cout << "Days until end of the week : " << daysUntilEndOfWeek(date) << " Day(s)\n";
+//	cout << "Days until end of the month : " << daysUntilEndOfmonth(date) << " Day(s)\n";
+//	cout << "Days until end of the year : " << daysUntilEndOfyear(date) << " Day(s)\n";
+//	system("pause > 0");
+//	return 0;
+//}
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+struct sDate
+{
+	int days;
+	int month;
+	int year;
+};
+string getMonthText(short monthIndx) {
+	string Months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	return Months[monthIndx - 1];
+}
+string getDayText(short dayIndx) {
+	string dayOfWeeks[] = { "Sun","Mon","Tues","Wed","Thurs","Fri","Satu" };
+	return dayOfWeeks[dayIndx];
+}
+short DayOfWeekOrder(int year, int month, int Day) {
+	short a = (14 - month) / 12;
+	short y = year - a;
+	short m = month + 12 * a - 2;
+	return (Day + y + abs(y / 4) - abs(y / 100) + abs(y / 400) + abs(31 * m / 12)) % 7;
+}
+short DayOfWeekOrder(sDate date) {
+	return DayOfWeekOrder(date.year,date.month,date.days);
+}
+bool isLeap(int year) {
+	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+	if (Month < 1 || Month>12)
+		return  0;
+	int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+sDate dateToday() {
+	sDate date;
+	time_t t = time(0);
+	tm* now = localtime(&t);
+
+	date.days = now->tm_mday;
+	date.month = now->tm_mon + 1;
+	date.year = now->tm_year + 1900;
+
+	return date;
+}
+void SwapDate(sDate& Date1, sDate& Date2) {
+	sDate tempDate;
+	tempDate.days = Date1.days;
+	tempDate.month = Date1.month;
+	tempDate.year = Date1.year;
+
+	Date1.days = Date2.days;
+	Date1.month = Date2.month;
+	Date1.year = Date2.year;
+
+	Date2.days = tempDate.days;
+	Date2.month = tempDate.month;
+	Date2.year = tempDate.year;
+}
+bool CheckIsLastdayInMonth(sDate date) {
+	return date.days == NumberOfDaysInAMonth(date.month, date.year);
+}
+bool CheckIsLessOrNot(sDate date1, sDate date2) {
+    return (date1.year < date2.year) ? true : ((date1.year == date1.year) ? (date1.month < date2.month ? true : (date1.month == date2.month ? date1.days < date2.days : false)) : false);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+	return date.month == 12;
+}
+sDate IncreaseDateByOneDay(sDate date) {
+	if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+		date.days = 1;
+		date.month = 1;
+		date.year++;
+	}
+	else if (CheckIsLastdayInMonth(date)) {
+		date.days = 1;
+		date.month++;
+	}
+	else
+		date.days++;
+
+	return date;
+
+}
+int GetDifferenceInDays(sDate date1, sDate date2, bool includeDif = false) {
+
+	int days = 0;
+	short SwapFlagValue = 1;
+
+	if (!CheckIsLessOrNot(date1, date2)) {
+		SwapDate(date1, date2);
+		SwapFlagValue = -1;
+	}
+
+	while (CheckIsLessOrNot(date1, date2)) {
+		days++;
+		date1 = IncreaseDateByOneDay(date1);
+	}
+
+	return includeDif ? ++days * SwapFlagValue : days * SwapFlagValue;
+}
+bool isEndOfWeek(sDate date) {
+	return DayOfWeekOrder(date) == 6;
+}
+bool isWeekEnd(sDate date) {
+	//Weekends are Fri and Sat
+	short daysIndx = DayOfWeekOrder(date);
+	return daysIndx == 5 || daysIndx == 6;
+}
+bool isBusinessDay(sDate date) {
+	return !isWeekEnd(date);
+}
+int daysUntilEndOfWeek(sDate date) {
+	return 6 - DayOfWeekOrder(date);
+}
+int daysUntilEndOfmonth(sDate date) {
+	sDate endDate;
+	endDate.days = NumberOfDaysInAMonth(date.month, date.year);
+	endDate.month = date.month;
+	endDate.year = date.year;
+	return GetDifferenceInDays(date , endDate,true);
+}
+
+
+int daysUntilEndOfyear(sDate date) {
+	sDate endDate;
+	endDate.days = 31;
+	endDate.month = 12;
+	endDate.year = date.year;
+	return GetDifferenceInDays(date, endDate, true);
+}
+int main() {
+	sDate date;
+
+	date = dateToday();
+
+	cout << "\nToday is " << getDayText(DayOfWeekOrder(date)) << " , " << date.days << "/" << date.month << "/" << date.year << "\n\n";
+
+	cout << "Is it End of week?\n";
+	(isEndOfWeek(date)) ? cout << "Yes, it's end of the week\n\n" : cout << "NO, Not end of the week\n\n";
+
+	cout << "Is it the week end?\n";
+	(isWeekEnd(date)) ? cout << "Yes, it's the week End\n\n" : cout << "NO, Not the week End\n\n";
+
+	cout << "Is it Business day ?\n";
+	(isBusinessDay(date)) ? cout << "Yes, it's a business day\n\n" : cout << "No, Not a business day\n\n";
+
+
+	cout << "Days until end of the week : " << daysUntilEndOfWeek(date) << " Day(s)\n";
+	cout << "Days until end of the month : " << daysUntilEndOfmonth(date) << " Day(s)\n";
+	cout << "Days until end of the year : " << daysUntilEndOfyear(date) << " Day(s)\n";
+	system("pause > 0");
+	return 0;
+}

@@ -1,0 +1,381 @@
+#pragma warning(disable: 4996)
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//struct sDate
+//{
+//    int days;
+//    int month;
+//    int year;
+//};
+//short ReadDay() {
+//    short Day;
+//    cout << "\nPlease enter a Day? ";
+//    cin >> Day;
+//    return Day;
+//}
+//short ReadMonth() {
+//    short Month;
+//    cout << "\nPlease enter a Month? ";
+//    cin >> Month;
+//    return Month;
+//}
+//short ReadYear() {
+//    short Year;
+//    cout << "\nPlease enter a Year? ";
+//    cin >> Year;
+//    return Year;
+//}
+//sDate ReadFullDate() {
+//    sDate date;
+//    date.days = ReadDay();
+//    date.month = ReadMonth();
+//    date.year = ReadYear();
+//    return date;
+//}
+//bool isLeap(int year) {
+//    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short NumberOfDaysInAMonth(short Month, short Year) {
+//    if (Month < 1 || Month>12)
+//        return  0;
+//    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+//}
+//bool CheckIsLastdayInMonth(sDate date) {
+//    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+//}
+//bool CheckIsLastMonthInYear(sDate date) {
+//    return date.month == 12;
+//}
+//sDate IncreaseDateByOneDay(sDate date) {
+//    if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+//        date.days = 1;
+//        date.month = 1;
+//        date.year++;
+//    }
+//    else if (CheckIsLastdayInMonth(date)) {
+//        date.days = 1;
+//        date.month++;
+//    }
+//    else
+//        date.days++;
+//
+//    return date;
+//
+//}
+//sDate IncreaseDateByXDays(sDate date,short x){
+//    for (short i = 0; i < x; i++) {
+//        date = IncreaseDateByOneDay(date);
+//    }
+//    return date;
+//}
+//sDate IncreaseDateByOneWeek(sDate date) {
+//    return IncreaseDateByXDays(date, 7);
+//}
+//sDate IncreaseDateByXWeek(sDate date,int x) {
+//    for(int i = 0 ; i < x ; i++)
+//    date= IncreaseDateByOneWeek(date);
+//
+//    return date;
+//}
+//sDate IncreaseDateByOneMonth(sDate date) {
+//    
+//    if (CheckIsLastdayInMonth(date))
+//        date.month = 1;
+//    else
+//        date.month++;
+//
+//    return date;
+//}
+//sDate IncreaseDateByXMonth(sDate date,int x) {
+//    for (int i = 0; i <x ; i++)
+//        date = IncreaseDateByOneMonth(date);
+//    return date;
+//}
+//sDate IncreaseDateByOneYear(sDate date){
+//    date.year++;
+//    return date;
+//}
+//sDate IncreaseDateByXYears(sDate date, int x) {
+//    for (int i = 0; i < x; i++)
+//        date = IncreaseDateByOneYear(date);
+//    return date;
+//}
+//sDate IncreaseDateByXYearsFaster(sDate date, int x) {
+//    date.year += x;
+//    return date;
+//}
+//sDate IncreaseDateByOneDecade(sDate date){
+//    return IncreaseDateByXYearsFaster(date, 10);
+//}
+//sDate IncreaseDateByXDecades(sDate date , int x){
+//    for (int i = 0; i < x; i++)
+//        date = IncreaseDateByOneDecade(date);
+//    return date;
+//}
+//sDate IncreaseDateByXDecadesFaster(sDate date, int x) {
+//        date.year += x * 10;
+//    return date;
+//}
+//sDate IncreaseDateByOneCentury(sDate date) {
+//    date.year += 100;
+//    return date;
+//}
+//sDate IncreaseDateByOneMillineum(sDate date) {
+//    date.year += 1000;
+//    return date;
+//}
+//int main() {
+//
+//    sDate date = ReadFullDate();
+// 
+//    cout << "\n\nDate After:\n\n";
+//
+//    date = IncreaseDateByOneDay(date);
+//    cout <<  "01- Adding one day is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXDays(date,10);
+//    cout << "02- Adding 10 day is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByOneWeek(date);
+//    cout << "03- Adding one Week is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXWeek(date,10);
+//    cout << "04- Adding 10 Weeks is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByOneMonth(date);
+//    cout << "05- Adding one month is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXMonth(date,5);
+//    cout << "06- Adding 5 month is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByOneYear(date);
+//    cout << "07- Adding One Year is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXYears(date,10);
+//    cout << "08- Adding 10 Years is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXYearsFaster(date, 10);
+//    cout << "09- Adding 10 Years (Faster) is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByOneDecade(date);
+//    cout << "10- Adding one decade is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXDecades(date, 10);
+//    cout << "11- Adding 10 decades is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByXDecadesFaster(date, 10);
+//    cout << "12- Adding 10 decades (faster) is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//
+//    date = IncreaseDateByOneCentury(date);
+//    cout << "13- Adding one century is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//
+//    date = IncreaseDateByOneMillineum(date);
+//    cout << "14- Adding one Millineum is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+//    system("pause");
+//}
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+struct sDate
+{
+    int days;
+    int month;
+    int year;
+};
+short ReadDay() {
+    short Day;
+    cout << "\nPlease enter a Day? ";
+    cin >> Day;
+    return Day;
+}
+short ReadMonth() {
+    short Month;
+    cout << "\nPlease enter a Month? ";
+    cin >> Month;
+    return Month;
+}
+short ReadYear() {
+    short Year;
+    cout << "\nPlease enter a Year? ";
+    cin >> Year;
+    return Year;
+}
+sDate ReadFullDate() {
+    sDate date;
+    date.days = ReadDay();
+    date.month = ReadMonth();
+    date.year = ReadYear();
+    return date;
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short NumberOfDaysInAMonth(short Month, short Year) {
+    if (Month < 1 || Month>12)
+        return  0;
+    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return (Month == 2) ? (isLeap(Year) ? 29 : 28) : days[Month - 1];
+}
+bool CheckIsLastdayInMonth(sDate date) {
+    return date.days == NumberOfDaysInAMonth(date.month, date.year);
+}
+bool CheckIsLastMonthInYear(sDate date) {
+    return date.month == 12;
+}
+sDate IncreaseDateByOneDay(sDate date) {
+    if (CheckIsLastdayInMonth(date) && CheckIsLastMonthInYear(date)) {
+        date.days = 1;
+        date.month = 1;
+        date.year++;
+    }
+    else if (CheckIsLastdayInMonth(date)) {
+        date.days = 1;
+        date.month++;
+    }
+    else
+        date.days++;
+
+    return date;
+
+}
+sDate IncreaseDateByXDays(sDate date, short x) {
+    for (short i = 0; i < x; i++) {
+        date = IncreaseDateByOneDay(date);
+    }
+    return date;
+}
+sDate IncreaseDateByOneWeek(sDate date) {
+    for (short i = 0; i < 7; i++) {
+        date = IncreaseDateByOneDay(date);
+    }
+    return date;
+}
+sDate IncreaseDateByXWeek(sDate date, int x) {
+    for (int i = 0; i < x; i++)
+        date = IncreaseDateByOneWeek(date);
+
+    return date;
+}
+sDate IncreaseDateByOneMonth(sDate date) {
+
+    if (date.month == 12)
+    {
+        date.month = 1;
+        date.year++;
+    }
+    else
+        date.month++;
+
+    short NumberOfDaysInTheCurrentMonth = NumberOfDaysInAMonth(date.month,date.year);
+    if(date.days > NumberOfDaysInTheCurrentMonth)
+        date.days = NumberOfDaysInTheCurrentMonth;
+
+    return date;
+}
+sDate IncreaseDateByXMonth(sDate date, int x) {
+    for (int i = 0; i < x; i++)
+        date = IncreaseDateByOneMonth(date);
+    return date;
+}
+sDate IncreaseDateByOneYear(sDate date) {
+    date.year++;
+    return date;
+}
+sDate IncreaseDateByXYears(sDate date, int x) {
+    for (int i = 0; i < x; i++)
+        date = IncreaseDateByOneYear(date);
+    return date;
+}
+sDate IncreaseDateByXYearsFaster(sDate date, int x) {
+    date.year += x;
+    return date;
+}
+sDate IncreaseDateByOneDecade(sDate date) {
+    //return IncreaseDateByXYearsFaster(date, 10);
+    date.year += 10;
+    return date;
+}
+sDate IncreaseDateByXDecades(sDate date, int x) {
+    for (int i = 0; i < x*10 ; i++)
+        date = IncreaseDateByOneYear(date);
+    return date;
+}
+sDate IncreaseDateByXDecadesFaster(sDate date, int x) {
+    date.year += x * 10;
+    return date;
+}
+sDate IncreaseDateByOneCentury(sDate date) {
+    date.year += 100;
+    return date;
+}
+sDate IncreaseDateByOneMillinneum(sDate date) {
+    date.year += 1000;
+    return date;
+}
+int main() {
+
+    sDate date = ReadFullDate();
+ 
+    cout << "\n\nDate After:\n\n";
+
+    date = IncreaseDateByOneDay(date);
+    cout << "01- Adding one day is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXDays(date, 10);
+    cout << "02- Adding 10 day is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByOneWeek(date);
+    cout << "03- Adding one Week is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXWeek(date, 10);
+    cout << "04- Adding 10 Weeks is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByOneMonth(date);
+    cout << "05- Adding one month is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXMonth(date, 5);
+    cout << "06- Adding 5 month is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByOneYear(date);
+    cout << "07- Adding One Year is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXYears(date, 10);
+    cout << "08- Adding 10 Years is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXYearsFaster(date, 10);
+    cout << "09- Adding 10 Years (Faster) is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByOneDecade(date);
+    cout << "10- Adding one decade is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXDecades(date, 10);
+    cout << "11- Adding 10 decades is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByXDecadesFaster(date, 10);
+    cout << "12- Adding 10 decades (faster) is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+
+    date = IncreaseDateByOneCentury(date);
+    cout << "13- Adding one century is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+
+    date = IncreaseDateByOneMillinneum(date);
+    cout << "14- Adding one Millineum is: " << date.days << "/" << date.month << "/" << date.year << "\n";
+    system("pause");
+}

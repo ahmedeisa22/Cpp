@@ -1,0 +1,55 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << endl;
+        cin >> Number;
+    } while (Number <= 0);
+    return Number;
+}
+bool isLeap(int year) {
+	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+int numberOfDays(int years){
+    return isLeap(years) ? 366 : 365;
+}
+int numberOfHours(int year){
+    return numberOfDays(year) * 24;
+}
+int numberOfMinutes(int year) {
+    return numberOfHours(year) * 60;
+}
+int numberOfSeconds(int year) { 
+    return numberOfMinutes(year) * 60;
+}
+int main() {
+    int year = ReadPositiveNumber("Please enter a year to check? ");
+    cout << "Number of Days    In Year[" << year<<"] is " << numberOfDays(year) << endl;
+    cout << "Number of Hours   In Year[" << year << "] is " << numberOfHours(year) << endl;
+    cout << "Number of Minutes In Year[" << year << "] is " << numberOfMinutes(year) << endl;
+    cout << "Number of Seconds In Year[" << year << "] is " << numberOfSeconds(year) << endl;
+	system("pause");
+}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/

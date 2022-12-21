@@ -1,0 +1,94 @@
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <map>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+#include "Header.h"
+
+
+/**********************************************************************************/
+// my solution
+/**********************************************************************************/
+using namespace std;
+//int ReadPositiveNumber(string mess)
+//{
+//
+//    int Number;
+//    do
+//    {
+//        cout << mess << "? ";
+//        cin >> Number;
+//    } while (Number <= 0);
+//    return Number;
+//}
+//bool isLeap(int year) {
+//	return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+//}
+//short numberOfDaysInMonth(short year, short month) {
+//    int arr31days[] = { 0,1,0,3,0,5,0,7,8,0,10,0,12 };
+//    return (month <= 0 || month > 12) ? 0 : (month == 2) ? (isLeap(year) ? 29 : 28) :(arr31days[month] != 0 ? 31 : 30);
+//}
+//int numberOfHoursInMonth(short year, int month){
+//    return numberOfDaysInMonth(year,month) * 24;
+//}
+//int numberOfMinutesInMonth(short year, int month) {
+//    return numberOfHoursInMonth(year, month) * 60;
+//}
+//int numberOfSecondsInMonth(short year, int month) {
+//    return numberOfMinutesInMonth(year, month) * 60;
+//}
+//int main() {
+//    int year = ReadPositiveNumber("Please enter a year to check? ");
+//    int month = ReadPositiveNumber("Please enter a month to check? ");
+//    cout << "Number of Days    In Month[" << year<<"] is " << numberOfDaysInMonth(year,month) << endl;
+//    cout << "Number of Hours   In Month[" << year << "] is " << numberOfHoursInMonth(year, month) << endl;
+//    cout << "Number of Minutes In Month[" << year << "] is " << numberOfMinutesInMonth(year, month) << endl;
+//    cout << "Number of Seconds In Month[" << year << "] is " << numberOfSecondsInMonth(year, month) << endl;
+//	system("pause");
+//}
+
+
+/**********************************************************************************/
+// his solution
+/**********************************************************************************/
+int ReadPositiveNumber(string mess)
+{
+
+    int Number;
+    do
+    {
+        cout << mess << "? ";
+        cin >> Number;
+    } while (Number <= 0);
+    return Number;
+}
+bool isLeap(int year) {
+    return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0);
+}
+short numberOfDaysInMonth(short year, short month) {
+    if (month <= 0 || month > 12) return 0;
+    int arr31days[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return month == 0 ? isLeap(year) ? 29 : 30 : arr31days[month-1];
+}
+int numberOfHoursInMonth(short year, int month) {
+    return numberOfDaysInMonth(year, month) * 24;
+}
+int numberOfMinutesInMonth(short year, int month) {
+    return numberOfHoursInMonth(year, month) * 60;
+}
+int numberOfSecondsInMonth(short year, int month) {
+    return numberOfMinutesInMonth(year, month) * 60;
+}
+int main() {
+    int year = ReadPositiveNumber("Please enter a year to check? ");
+    int month = ReadPositiveNumber("Please enter a month to check? ");
+    cout << "Number of Days    In Month[" << year << "] is " << numberOfDaysInMonth(year, month) << endl;
+    cout << "Number of Hours   In Month[" << year << "] is " << numberOfHoursInMonth(year, month) << endl;
+    cout << "Number of Minutes In Month[" << year << "] is " << numberOfMinutesInMonth(year, month) << endl;
+    cout << "Number of Seconds In Month[" << year << "] is " << numberOfSecondsInMonth(year, month) << endl;
+    system("pause");
+}
