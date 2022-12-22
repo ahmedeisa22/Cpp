@@ -8,7 +8,7 @@ clsBook::clsBook()
     this->_version = 0;
 }
 
-clsBook::clsBook(string title,string publish, int version, clsAuthor& auth):
+clsBook::clsBook(string title,string publish, int version,const clsAuthor& auth):
     _title(title),_publishing_date(publish),_version(version),_author(auth)
 {
     this->_id = _idIncrementer++;
@@ -43,7 +43,7 @@ int clsBook::getVersion()
 {
    return this->_version;
 }
-void clsBook::setBookAuthor(clsAuthor& author)
+void clsBook::setBookAuthor(const clsAuthor& author)
 {
     this->_author = author;
 }
