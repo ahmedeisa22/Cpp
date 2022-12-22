@@ -2,7 +2,7 @@
 #include <iostream>
 
 //Author Section
-void clsLibrary::add_author(clsAuthor &autohr)
+void clsLibrary::add_author(const clsAuthor &autohr)
 {
     _authors.push_back(autohr);
 }
@@ -76,7 +76,7 @@ void clsLibrary::print_author_books(int idAuthor)
 
 
 // Book Section
-void clsLibrary::add_book(clsBook& book)
+void clsLibrary::add_book(const clsBook& book)
 {
     _books.push_back(book);
 }
