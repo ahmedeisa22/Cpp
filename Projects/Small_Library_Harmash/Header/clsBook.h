@@ -15,7 +15,7 @@ private:
     static int _idIncrementer;
 public:
     clsBook();
-    clsBook(string ,string,int, clsAuthor&);
+    clsBook(string ,string,int, const clsAuthor&);
     int getID();
     void setTile(string);
     string getTitle();
@@ -23,7 +23,7 @@ public:
     string getPublishDate();
     void setVersion(int);
     int getVersion();
-    void setBookAuthor(clsAuthor& author);
+    void setBookAuthor(const clsAuthor& author);
     clsAuthor getBookAuthor();
 };
 
