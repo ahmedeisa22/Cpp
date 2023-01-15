@@ -1,0 +1,22 @@
+﻿  newProj.cpp
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(42,1): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(47,1): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(59,1): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(196,1): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(327,1): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsString.h(375,1): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsUtil.h(44): warning C4091: 'static ': ignored on left of 'clsUtil::enCharType' when no variable is declared
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsUser.h(159,2): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsUser.h(23): message : see declaration of 'clsUser::stLoginRegisterRecord'
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsBankClient.h(207,25): warning C4240: nonstandard extension used: access to 'clsBankClient::stTransferLogin' now defined to be 'public', previously it was defined to be 'private'
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsBankClient.h(19): message : see declaration of 'clsBankClient::stTransferLogin'
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsBankClient.h(372,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsTotalBalancesScreen.h(54,82): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsTransferScreen.h(36,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsTransferScreen.h(60,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsCurrency.h(24,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsUpdateRateScreen.h(21,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsCurrencyCalculatorScreen.h(12,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsBankClient.h(318): warning C4715: 'clsBankClient::Save': not all control paths return a value
+C:\Users\AhmedEisa\source\repos\newProj\newProj\clsUser.h(276): warning C4715: 'clsUser::Save': not all control paths return a value
+  newProj.vcxproj -> C:\Users\AhmedEisa\source\repos\newProj\x64\Debug\newProj.exe
